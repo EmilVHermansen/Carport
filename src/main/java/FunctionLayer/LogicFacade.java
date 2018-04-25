@@ -6,9 +6,9 @@ import java.util.List;
 
 public class LogicFacade {
 
-//    public static User login(String email, String password) throws LoginSampleException {
-//        return DataAccessObject.login(email, password);
-//    }
+    public static User login(String empnumber, String password) throws LoginSampleException {
+        return DataAccessObject.login(empnumber, password);
+    }
 //
 //    public static User createUser(String email, String password) throws LoginSampleException {
 //        User user = new User(email, password, "customer");
@@ -16,9 +16,8 @@ public class LogicFacade {
 //        return user;
 //    }
 
-    public static List<Order> getOrders(int orderId) throws OrderException {
-        List<Order> orders = new ArrayList();
-        orders = DataAccessObject.getOrders(orderId);
+    public static List<Order> getOrders() throws OrderException {
+        List<Order> orders = DataAccessObject.getOrders();
         return orders;
     }
 

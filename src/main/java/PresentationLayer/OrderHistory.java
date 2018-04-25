@@ -24,8 +24,8 @@ public class OrderHistory extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, OrderException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        List<Order> orders = LogicFacade.getOrders(user.getId());
+//        User user = (User) session.getAttribute("user");
+        List<Order> orders = LogicFacade.getOrders();
         session.setAttribute("orders", orders);
         return "browseorders";
 

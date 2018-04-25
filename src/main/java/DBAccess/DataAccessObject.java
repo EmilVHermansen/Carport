@@ -14,20 +14,19 @@ import java.util.List;
 
 public class DataAccessObject {
 
-    public static User login(String email, String password) throws LoginSampleException {
+    public static User login(String employeenumber, String password) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT idUser, role FROM User "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT * FROM bruger "
+                    + "WHERE medarbejdernr=? AND kodeord=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, email);
+            ps.setString(1, employeenumber);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String role = rs.getString("role");
-                int id = rs.getInt("idUser");
-                User user = new User(email, password, role);
-                user.setId(id);
+                int id = rs.getInt("idbruger");
+                String empnumber = rs.getString("medarbejdernr");
+                User user = new User(id, empnumber);
                 return user;
             } else {
                 throw new LoginSampleException("Could not validate user");
@@ -37,12 +36,12 @@ public class DataAccessObject {
         }
     }
 
-    public static List<Order> getOrders(int id) throws OrderException {
+    public static List<Order> getOrders() throws OrderException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM `Order` WHERE idordre = ?";
+            String SQL = "SELECT * FROM `ordre`";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, id);
+            
             ArrayList<Order> orders = new ArrayList();
             Order order = null;
             ResultSet rs = null;

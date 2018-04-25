@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class Connector {
 
-    private static final String URL = "jdbc:mysql://46.101.158.228:3306/LegoBricks";
-    private static final String USERNAME = "testuser";
-    private static final String PASSWORD = "password123";
+    private static final String URL = "jdbc:mysql://138.68.68.197:3306/Carport";
+    private static final String USERNAME = "carportuser";
+    private static final String PASSWORD = "monner";
 
     private static Connection singleton;
 

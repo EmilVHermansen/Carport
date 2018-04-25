@@ -8,7 +8,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% List<Order> orders = (List<Order>) session.getAttribute("orders"); %>
+<% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,14 +18,19 @@
     <body>
         <h1>Order history</h1>
         <div>
-            <%for (Order order : orders) {
-                    out.println(order);%>
+            <% 
+                if (!orders.isEmpty())
+                {
+                    for (Order order : orders)
+                        {
+                            out.print(order);
+                        }
+                }
+               %>
+            
             <br> <br>
-            <%};%>
-            <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="orderhistory">
-                        <input type="submit" value="Press here to show orders">
-                    </form>
+            
+
         </div>
     </body>
 </html>
