@@ -23,7 +23,7 @@
                 {
                     for (Order order : orders)
                         {
-                            out.print(order);
+                            out.println(order);
                         }
                 }
                %>
