@@ -49,17 +49,17 @@ public class DataAccessObject
         try
         {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM `ordre` "
+            String SQL = "SELECT * FROM `order` "
                     + "WHERE orderId=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, orderId);
             ResultSet rs = ps.executeQuery();
             if (rs.next())
             {
-                String name = rs.getString("navn");
-                String address = rs.getString("adresse");
-                String zipCity = rs.getString("postnummer_by");
-                String phoneNo = rs.getString("telefon");
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                String zipCity = rs.getString("zipcode");
+                String phoneNo = rs.getString("phonenumber");
                 String email = rs.getString("email");
                 Customer customer = new Customer(name, address, zipCity, phoneNo, email);
                 return customer;
@@ -91,7 +91,7 @@ public class DataAccessObject
                 int orderId = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
-                double price = rs.getDouble("pris");
+                double price = rs.getDouble("price");
                 String inclination = rs.getString("inclination");
                 String roofMaterial = rs.getString("roof_material");
                 String shed = rs.getString("shed");
