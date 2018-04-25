@@ -103,4 +103,20 @@ public class DataAccessObject {
         }
     }
 
+   
+        //Adapt emils order class XD
+        //Make it so String status is a dropdown menu with different choices for update
+        public static void updateOrderStatus(String status, int orderId) throws LoginSampleException{
+    try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE `ordre´ SET `status´=`?´ WHERE `id´=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, status);
+            ps.setInt(2, order.getId());
+            ps.executeUpdate();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+
 }
