@@ -11,7 +11,7 @@ public class LogicFacade {
         DataAccessObject.createUser(user);
         return user;
     }
-    public static Customer getCustomerInfo(int orderId)
+    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
     {
         Customer customer;
         customer = DataAccessObject.getCustomerInfo(orderId);
