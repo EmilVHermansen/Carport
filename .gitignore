@@ -73,3 +73,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/macos,maven,windows,netbeans
 
+/src/main/java/
