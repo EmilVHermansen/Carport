@@ -5,9 +5,6 @@ import java.util.ArrayList;
 
 public class LogicFacade {
 
-    public static User login(String email, String password) throws LoginSampleException {
-        return DataAccessObject.login(email, password);
-    }
 
     public static User createUser(String email, String password) throws LoginSampleException {
         User user = new User(email, password, "customer");

@@ -1,5 +1,7 @@
 package DBAccess;
 
+import FunctionLayer.Customer;
+import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
@@ -33,26 +35,27 @@ public class DataAccessObject {
         }
     }
 
-    public static User login(String email, String password) throws LoginSampleException {
+    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT idUser, role FROM User "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT * FROM `ordre` "
+                    + "WHERE orderId=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, email);
-            ps.setString(2, password);
+            ps.setInt(1, orderId);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                String role = rs.getString("role");
-                int id = rs.getInt("idUser");
-                User user = new User(email, password, role);
-                user.setId(id);
-                return user;
+                String name = rs.getString("navn");
+                String address = rs.getString("adresse");
+                String zipCity = rs.getString("postnummer_by");
+                String phoneNo = rs.getString("telefon");
+                String email = rs.getString("email");
+                Customer customer = new Customer(name, address, zipCity, phoneNo, email);
+                return customer;
             } else {
-                throw new LoginSampleException("Could not validate user");
+                throw new CustomerInfoError("Could not validate user");
             }
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
+            throw new CustomerInfoError(ex.getMessage());
         }
     }
 
