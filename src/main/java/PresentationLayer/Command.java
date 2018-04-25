@@ -12,9 +12,9 @@ abstract class Command {
 
     private static void initCommands() {
         commands = new HashMap<>();
-        commands.put("login", new Login());
-        commands.put("register", new Register());
-        commands.put("orderpage", new OrderPage());
+//        commands.put("login", new Login());
+//        commands.put("register", new Register());
+//        commands.put("orderpage", new OrderPage());
         commands.put("orderhistory", new OrderHistory());
     }
 

@@ -4,70 +4,127 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private int id;
+    private int idOrder;
     private int length;
     private int width;
-    private int height;
+    private String inclination;
+    private String roofMaterial;
+    private String shed;
+    private int shedLength;
+    private int shedWidth;
+    private String name;
+    private String address;
+    private String zipCode;
+    private String phoneNumber;
+    private String email;
+    private String comment;
     private String status;
-    private int userId;
-    private ArrayList<Brick> bricks = new ArrayList();
 
-    public Order(int length, int width, int height, int userId) {
+    public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, String status)
+    {
+        this.idOrder = idOrder;
         this.length = length;
         this.width = width;
-        this.height = height;
-        status = "notShipped";
-        this.userId = userId;
-    }
-
-    public void setBricks(ArrayList<Brick> bricks) {
-        this.bricks = bricks;
-    }
-
-    public ArrayList<Brick> getBricks() {
-        return bricks;
-    }
-
-    public void setStatus(String status) {
+        this.inclination = inclination;
+        this.roofMaterial = roofMaterial;
+        this.shed = shed;
+        this.name = name;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
         this.status = status;
     }
 
-    public int getId() {
-        return id;
+    public int getIdOrder()
+    {
+        return idOrder;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getLength() {
+    public int getLength()
+    {
         return length;
     }
 
-    public int getWidth() {
+    public int getWidth()
+    {
         return width;
     }
 
-    public int getHeight() {
-        return height;
+    public String getInclination()
+    {
+        return inclination;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getRoofMaterial()
+    {
+        return roofMaterial;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Order number: ").append(id).append(" " + status).append("<br>");
-        sb.append("Dimensions (L x W x H): ");
-        sb.append(length + " x " + width + " x " + height);
-        for (Brick brick : bricks) {
-            sb.append("<br>");
-            sb.append(brick);
-        }
-        String str = sb.toString();
-        return str;
+    public String getShed()
+    {
+        return shed;
     }
 
+    public int getShedLength()
+    {
+        return shedLength;
+    }
+
+    public int getShedWidth()
+    {
+        return shedWidth;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public String getZipCode()
+    {
+        return zipCode;
+    }
+
+    public String getPhoneNumber()
+    {
+        return phoneNumber;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    public String getComment()
+    {
+        return comment;
+    }
+
+    public String getStatus()
+    {
+        return status;
+    }
+
+    public void setShedLength(int shedLength)
+    {
+        this.shedLength = shedLength;
+    }
+
+    public void setShedWidth(int shedWidth)
+    {
+        this.shedWidth = shedWidth;
+    }
+
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+
+    
 }
