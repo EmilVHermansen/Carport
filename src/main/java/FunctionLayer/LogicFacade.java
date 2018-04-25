@@ -11,7 +11,12 @@ public class LogicFacade {
         DataAccessObject.createUser(user);
         return user;
     }
-
+    public static Customer getCustomerInfo(int orderId)
+    {
+        Customer customer;
+        customer = DataAccessObject.getCustomerInfo(orderId);
+        return customer;
+    }
     public static ArrayList<Order> getOrders(int userId) throws OrderException {
         ArrayList<Order> orders = new ArrayList();
         orders = DataAccessObject.getOrders(userId);
