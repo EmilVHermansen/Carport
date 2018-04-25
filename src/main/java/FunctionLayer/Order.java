@@ -144,6 +144,12 @@ public class Order {
     @Override
     public String toString()
     {
-        return "Order{" + "idOrder=" + idOrder + ", length=" + length + ", width=" + width + ", inclination=" + inclination + ", roofMaterial=" + roofMaterial + ", shed=" + shed + ", shedLength=" + shedLength + ", shedWidth=" + shedWidth + ", name=" + name + ", address=" + address + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + ", comment=" + comment + ", status=" + status + '}';
+        return "Order{" + "idOrder=" + idOrder + ", length=" + length + 
+                ", width=" + width + ", inclination=" + inclination + 
+                ", roofMaterial=" + roofMaterial + ", shed=" + shed + 
+                ", shedLength=" + shedLength + ", shedWidth=" + shedWidth + 
+                ", name=" + name + ", address=" + address + ", zipCode=" + zipCode + 
+                ", phoneNumber=" + phoneNumber + ", email=" + email + ", comment=" + comment + 
+                ", status=" + status + '}';
     }
 }

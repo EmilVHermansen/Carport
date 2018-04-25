@@ -18,19 +18,10 @@
     <body>
         <h1>Order history</h1>
         <div>
-            <% 
-                if (!orders.isEmpty())
-                {
-                    for (Order order : orders)
-                        {
-                            out.print(order);
-                        }
-                }
-               %>
-            
+             <%for (Order order : orders) {
+                    out.println(order);%>
             <br> <br>
-            
-
+            <%};%>
         </div>
     </body>
 </html>
