@@ -111,8 +111,8 @@ public class DataAccessObject {
             Connection con = Connector.connection();
             String SQL = "UPDATE `ordre´ SET `status´=`?´ WHERE `id´=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, status);
-            ps.setInt(2, order.getId());
+            ps.setString(1, Order.getStatus());
+            ps.setInt(2, Order.getId());
             ps.executeUpdate();
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
