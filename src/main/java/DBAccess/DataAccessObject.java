@@ -17,15 +17,15 @@ public class DataAccessObject {
     public static User login(String employeenumber, String password) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM bruger "
-                    + "WHERE medarbejdernr=? AND kodeord=?";
+            String SQL = "SELECT * FROM user "
+                    + "WHERE empno=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, employeenumber);
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                int id = rs.getInt("idbruger");
-                String empnumber = rs.getString("medarbejdernr");
+                int id = rs.getInt("iduser");
+                String empnumber = rs.getString("empno");
                 User user = new User(id, empnumber);
                 return user;
             } else {
@@ -39,7 +39,7 @@ public class DataAccessObject {
     public static List<Order> getOrders() throws OrderException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM `ordre`";
+            String SQL = "SELECT * FROM `order`";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             
             ArrayList<Order> orders = new ArrayList();
@@ -48,20 +48,20 @@ public class DataAccessObject {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int orderId = rs.getInt("idordre");
-                int length = rs.getInt("længde");
-                int width = rs.getInt("bredde");
-                String inclination = rs.getString("rejsning");
-                String roofMaterial = rs.getString("tagtype");
-                String shed = rs.getString("skur");
-                int shedLength = rs.getInt("skur_længde");
-                int shedWidth = rs.getInt("skur_bredde");
-                String name = rs.getString("navn");
-                String address = rs.getString("adresse");
-                String zipCode = rs.getString("postnummer_by");
-                String phoneNumber = rs.getString("telefon");
+                int orderId = rs.getInt("idorder");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                String inclination = rs.getString("inclination");
+                String roofMaterial = rs.getString("roof_material");
+                String shed = rs.getString("shed");
+                int shedLength = rs.getInt("shed_length");
+                int shedWidth = rs.getInt("shed_width");
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                String zipCode = rs.getString("zipcode");
+                String phoneNumber = rs.getString("phonenumber");
                 String email = rs.getString("email");
-                String comment = rs.getString("bemærkning");
+                String comment = rs.getString("comment");
                 String status = rs.getString("status");
                 order = new Order(orderId, length, width, inclination, roofMaterial, shed, name, address, zipCode, phoneNumber, email, status);
                 order.setComment(comment);
