@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/macos,maven,windows,netbeans
 
 ### macOS ###
@@ -73,3 +72,4 @@ $RECYCLE.BIN/
 
 # End of https://www.gitignore.io/api/macos,maven,windows,netbeans
 /src/main/webapp/META-INF/dummy.jsp
+

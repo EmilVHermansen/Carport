@@ -2,33 +2,38 @@ package FunctionLayer;
 
 import DBAccess.DataAccessObject;
 import java.util.ArrayList;
+import java.util.List;
 
 public class LogicFacade {
 
-
-    public static User createUser(String email, String password) throws LoginSampleException {
-        User user = new User(email, password, "customer");
-        DataAccessObject.createUser(user);
-        return user;
-    }
     public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
     {
         Customer customer;
         customer = DataAccessObject.getCustomerInfo(orderId);
         return customer;
     }
-    public static ArrayList<Order> getOrders(int userId) throws OrderException {
-        ArrayList<Order> orders = new ArrayList();
-        orders = DataAccessObject.getOrders(userId);
+
+    public static User login(String empnumber, String password) throws LoginSampleException {
+        return DataAccessObject.login(empnumber, password);
+    }
+//
+//    public static User createUser(String email, String password) throws LoginSampleException {
+//        User user = new User(email, password, "customer");
+//        DataAccessObject.createUser(user);
+//        return user;
+//    }
+
+    public static List<Order> getOrders() throws OrderException {
+        List<Order> orders = DataAccessObject.getOrders();
         return orders;
     }
 
-    public static Order createOrder(int width, int length, int height, User user) throws OrderException {
-        int userId = user.getId();
-        Order order = new Order(length, width, height, userId);
-        DataAccessObject.createOrder(order, userId);
-        return order;
-    }
+//    public static Order createOrder(int width, int length, int height, User user) throws OrderException {
+//        int userId = user.getId();
+//        Order order = new Order(length, width, height, userId);
+//        DataAccessObject.createOrder(order, userId);
+//        return order;
+//    }
 
     public static ArrayList<Brick> listOfBricks(int length, int width, int height) {
         ArrayList<Brick> bricks = new ArrayList();
