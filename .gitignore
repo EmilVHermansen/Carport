@@ -71,6 +71,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/macos,maven,windows,netbeans
-/src/main/webapp/META-INF/dummy.jsp
-
 
