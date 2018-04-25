@@ -10,17 +10,18 @@ public class Order {
     private String inclination;
     private String roofMaterial;
     private String shed;
-    private int shedLength;
-    private int shedWidth;
+    private int shedLength = 0;
+    private int shedWidth = 0;
     private String name;
     private String address;
     private String zipCode;
     private String phoneNumber;
     private String email;
-    private String comment;
+    private String comment = "";
+    private double price;
     private String status;
 
-    public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, String status)
+    public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
     {
         this.idOrder = idOrder;
         this.length = length;
@@ -33,6 +34,7 @@ public class Order {
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.price = price;
         this.status = status;
     }
 
@@ -106,11 +108,19 @@ public class Order {
         return comment;
     }
 
+    public double getPrice() {
+        return price;
+    }
+    
     public String getStatus()
     {
         return status;
     }
 
+    public void setIdOrder(int idOrder) {
+        this.idOrder = idOrder;
+    }
+    
     public void setShedLength(int shedLength)
     {
         this.shedLength = shedLength;
@@ -126,5 +136,8 @@ public class Order {
         this.comment = comment;
     }
 
-    
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
 }
