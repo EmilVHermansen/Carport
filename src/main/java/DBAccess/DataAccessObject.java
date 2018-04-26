@@ -44,15 +44,16 @@ public class DataAccessObject
         }
     }
 
-    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
+    public static Customer getCustomerInfo(String email) throws CustomerInfoError
     {
         try
         {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` "
-                    + "WHERE orderId=?";
+                    + "WHERE email=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, orderId);
+            ps.setString(1, email);
+            Customer customer = null;
             ResultSet rs = ps.executeQuery();
             if (rs.next())
             {
@@ -60,13 +61,10 @@ public class DataAccessObject
                 String address = rs.getString("address");
                 String zipCity = rs.getString("zipcode");
                 String phoneNo = rs.getString("phonenumber");
-                String email = rs.getString("email");
-                Customer customer = new Customer(name, address, zipCity, phoneNo, email);
+                String custEmail = rs.getString("email");
+                customer = new Customer(name, address, zipCity, phoneNo, custEmail);
+            } 
                 return customer;
-            } else
-            {
-                throw new CustomerInfoError("Could not validate user");
-            }
         } catch (ClassNotFoundException | SQLException ex)
         {
             throw new CustomerInfoError(ex.getMessage());

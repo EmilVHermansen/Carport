@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
 import java.util.HashMap;
@@ -26,6 +27,6 @@ abstract class Command {
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException, OrderException;
+            throws LoginSampleException, OrderException, CustomerInfoError;
 
 }

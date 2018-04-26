@@ -19,7 +19,7 @@
         <form name="customerInfo" action="FrontController" method="POST">
             <p>Enter order id or customer email.</p>
         <input type="hidden" name="command" value="customerInfo">
-        <input type="text" name ="orderid" placeholder="Order Id / Email">
+        <input type="text" name ="email" placeholder="Email" required>
         <input type="submit" name="submit" value="submit">
         </form>
         <h1>Order history</h1>

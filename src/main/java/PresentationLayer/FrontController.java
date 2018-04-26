@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class FrontController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, OrderException {
+            throws ServletException, IOException {
         try {
             Command action = Command.from(request);
             String view = action.execute(request, response);
@@ -35,6 +36,11 @@ public class FrontController extends HttpServlet {
         } catch (OrderException ex) {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/browseorders.jsp").forward(request, response);
+        } catch (CustomerInfoError ex)
+        {
+            request.setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/WEB-INF/customerinfo.jsp").forward(request, response);
+
         }
     }
 
@@ -46,15 +52,16 @@ public class FrontController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws CustomerInfoError if the customer does not exist
+
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (OrderException ex) {
-            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+           
+                processRequest(request, response);
+           
     }
 
     /**
@@ -64,15 +71,12 @@ public class FrontController extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
+     * @throws CustomerInfoError if the customer does not exist
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
+            throws ServletException, IOException{
             processRequest(request, response);
-        } catch (OrderException ex) {
-            Logger.getLogger(FrontController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
