@@ -6,7 +6,7 @@
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Welcome to Lego build-a-boxhouse</h1>
+        <h1>Fog carport</h1>
 
         <table>
             <tr><td>Login</td>
@@ -22,19 +22,10 @@
                         <input type="submit" value="Submit">
                     </form>
                 </td>
-                <td>Or Register</td>
+                <td>Or submit order</td>
                 <td>
                     <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
+                        <input type="hidden" name="command" value="submitorder">
                         <input type="submit" value="Submit">
                     </form>
                 </td>

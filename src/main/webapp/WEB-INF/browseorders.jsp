@@ -20,10 +20,11 @@
     </head>
     <body>
         <form name="customerInfo" action="FrontController" method="POST">
-            <p>Enter order id or customer email.</p>
-            <input type="hidden" name="command" value="customerInfo">
-            <input type="text" name ="orderid" placeholder="Email">
-            <input type="submit" name="submit" value="submit">
+            <p>Find customer info:</p> <br>
+            <p>Enter Customer email.</p>
+        <input type="hidden" name="command" value="customerInfo">
+        <input type="text" name ="email" placeholder="Email" required>
+        <input type="submit" name="submit" value="submit">
         </form>
 
         <form name="updateStatus" action="FrontController" method="post">
