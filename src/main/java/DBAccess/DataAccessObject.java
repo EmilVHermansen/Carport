@@ -158,16 +158,15 @@ public class DataAccessObject
             ps.setDouble(14, order.getPrice());
             ps.setString(15, order.getStatus());
             ps.executeUpdate();
-//            ResultSet ids = ps.getGeneratedKeys();
-//            int id = ids.getInt(1);
-//            order.setIdOrder(id);
+            ResultSet ids = ps.getGeneratedKeys();
+            int id = ids.getInt(1);
+            order.setIdOrder(id);
         } catch (SQLException | ClassNotFoundException ex) {
             throw new OrderException(ex.getMessage());
         }
     }
 
    
-        //Adapt emils order class XD
         //Make it so String status is a dropdown menu with different choices for update
         public static void updateOrderStatus(String status, int idOrder) throws LoginSampleException{
     try {

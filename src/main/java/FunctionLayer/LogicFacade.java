@@ -53,5 +53,9 @@ public class LogicFacade {
 
         return bricks;
     }
+    
+    public static void submitOrder(Order order) throws OrderException {
+        DataAccessObject.submitOrder(order);
+    }
 
 }

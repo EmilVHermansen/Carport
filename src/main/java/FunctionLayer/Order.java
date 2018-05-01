@@ -37,6 +37,22 @@ public class Order {
         this.price = price;
         this.status = status;
     }
+    
+    public Order(int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
+    {
+        this.length = length;
+        this.width = width;
+        this.inclination = inclination;
+        this.roofMaterial = roofMaterial;
+        this.shed = shed;
+        this.name = name;
+        this.address = address;
+        this.zipCode = zipCode;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.price = price;
+        this.status = status;
+    }
 
     public int getIdOrder()
     {
