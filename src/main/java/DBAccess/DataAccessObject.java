@@ -2,6 +2,7 @@ package DBAccess;
 
 import FunctionLayer.Customer;
 import FunctionLayer.CustomerInfoError;
+import FunctionLayer.LineItem;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
@@ -20,10 +21,12 @@ public class DataAccessObject
 {
 // Delete this, it's a test.
 
+
     public static User login(String employeenumber, String password) throws LoginSampleException
     {
         try
         {
+
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM user "
                     + "WHERE empno=? AND password=?";
@@ -48,10 +51,8 @@ public class DataAccessObject
         }
     }
 
-    public static Customer getCustomerInfo(String email) throws CustomerInfoError
-    {
-        try
-        {
+    public static Customer getCustomerInfo(String email) throws CustomerInfoError {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` "
                     + "WHERE email=?";
@@ -59,8 +60,7 @@ public class DataAccessObject
             ps.setString(1, email);
             Customer customer = null;
             ResultSet rs = ps.executeQuery();
-            if (rs.next())
-            {
+            if (rs.next()) {
                 String name = rs.getString("name");
                 String address = rs.getString("address");
                 String zipCity = rs.getString("zipcode");
@@ -69,14 +69,16 @@ public class DataAccessObject
                 customer = new Customer(name, address, zipCity, phoneNo, custEmail);
             }
             return customer;
-        } catch (ClassNotFoundException | SQLException ex)
-        {
+
+        } catch (ClassNotFoundException | SQLException ex) {
+
             throw new CustomerInfoError(ex.getMessage());
         }
     }
 
     public static Order getOrder(int orderId) throws SQLException
     {
+
         Order order = null;
         try
         {
@@ -90,6 +92,7 @@ public class DataAccessObject
 
             if (rs.next())
             {
+
                 int id = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
@@ -232,4 +235,49 @@ public class DataAccessObject
         }
     }
 
+    public static void createLineItem(LineItem lineItem) throws SQLException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO `lineitem` (material_idmaterial, order_idorder, length, qty, unit, description_use) "
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, lineItem.getIdmaterial());
+            ps.setInt(2, lineItem.getIdorder());
+            ps.setInt(3, lineItem.getLength());
+            ps.setInt(4, lineItem.getQty());
+            ps.setString(5, lineItem.getUnit());
+            ps.setString(6, lineItem.getDescriptionUse());
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            int id = ids.getInt(1);
+            lineItem.setIdorder(id);
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new SQLException(ex.getMessage());
+        }
+
+    }
+
+    //TODO use sebbe and emils BoM class
+    public LineItem getLineItems(int idOrder) throws SQLException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM `lineitem` WHERE order_idorder= ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, idOrder);
+            LineItem lineItem = null;
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                int length = rs.getInt("length");
+                int qty = rs.getInt("qty");
+                String unit = rs.getString("unit");
+                String descriptionUse = rs.getString("description_use");
+                int orderId = rs.getInt("order_idorder");
+                int materialId = rs.getInt("material_idmaterial");
+            }
+            return lineItem;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new SQLException(ex.getMessage());
+        }
+
+    }
 }
