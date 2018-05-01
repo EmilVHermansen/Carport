@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DataAccessObject {
-
+// Delete this, it's a test.
     public static User login(String employeenumber, String password) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
