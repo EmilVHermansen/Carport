@@ -227,7 +227,7 @@ public class DataAccessObject {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `lineitem` (material_idmaterial, order_idorder, length, qty, unit, description_use) "
-                    + "VALUES (?, ?, ?, ?, ?, ?,)";
+                    + "VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, lineItem.getIdmaterial());
             ps.setInt(2, lineItem.getIdorder());
