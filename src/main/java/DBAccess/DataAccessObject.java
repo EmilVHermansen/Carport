@@ -13,14 +13,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class DataAccessObject
-{
+public class DataAccessObject {
 
-    public static User login(String employeenumber, String password) throws LoginSampleException
-    {
-        try
-        {
+    public static User login(String employeenumber, String password) throws LoginSampleException {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM user "
                     + "WHERE empno=? AND password=?";
@@ -34,25 +33,24 @@ public class DataAccessObject
                 String empnumber = rs.getString("empno");
                 User user = new User(id, empnumber);
                 return user;
-            } else
-            {
+            } else {
                 throw new LoginSampleException("Could not validate user");
             }
-        } catch (ClassNotFoundException | SQLException ex)
-        {
+        } catch (ClassNotFoundException | SQLException ex) {
             throw new LoginSampleException(ex.getMessage());
         }
     }
 
-    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
+    public static Customer getCustomerInfo(String email) throws CustomerInfoError
     {
         try
         {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` "
-                    + "WHERE orderId=?";
+                    + "WHERE email=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, orderId);
+            ps.setString(1, email);
+            Customer customer = null;
             ResultSet rs = ps.executeQuery();
             if (rs.next())
             {
@@ -60,23 +58,58 @@ public class DataAccessObject
                 String address = rs.getString("address");
                 String zipCity = rs.getString("zipcode");
                 String phoneNo = rs.getString("phonenumber");
-                String email = rs.getString("email");
-                Customer customer = new Customer(name, address, zipCity, phoneNo, email);
+                String custEmail = rs.getString("email");
+                customer = new Customer(name, address, zipCity, phoneNo, custEmail);
+            } 
                 return customer;
-            } else
-            {
-                throw new CustomerInfoError("Could not validate user");
-            }
         } catch (ClassNotFoundException | SQLException ex)
         {
             throw new CustomerInfoError(ex.getMessage());
         }
     }
 
-    public static List<Order> getOrders() throws OrderException
-    {
-        try
-        {
+    
+    public static Order getOrder(int orderId) throws SQLException{
+        Order order = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM `order` WHERE `idorder`=?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            
+            ps.setInt(1, orderId);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            if(rs.next()) {
+                int id = rs.getInt("idorder");
+                int length = rs.getInt("length");
+                int width = rs.getInt("width");
+                double price = rs.getDouble("price");
+                String inclination = rs.getString("inclination");
+                String roofMaterial = rs.getString("roof_material");
+                String shed = rs.getString("shed");
+                int shedLength = rs.getInt("shed_length");
+                int shedWidth = rs.getInt("shed_width");
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                String zipCode = rs.getString("zipcode");
+                String phoneNumber = rs.getString("phonenumber");
+                String custEmail = rs.getString("email");
+                String comment = rs.getString("comment");
+                String status = rs.getString("status");
+                order = new Order(id, length, width, inclination, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price, status);
+                order.setComment(comment);
+                order.setShedLength(shedLength);
+                order.setShedWidth(shedWidth);
+            }
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return order;
+    }
+
+    public static List<Order> getOrders() throws OrderException {
+        try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order`";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -85,7 +118,6 @@ public class DataAccessObject
             Order order = null;
             ResultSet rs = null;
             rs = ps.executeQuery();
-
 
             while (rs.next()) {
                 int orderId = rs.getInt("idorder");
@@ -111,8 +143,7 @@ public class DataAccessObject
                 orders.add(order);
             }
             return orders;
-        } catch (SQLException | ClassNotFoundException ex)
-        {
+        } catch (SQLException | ClassNotFoundException ex) {
             throw new OrderException(ex.getMessage());
         }
     }
@@ -135,7 +166,6 @@ public class DataAccessObject
 //            throw new OrderException(ex.getMessage());
 //        }
 //    }
-    
     public static void submitOrder(Order order) throws OrderException {
         try {
             Connection con = Connector.connection();
@@ -166,16 +196,31 @@ public class DataAccessObject
         }
     }
 
-   
-        //Make it so String status is a dropdown menu with different choices for update
-        public static void updateOrderStatus(String status, int idOrder) throws LoginSampleException{
-    try {
+    //Make it so String status is a dropdown menu with different choices for update
+    public static void updateOrderStatus(Order order) throws LoginSampleException {
+        try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE `order` SET `status`=? WHERE `idorder`=?";
+            String SQL = "UPDATE `order` "
+                    + "SET `length`=?, `width`=?, `inclination`=?, `roof_material`=?, `shed`=?, `shed_length`=?, `shed_width`=?, `name`=?, `address`=?, `zipcode`=?, `phonenumber`=?, `email`=?, `comment`=?, `price`=?, `status`=? "
+                    + "WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, status);
-            ps.setInt(2, idOrder);
+            ps.setInt(1, order.getLength());
+            ps.setInt(2, order.getWidth());
+            ps.setString(3, order.getInclination());
+            ps.setString(4, order.getRoofMaterial());
+            ps.setString(5, order.getShed());
+            ps.setInt(6, order.getShedLength());
+            ps.setInt(7, order.getShedWidth());
+            ps.setString(8, order.getName());
+            ps.setString(9, order.getAddress());
+            ps.setString(10, order.getZipCode());
+            ps.setString(11, order.getPhoneNumber());
+            ps.setString(12, order.getEmail());
+            ps.setString(13, order.getComment());
+            ps.setDouble(14, order.getPrice());
+            ps.setString(15, order.getStatus());
             ps.executeUpdate();
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new LoginSampleException(ex.getMessage());
         }

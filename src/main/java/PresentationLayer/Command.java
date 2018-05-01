@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ abstract class Command {
         commands.put("login", new Login());
         commands.put("orderhistory", new OrderHistory());
         commands.put("customerInfo", new CustomerInfo());
+        commands.put("updatestatus", new UpdateStatus());
         commands.put("submitorder", new SubmitOrder());
         commands.put("orderconfirmation", new OrderConfirmation());
     }
@@ -28,6 +30,6 @@ abstract class Command {
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException, OrderException;
+            throws LoginSampleException, OrderException, CustomerInfoError;
 
 }

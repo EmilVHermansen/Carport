@@ -20,6 +20,40 @@ public class Customer
         this.phoneNo = phoneNo;
         this.email = email;
     }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getAddress()
+    {
+        return address;
+    }
+
+    public String getZipCity()
+    {
+        return zipCity;
+    }
+
+    public String getPhoneNo()
+    {
+        return phoneNo;
+    }
+
+    public String getEmail()
+    {
+        return email;
+    }
+
+    
+    
+    @Override
+    public String toString()
+    {
+        return "Customer{" + "name=" + name + ", address=" + address + ", zipCity=" + zipCity + ", phoneNo=" + phoneNo + ", email=" + email + '}';
+    }
+    
     
     
     
