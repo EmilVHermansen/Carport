@@ -1,8 +1,8 @@
 package FunctionLayer;
 
-import java.util.ArrayList;
 
-public class Order {
+public class Order
+{
 
     private int idOrder;
     private int length;
@@ -37,7 +37,7 @@ public class Order {
         this.price = price;
         this.status = status;
     }
-    
+
     public Order(int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
     {
         this.length = length;
@@ -124,19 +124,21 @@ public class Order {
         return comment;
     }
 
-    public double getPrice() {
+    public double getPrice()
+    {
         return price;
     }
-    
+
     public String getStatus()
     {
         return status;
     }
 
-    public void setIdOrder(int idOrder) {
+    public void setIdOrder(int idOrder)
+    {
         this.idOrder = idOrder;
     }
-    
+
     public void setShedLength(int shedLength)
     {
         this.shedLength = shedLength;
@@ -152,19 +154,24 @@ public class Order {
         this.comment = comment;
     }
 
-
-    public void setPrice(double price) {
+    public void setPrice(double price)
+    {
         this.price = price;
+    }
+
+    public void setStatus(String status)
+    {
+        this.status = status;
     }
 
     @Override
     public String toString()
     {
-        return "Order: " + idOrder + ", length: " + length + 
-                ", width: " + width + ", inclination: " + inclination + 
-                ", roofMaterial: " + roofMaterial + ", shed: " + shed + 
-                ", shedLength: " + shedLength + ", shedWidth: " + shedWidth + 
-                ", comment: " + comment + ", price: " + price + 
-                ", status: " + status;
+        return "Order: " + idOrder + ", length: " + length
+                + ", width: " + width + ", inclination: " + inclination
+                + ", roofMaterial: " + roofMaterial + ", shed: " + shed
+                + ", shedLength: " + shedLength + ", shedWidth: " + shedWidth
+                + ", comment: " + comment + ", price: " + price
+                + ", status: " + status;
     }
 }

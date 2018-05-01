@@ -16,10 +16,14 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class DataAccessObject {
+public class DataAccessObject
+{
 // Delete this, it's a test.
-    public static User login(String employeenumber, String password) throws LoginSampleException {
-        try {
+
+    public static User login(String employeenumber, String password) throws LoginSampleException
+    {
+        try
+        {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM user "
                     + "WHERE empno=? AND password=?";
@@ -28,15 +32,18 @@ public class DataAccessObject {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
+            if (rs.next())
+            {
                 int id = rs.getInt("iduser");
                 String empnumber = rs.getString("empno");
                 User user = new User(id, empnumber);
                 return user;
-            } else {
+            } else
+            {
                 throw new LoginSampleException("Could not validate user");
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex)
+        {
             throw new LoginSampleException(ex.getMessage());
         }
     }
@@ -60,27 +67,29 @@ public class DataAccessObject {
                 String phoneNo = rs.getString("phonenumber");
                 String custEmail = rs.getString("email");
                 customer = new Customer(name, address, zipCity, phoneNo, custEmail);
-            } 
-                return customer;
+            }
+            return customer;
         } catch (ClassNotFoundException | SQLException ex)
         {
             throw new CustomerInfoError(ex.getMessage());
         }
     }
 
-    
-    public static Order getOrder(int orderId) throws SQLException{
+    public static Order getOrder(int orderId) throws SQLException
+    {
         Order order = null;
-        try {
+        try
+        {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            
+
             ps.setInt(1, orderId);
-            
+
             ResultSet rs = ps.executeQuery();
-            
-            if(rs.next()) {
+
+            if (rs.next())
+            {
                 int id = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
@@ -102,14 +111,17 @@ public class DataAccessObject {
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
             }
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException ex)
+        {
             Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
         }
-            return order;
+        return order;
     }
 
-    public static List<Order> getOrders() throws OrderException {
-        try {
+    public static List<Order> getOrders() throws OrderException
+    {
+        try
+        {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order`";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
@@ -119,7 +131,8 @@ public class DataAccessObject {
             ResultSet rs = null;
             rs = ps.executeQuery();
 
-            while (rs.next()) {
+            while (rs.next())
+            {
                 int orderId = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
@@ -143,7 +156,8 @@ public class DataAccessObject {
                 orders.add(order);
             }
             return orders;
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex)
+        {
             throw new OrderException(ex.getMessage());
         }
     }
@@ -166,8 +180,10 @@ public class DataAccessObject {
 //            throw new OrderException(ex.getMessage());
 //        }
 //    }
-    public static void submitOrder(Order order) throws OrderException {
-        try {
+    public static void submitOrder(Order order) throws OrderException
+    {
+        try
+        {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO `order` (length, width, inclination, roof_material, shed, shed_length, shed_width, name, address, zipcode, phonenumber, email, comment, price, status) "
                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -191,37 +207,27 @@ public class DataAccessObject {
             ResultSet ids = ps.getGeneratedKeys();
             int id = ids.getInt(1);
             order.setIdOrder(id);
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex)
+        {
             throw new OrderException(ex.getMessage());
         }
     }
 
     //Make it so String status is a dropdown menu with different choices for update
-    public static void updateOrderStatus(Order order) throws LoginSampleException {
-        try {
+    public static void updateOrderStatus(Order order) throws LoginSampleException
+    {
+        try
+        {
+            //TODO Maybe add more variables that can be changed
             Connection con = Connector.connection();
-            String SQL = "UPDATE `order` "
-                    + "SET `length`=?, `width`=?, `inclination`=?, `roof_material`=?, `shed`=?, `shed_length`=?, `shed_width`=?, `name`=?, `address`=?, `zipcode`=?, `phonenumber`=?, `email`=?, `comment`=?, `price`=?, `status`=? "
-                    + "WHERE `idorder`=?";
+            String SQL = "UPDATE `order` SET `status`=? WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, order.getLength());
-            ps.setInt(2, order.getWidth());
-            ps.setString(3, order.getInclination());
-            ps.setString(4, order.getRoofMaterial());
-            ps.setString(5, order.getShed());
-            ps.setInt(6, order.getShedLength());
-            ps.setInt(7, order.getShedWidth());
-            ps.setString(8, order.getName());
-            ps.setString(9, order.getAddress());
-            ps.setString(10, order.getZipCode());
-            ps.setString(11, order.getPhoneNumber());
-            ps.setString(12, order.getEmail());
-            ps.setString(13, order.getComment());
-            ps.setDouble(14, order.getPrice());
-            ps.setString(15, order.getStatus());
+            ps.setString(1, order.getStatus());
+            ps.setInt(2, order.getIdOrder());
             ps.executeUpdate();
 
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex)
+        {
             throw new LoginSampleException(ex.getMessage());
         }
     }
