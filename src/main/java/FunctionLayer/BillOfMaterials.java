@@ -5,6 +5,7 @@
  */
 package FunctionLayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,31 +14,18 @@ import java.util.List;
  * @author s_ele
  */
 public class BillOfMaterials {
-
     private List<LineItem> billOfMaterials;
     private final int maxPoleDistance = 3000; // 3000 mm
     private Order order;
-    // Attributes that are used from order:
-    private int idOrder;
-    private boolean fullShed;
-    private int length;
-    private int width;
-    private boolean shed = false;
-    private int shedLength = 0;
-    private int shedWidth = 0;
 
     public BillOfMaterials(Order order) {
         this.order = order;
-        this.idOrder = order.getIdOrder();
-        this.length = order.getLength();
-        this.width = order.getWidth();
-        if (order.getShed().equals("shed")) {
-            shed = true;
-            this.shedLength = order.getShedLength();
-            this.shedWidth = order.getShedWidth();
-            fullShed = order.getShedWidth() == (order.getWidth() - 700); // shedWidth == width
-        }
-
+        this.billOfMaterials = new ArrayList();
+    }
+    
+    private int idOrder()
+    {
+        return order.getIdOrder();
     }
     
     private int length()
@@ -45,12 +33,41 @@ public class BillOfMaterials {
         return order.getLength();
     }
 
+    private int width()
+    {
+        return order.getWidth();
+    }
+
+    private boolean shed()
+    {
+        boolean shed;
+        if (order.getShed().equals("shed")) {
+            shed = true;
+        } else shed = false;
+        return shed;
+    }
+
+    private boolean fullShed()
+    {
+        return order.getShedWidth() == (order.getWidth() - 700); // shedWidth == width
+    }
+
+    private int shedLength()
+    {
+        return order.getShedLength();
+    }
+    
+    private int shedWidth()
+    {
+        return order.getShedWidth();
+    }
+
     public void createBoM() {
         
         createPole();
         createWallPlate();
         createRafter();
-        createFasciaBoard();
+        createFasciaAndWaterBoard();
         
         createRoofPlate();
         
@@ -61,22 +78,22 @@ public class BillOfMaterials {
     }
 
     public void createPole() {
-        
-        LineItem pole = new LineItem("stk", "Stolper nedgraves 90 cm. i jord", idOrder, 1);
+        int length = length();
+        LineItem pole = new LineItem("stk", "Stolper nedgraves 90 cm. i jord", idOrder(), 1);
         int poleAmount = 2; // minimum amount of poles
 
-        if (shed) {
+        if (shed()) {
             poleAmount += 4; // mimimum addition of shedpoles (1 for the door)
-            if (shedWidth > 3000) {
+            if (shedWidth() > 3000) {
                 poleAmount += 2;
             }
-            if (fullShed) {
+            if (fullShed()) {
                 poleAmount -= 1;
             }
         }
 
-        if (fullShed) {
-            length -= shedLength;
+        if (fullShed()) {
+            length -= shedLength();
         }
 
         poleAmount += (length / 3000 * 2);
@@ -92,24 +109,24 @@ public class BillOfMaterials {
 
     public void createWallPlate() {
         
-        LineItem wallPlateCarport = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder, 2);
+        LineItem wallPlateCarport = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder(), 2);
         
-        if (shed) {
-            LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder, 2);
-            wallPlateShed.setLength(shedLength*2);
+        if (shed()) {
+            LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder(), 2);
+            wallPlateShed.setLength(shedLength()*2);
             wallPlateShed.setQty(1);
             billOfMaterials.add(wallPlateShed);
             
-            if (fullShed) {
-                wallPlateCarport.setLength(length-shedLength);
+            if (fullShed()) {
+                wallPlateCarport.setLength(length()-shedLength());
                 wallPlateCarport.setQty(2);
             } else {
-                wallPlateCarport.setLength(length);
+                wallPlateCarport.setLength(length());
                 wallPlateCarport.setQty(1);
 
             }
         } else {
-            wallPlateCarport.setLength(length);
+            wallPlateCarport.setLength(length());
             wallPlateCarport.setQty(2);
         }
         billOfMaterials.add(wallPlateCarport);
@@ -117,44 +134,44 @@ public class BillOfMaterials {
     
     public void createRafter() {
         
-        LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder, 3);
-        rafter.setLength(length);
+        LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 3);
+        rafter.setLength(length());
         int qty = 2;
-        qty += length / 600;
-        if (length % 600 > 0)
+        qty += length() / 600;
+        if (length() % 600 > 0)
             qty++;
         rafter.setQty(qty);
         billOfMaterials.add(rafter);
     }
 
-    private void createFasciaANdWaterBoard() {
-        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder, 4);
+    private void createFasciaAndWaterBoard() {
+        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder(), 4);
         fasciaBoardUnderFrontBack.setQty(4);
         
-        LineItem fasciaBoardUnderSides = new LineItem("stk", "understernbrædder til siderne", idOrder, 4);
+        LineItem fasciaBoardUnderSides = new LineItem("stk", "understernbrædder til siderne", idOrder(), 4);
         fasciaBoardUnderSides.setQty(4);
         
-        LineItem fasciaBoardFront = new LineItem("stk", "oversternbrædder til forenden", idOrder, 5);
+        LineItem fasciaBoardFront = new LineItem("stk", "oversternbrædder til forenden", idOrder(), 5);
         fasciaBoardFront.setQty(2);
         
-        LineItem fasciaBoardSides = new LineItem("stk", "oversternbrædder til siderne", idOrder, 5);
+        LineItem fasciaBoardSides = new LineItem("stk", "oversternbrædder til siderne", idOrder(), 5);
         fasciaBoardSides.setQty(4);
         
-        LineItem waterBoardFront = new LineItem("stk", "vandbrædt på stern i forende", idOrder, 6);
+        LineItem waterBoardFront = new LineItem("stk", "vandbrædt på stern i forende", idOrder(), 6);
         waterBoardFront.setQty(2);
         
-        LineItem waterBoardSides = new LineItem("stk", "vandbrædt på stern i sider", idOrder, 6);
+        LineItem waterBoardSides = new LineItem("stk", "vandbrædt på stern i sider", idOrder(), 6);
         waterBoardSides.setQty(4);
         
-        int frontBackLength = width - (width % 300);
-        if (width % 300 > 0)
+        int frontBackLength = width() - (width() % 300);
+        if (width() % 300 > 0)
             frontBackLength += 300;
         fasciaBoardUnderFrontBack.setLength(frontBackLength);
         fasciaBoardFront.setLength(frontBackLength);
         waterBoardFront.setLength(frontBackLength);
         
-        int sideLength = length - (length % 300);
-        if (length % 300 != 0)
+        int sideLength = length() - (length() % 300);
+        if (length() % 300 != 0)
             sideLength += 300;
         
         fasciaBoardUnderSides.setLength(sideLength);
@@ -171,7 +188,7 @@ public class BillOfMaterials {
     }
     // TODO!!!!!!!!!!!!!!!!
     private void createRoofPlate() {
-        LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder, 7);
+        LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 7);
         
         
     }
