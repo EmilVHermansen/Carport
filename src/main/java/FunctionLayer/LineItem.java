@@ -12,7 +12,6 @@ package FunctionLayer;
 public class LineItem {
     
     private int idlineitem;
-    private String description;
     private int length;
     private int qty;
     private String unit;
@@ -20,8 +19,7 @@ public class LineItem {
     private int idorder;
     private int idmaterial;
 
-    public LineItem(String description, String unit, String descriptionUse, int idorder, int idmaterial) {
-        this.description = description;
+    public LineItem(String unit, String descriptionUse, int idorder, int idmaterial) {
         this.unit = unit;
         this.descriptionUse = descriptionUse;
         this.idorder = idorder;
@@ -30,10 +28,6 @@ public class LineItem {
 
     public int getIdlineitem() {
         return idlineitem;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public int getLength() {
@@ -64,10 +58,6 @@ public class LineItem {
         this.idlineitem = idlineitem;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public void setLength(int length) {
         this.length = length;
     }
@@ -94,9 +84,10 @@ public class LineItem {
 
     @Override
     public String toString() {
-        return "LineItem{" + "idlineitem=" + idlineitem + ", description=" + description + ", length=" + length + ", qty=" + qty + ", unit=" + unit + ", descriptionUse=" + descriptionUse + ", idorder=" + idorder + ", idmaterial=" + idmaterial + '}';
+        return "LineItem{" + "idlineitem=" + idlineitem + ", length=" + length + ", qty=" + qty + ", unit=" + unit + ", descriptionUse=" + descriptionUse + ", idorder=" + idorder + ", idmaterial=" + idmaterial + '}';
     }
-    
+
+
     
     
     
