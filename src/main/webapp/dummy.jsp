@@ -13,9 +13,9 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-         <form name="orderhistorybutton" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="orderhistory">
-                        <input type="submit" value="Press here to show orders">
-                    </form>
+        <form name="orderhistorybutton" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="orderhistory">
+            <input type="submit" value="Press here to show orders">
+        </form>
     </body>
 </html>

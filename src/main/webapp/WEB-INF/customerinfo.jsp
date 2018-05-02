@@ -7,11 +7,12 @@
 <%@page import="FunctionLayer.User"%>
 <%@page import="FunctionLayer.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <% Customer customer = (Customer) session.getAttribute("customer"); %>
+     <%@include file="header.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer info</title>
     </head>

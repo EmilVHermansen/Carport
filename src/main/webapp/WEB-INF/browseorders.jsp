@@ -12,11 +12,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders");
 %>
+     <%@include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>Browse Orders</title>
     </head>
     <body>
@@ -35,7 +36,7 @@
             <input type="number" name ="orderid" placeholder="Order id">
             <select name="status" value="Opdater Status">
                 <option name="Behandler">Behandler</option>
-                <option name="Behandlet">behandlet</option>
+                <option name="Behandlet">Behandlet</option>
                 <option name="Afsendt">Afsendt</option>
                 <option name="Annulleret">Annulleret</option>
             </select>
