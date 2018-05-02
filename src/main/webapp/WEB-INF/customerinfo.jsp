@@ -7,7 +7,7 @@
 <%@page import="FunctionLayer.User"%>
 <%@page import="FunctionLayer.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% Customer customer = (Customer) request.getAttribute("customer"); %>
+<% Customer customer = (Customer) session.getAttribute("customer"); %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -45,6 +45,10 @@
             </tr>
         </table>
         <% }%>
+        <form name="billofmaterials" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="billofmaterials">
+            <input type="submit" name="submit" value="View bill of materials">
+        </form>
         <form name="login" action="FrontController" method="POST">
             <input type="hidden" name="command" value="login">
             <% //TODO change value to employee in session when loggin in %>

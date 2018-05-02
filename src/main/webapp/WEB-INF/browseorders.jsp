@@ -24,7 +24,7 @@
             <h2>Find customer info:</h2>
             <p>Enter Customer email.</p>
             <input type="hidden" name="command" value="customerInfo">
-            <input type="text" name ="email" placeholder="Email" required>
+            <input type="number" name ="custorderid" value="jens@jens.dk" placeholder="Order id" required>
             <input type="submit" name="submit" value="submit">
         </form>
 

@@ -5,6 +5,7 @@
  */
 package FunctionLayer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class BillOfMaterials {
     private int shedWidth = 0;
 
     public BillOfMaterials(Order order) {
+        this.billOfMaterials = new ArrayList();
         this.order = order;
         this.idOrder = order.getIdOrder();
         this.length = order.getLength();
@@ -50,7 +52,7 @@ public class BillOfMaterials {
         createPole();
         createWallPlate();
         createRafter();
-        createFasciaBoard();
+        createFasciaAndWaterBoard();
         
         createRoofPlate();
         
@@ -127,7 +129,7 @@ public class BillOfMaterials {
         billOfMaterials.add(rafter);
     }
 
-    private void createFasciaANdWaterBoard() {
+    private void createFasciaAndWaterBoard() {
         LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder, 4);
         fasciaBoardUnderFrontBack.setQty(4);
         
@@ -172,9 +174,14 @@ public class BillOfMaterials {
     // TODO!!!!!!!!!!!!!!!!
     private void createRoofPlate() {
         LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder, 7);
-        
-        
     }
+
+    public List<LineItem> getBillOfMaterials()
+    {
+        return billOfMaterials;
+    }
+    
+    
     
     
 

@@ -51,13 +51,13 @@ public class DataAccessObject
         }
     }
 
-    public static Customer getCustomerInfo(String email) throws CustomerInfoError {
+    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` "
-                    + "WHERE email=?";
+                    + "WHERE idorder=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setString(1, email);
+            ps.setInt(1, orderId);
             Customer customer = null;
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
