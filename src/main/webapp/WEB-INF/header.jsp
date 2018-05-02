@@ -13,7 +13,7 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         </head>
         <header class="mainHeader">
-            <img src="resources/img/fog-logo.png">
+            <a href="index.jsp"><img src="resources/img/fog-logo.png"></a>
         </header>
 
         </html>
