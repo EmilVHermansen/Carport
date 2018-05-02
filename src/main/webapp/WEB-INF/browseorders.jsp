@@ -18,37 +18,37 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Browse Orders</title>
+        <title>Ordre</title>
     </head>
     <body>
         <form name="customerInfo" action="FrontController" method="POST">
-            <h2>Find customer info:</h2>
-            <p>Enter Customer email.</p>
+            <h2>Find kunde information</h2>
+            <p>Indtast ordre id.</p>
             <input type="hidden" name="command" value="customerInfo">
-            <input type="number" name ="custorderid" value="jens@jens.dk" placeholder="Order id" required>
-            <input type="submit" name="submit" value="submit">
+            <input type="number" name ="custorderid" placeholder="Ordre id" required>
+            <input type="submit" name="submit" value="Søg">
         </form>
 
         <form name="updatestatus" action="FrontController" method="post">
             <input type="hidden" name="command" value="updatestatus">
-            <h2>Update order status: </h2>
-            <p>Enter order id</p>
-            <input type="number" name ="orderid" placeholder="Order id">
+            <h2>Opdater ordre status: </h2>
+            <p>Indtast ordre id</p>
+            <input type="number" name ="orderid" placeholder="Ordre id">
             <select name="status" value="Opdater Status">
                 <option name="Behandler">Behandler</option>
                 <option name="Behandlet">Behandlet</option>
                 <option name="Afsendt">Afsendt</option>
                 <option name="Annulleret">Annulleret</option>
             </select>
-            <input type="submit" name="submit" value="submit">
+            <input type="submit" name="submit" value="Opdater">
         </form>
 
 
-        <h1>Order history</h1>
+        <h1>Ordre historie</h1>
         <div>
             <table class="table table-hover">
                 <thead class="thead-dark">
-                    <th>id</th>
+                    <th>Id</th>
                     <th>Længde</th>
                     <th>Bredde</th>
                     <th>Hældning</th>

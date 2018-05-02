@@ -15,10 +15,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>JSP Page</title>
+        <title>Stykliste</title>
     </head>
     <body>
-        <h1>Bill of materials</h1>
+        <h1>Stykliste</h1>
         <table class="table table-hover">
             <thead class="thead-dark">
             <th>Længde</th>
@@ -46,7 +46,7 @@
         <% //TODO change value to employee in session when loggin in %>
         <input type="hidden" name="empnumber" value="a01">
         <input type="hidden" name="password" value="admin">
-        <input type="submit" name="submit" value="Return to Orders">
+        <input type="submit" name="submit" value="Tilbage til ordre">
     </form>
 </body>
 </html>

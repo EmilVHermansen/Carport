@@ -16,7 +16,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer info</title>
+        <title>Kunde information</title>
     </head>
     <body>
         <h1>Order customer info</h1>
@@ -48,14 +48,14 @@
         <% }%>
         <form name="billofmaterials" action="FrontController" method="POST">
             <input type="hidden" name="command" value="billofmaterials">
-            <input type="submit" name="submit" value="View bill of materials">
+            <input type="submit" name="submit" value="Stykliste">
         </form>
         <form name="login" action="FrontController" method="POST">
             <input type="hidden" name="command" value="login">
             <% //TODO change value to employee in session when loggin in %>
             <input type="hidden" name="empnumber" value="a01">
             <input type="hidden" name="password" value="admin">
-            <input type="submit" name="submit" value="Return to Orders">
+            <input type="submit" name="submit" value="Tilbage til ordre">
         </form>
 
         <!-- button to access the technical drawing -->

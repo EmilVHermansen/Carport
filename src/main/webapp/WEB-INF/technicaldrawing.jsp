@@ -69,10 +69,12 @@
 
 
         <!--Spær-->
-        <% for (int i = 0; i < length; i += rafterDistance) {
+        <% for (int i = 0; i < length; i += rafterDistance)
+            {
                 //Todo fix this hardcoded mess
 
-                if (rafterPos >= 7700) {
+                if (rafterPos >= 7700)
+                {
                     rafterPos = 7755;
                 }
         %> <rect x=" <% out.print(rafterPos); %>" y="0" width="45" height="<% out.print(width); %>"
@@ -113,10 +115,12 @@
               style="stroke: black; fill: white; stroke-width: 10;"/>
         </SVG>
 
-        <form name="customerInfo" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="customerInfo">
-            <input type="hidden" name="CustomerInfo" value="<% user.getEmail();%>">
-            <input type="submit" name="submit" value="Tilbage til kundeinfo">
+        <form name="login" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="login">
+            <% //TODO change value to employee in session when loggin in %>
+            <input type="hidden" name="empnumber" value="a01">
+            <input type="hidden" name="password" value="admin">
+            <input type="submit" name="submit" value="Tilbage til ordre">
         </form>
 
     </body>

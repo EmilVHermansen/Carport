@@ -8,11 +8,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Order Confirmation</title>
+        <title>Ordre bekræftelse</title>
     </head>
      <%@include file="header.jsp" %>
     <body>
-        <h1>Order confirmed</h1>
+        <h1>Ordre bekræfted</h1>
        ${order}
     </body>
 </html>
