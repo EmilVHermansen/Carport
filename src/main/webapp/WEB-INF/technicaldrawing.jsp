@@ -55,15 +55,15 @@
 
         <!--Løsholte skur-->
         <!-- lodrette -->
-        <rect x="5445" y="427.5" width="70" height="<% out.print(shedLength); %>"
+        <rect x="<% out.print(length - rafterDistance - shedWidth + 28); %>" y="427.5" width="70" height="<% out.print(shedLength); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7406.5" y="427.5" width="70" height="<% out.print(shedLength); %>"
+        <rect x="<% out.print(length - 395); %>" y="427.5" width="70" height="<% out.print(shedLength); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <!-- vandrette -->
-        <rect x="5545" y="327.5" width="<% out.print(shedWidth); %>" height="70"
+        <rect x="5545" y="327.5" width="<% out.print(shedWidth - 200); %>" height="70"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="5545" y="5612.5" width="<% out.print(shedWidth); %>" height="70"
+        <rect x="5545" y="5612.5" width="<% out.print(shedWidth - 200); %>" height="70"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
 
@@ -99,17 +99,17 @@
         <!--Stolpe skur-->
         <rect x="5445" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7376.5" y="327.5" width="100" height="100"
+        <rect x="7377.5" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <rect x="5445" y="2950" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7376.5" y="2950" width="100" height="100"
+        <rect x="7377.5" y="2950" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/> 
 
         <rect x="5445" y="5582.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7376.5" y="5582.5" width="100" height="100"
+        <rect x="7377.5" y="5582.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         </SVG>
 
