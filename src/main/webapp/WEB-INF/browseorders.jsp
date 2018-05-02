@@ -12,6 +12,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders");
 %>
+     <%@include file="header.jsp" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -35,7 +37,7 @@
             <input type="number" name ="orderid" placeholder="Order id">
             <select name="status" value="Opdater Status">
                 <option name="Behandler">Behandler</option>
-                <option name="Behandlet">behandlet</option>
+                <option name="Behandlet">Behandlet</option>
                 <option name="Afsendt">Afsendt</option>
                 <option name="Annulleret">Annulleret</option>
             </select>

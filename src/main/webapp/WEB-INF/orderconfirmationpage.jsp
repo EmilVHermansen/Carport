@@ -10,6 +10,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order Confirmation</title>
     </head>
+     <%@include file="header.jsp" %>
     <body>
         <h1>Order confirmed</h1>
        ${order}

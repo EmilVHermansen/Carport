@@ -1,0 +1,19 @@
+<%-- 
+    Document   : header
+    Created on : 02-05-2018, 09:58:01
+    Author     : adams
+--%>
+
+    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+            <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/stylesheet.css">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        </head>
+        <header class="mainHeader">
+            <img src="resources/img/fog-logo.png">
+        </header>
+
+        </html>
