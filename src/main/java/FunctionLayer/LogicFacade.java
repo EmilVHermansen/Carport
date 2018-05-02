@@ -7,10 +7,10 @@ import java.util.List;
 
 public class LogicFacade {
 
-    public static Customer getCustomerInfo(String email) throws CustomerInfoError
+    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
     {
         Customer customer;
-        customer = DataAccessObject.getCustomerInfo(email);
+        customer = DataAccessObject.getCustomerInfo(orderId);
         return customer;
     }
 

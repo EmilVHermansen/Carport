@@ -7,6 +7,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Employee home page</title>
     </head>
+         <%@include file="header.jsp" %>
+
     <body>
 
         <h1>Hello <%=request.getParameter("email")%> </h1>

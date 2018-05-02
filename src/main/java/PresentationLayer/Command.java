@@ -19,6 +19,9 @@ abstract class Command {
         commands.put("updatestatus", new UpdateStatus());
         commands.put("submitorder", new SubmitOrder());
         commands.put("orderconfirmation", new OrderConfirmation());
+        commands.put("billofmaterials", new BillOfMaterialsPage());
+        commands.put("tegning", new TechnicalDrawing());
+
     }
 
     static Command from(HttpServletRequest request) {
