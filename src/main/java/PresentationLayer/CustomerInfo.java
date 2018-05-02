@@ -27,7 +27,7 @@ public class CustomerInfo extends Command
         Customer customer = LogicFacade.getCustomerInfo(email);
         if (customer != null)
         {
-            request.setAttribute("customer", customer);
+            session.setAttribute("customer", customer);
             return "customerinfo";
         } else
         {
