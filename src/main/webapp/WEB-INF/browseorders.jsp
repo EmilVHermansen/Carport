@@ -23,17 +23,17 @@
     <body>
         <form name="customerInfo" action="FrontController" method="POST">
             <h2>Find kunde information</h2>
-            <p>Indtast ordre id.</p>
+            <p>Indtast ordrenr.</p>
             <input type="hidden" name="command" value="customerInfo">
-            <input type="number" name ="custorderid" placeholder="Ordre id" required>
+            <input type="number" name ="custorderid" placeholder="Ordrenr" required>
             <input type="submit" name="submit" value="Søg">
         </form>
 
         <form name="updatestatus" action="FrontController" method="post">
             <input type="hidden" name="command" value="updatestatus">
             <h2>Opdater ordre status: </h2>
-            <p>Indtast ordre id</p>
-            <input type="number" name ="orderid" placeholder="Ordre id">
+            <p>Indtast ordrenr</p>
+            <input type="number" name ="orderid" placeholder="Ordrenr">
             <select name="status" value="Opdater Status">
                 <option name="Behandler">Behandler</option>
                 <option name="Behandlet">Behandlet</option>
@@ -48,7 +48,7 @@
         <div>
             <table class="table table-hover">
                 <thead class="thead-dark">
-                    <th>Id</th>
+                    <th>Ordrenr</th>
                     <th>Længde</th>
                     <th>Bredde</th>
                     <th>Hældning</th>

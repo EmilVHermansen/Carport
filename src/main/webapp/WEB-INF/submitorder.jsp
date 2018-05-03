@@ -15,7 +15,7 @@
      <%@include file="header.jsp" %>
 
     <body>
-        <h1>Order your carport here</h1>
+        <h1>Bestil din carport her</h1>
 
         <table>
             <tr>Vælg specifikationer på din carport
