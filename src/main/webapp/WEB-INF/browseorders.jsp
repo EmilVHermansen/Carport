@@ -32,8 +32,8 @@
         <form name="updatestatus" action="FrontController" method="post">
             <input type="hidden" name="command" value="updatestatus">
             <h2>Opdater ordre status: </h2>
-            <p>Indtast ordrenr</p>
-            <input type="number" name ="orderid" placeholder="Ordrenr">
+            <p>Indtast ordrenr.</p>
+            <input type="number" name ="orderid" placeholder="Ordrenr.">
             <select name="status" value="Opdater Status">
                 <option name="Behandler">Behandler</option>
                 <option name="Behandlet">Behandlet</option>
@@ -48,7 +48,7 @@
         <div>
             <table class="table table-hover">
                 <thead class="thead-dark">
-                    <th>Ordrenr</th>
+                    <th>Ordrenr.</th>
                     <th>Længde</th>
                     <th>Bredde</th>
                     <th>Hældning</th>
