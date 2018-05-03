@@ -25,7 +25,7 @@
             <h2>Find kunde information</h2>
             <p>Indtast ordrenr.</p>
             <input type="hidden" name="command" value="customerInfo">
-            <input type="number" name ="custorderid" placeholder="Ordrenr" required>
+            <input type="number" name ="custorderid" placeholder="Ordrenr." required>
             <input type="submit" name="submit" value="Søg">
         </form>
 
