@@ -46,10 +46,14 @@
             </tr>
         </table>
         <% }%>
+        
+                
         <form name="billofmaterials" action="FrontController" method="POST">
             <input type="hidden" name="command" value="billofmaterials">
             <input type="submit" name="submit" value="Stykliste">
         </form>
+                
+                
         <form name="login" action="FrontController" method="POST">
             <input type="hidden" name="command" value="login">
             <% //TODO change value to employee in session when loggin in %>
@@ -63,6 +67,9 @@
             <input type="hidden" name="command" value="tegning">
             <input type="submit" name="tegning" value="Tegning">
         </form>
+        <!-- -------------------------------------- -->
+        
+
 
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

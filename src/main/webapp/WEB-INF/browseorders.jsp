@@ -42,6 +42,16 @@
             </select>
             <input type="submit" name="submit" value="Opdater">
         </form>
+        
+                        <!-- change price on order -->
+        <form name="changeprice" action="FrontController" method="post">
+            <input type="hidden" name="command" value="changeprice">
+            <h2>Ændr pris: </h2>
+            <input type="number" name ="orderid" placeholder="Ordrenr.">
+            <input type="number" name ="newprice" placeholder="Pris:" required>
+            <input type="submit" name="submit" value="Ændr">
+        </form>
+                         <!-- --------------------- -->
 
 
         <h1>Ordre historie</h1>

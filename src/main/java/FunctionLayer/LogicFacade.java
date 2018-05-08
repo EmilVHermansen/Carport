@@ -38,5 +38,9 @@ public class LogicFacade {
     public static void submitOrder(Order order) throws OrderException {
         DataAccessObject.submitOrder(order);
     }
+    
+    public static void changePrice(Order order) throws SQLException {
+        DataAccessObject.changePrice(order);
+    }
 
 }

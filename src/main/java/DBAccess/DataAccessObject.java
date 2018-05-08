@@ -280,4 +280,22 @@ public class DataAccessObject
         }
 
     }
+    
+    public static void changePrice(Order order) throws SQLException {
+        
+                try
+        {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE `order` SET `price`=? WHERE `idorder`=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setDouble(1, order.getPrice());
+            ps.setInt(2, order.getIdOrder());
+            ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex)
+        {
+            throw new SQLException(ex.getMessage());
+        }
+        
+    }
 }
