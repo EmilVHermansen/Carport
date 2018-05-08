@@ -21,8 +21,8 @@ public class ChangePrice extends Command
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, CustomerInfoError
     {
-        int newPrice = Integer.parseInt(request.getParameter("newprice"));
         int orderId = Integer.parseInt(request.getParameter("orderid"));
+        int newPrice = Integer.parseInt(request.getParameter("newprice"));
         
         try
         {
