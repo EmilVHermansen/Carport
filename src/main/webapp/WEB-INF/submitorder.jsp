@@ -22,11 +22,12 @@
                 <td>
                     <form name="submitorder" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderconfirmation">
-                        Længde i cm:<br>
-                        <input type="number" name="length" min="1" max="500" required>
-                        <br>
+                        <%--TODO custom exceptions--%>
                         Bredde i cm:<br>
-                        <input type="number" name="width" min="1" max="500" required>
+                        <input type="number" name="width" min="240" max="750" required>
+                        <br>
+                        Længde i cm:<br>
+                        <input type="number" name="length" min="240" max="780" required>
                         <br>
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
@@ -46,12 +47,13 @@
                             <option value="shed">Med Skur</option>
                             <option value="noShed">Uden Skur</option>
                         </select>
-                        <br>
-                        Skur længde i cm:<br>
-                        <input type="number" name="shedLength" min="0" max="200" value="0">
+                        <%--TODO custom exceptions--%>
                         <br>
                         Skur bredde i cm:<br>
-                        <input type="number" name="shedWidth" min="0" max="200" value="0">
+                        <input type="number" name="shedWidth" min="0" max="720" value="0">
+                        <br>
+                        Skur længde i cm:<br>
+                        <input type="number" name="shedLength" min="0" max="690" value="0">
                         <br>
                         Navn:<br>
                         <input type="text" name="name" required>

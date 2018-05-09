@@ -12,7 +12,7 @@ package FunctionLayer;
 public class LineItem {
     
     private int idlineitem;
-    private int length;
+    private int length = 0;
     private int qty;
     private String unit;
     private String descriptionUse;
