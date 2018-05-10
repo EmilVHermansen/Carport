@@ -16,7 +16,7 @@
     double shedLength = 1831.5;
     int rafterPos = 0;
     int farRightPoleX = length - 425;
-    boolean shed = false;
+    boolean shed = true;
 
     int qty = 1;
     qty += (length - 45) / 600;
@@ -38,7 +38,7 @@
         <h1> Teknisk tegning af carport for <% out.print(user.getEmail());%></h1>
 
         <% //TODO delete this nephew
-            out.print("Rafter distance: " + ((length - (45 * qty)) / holes ) + " mm"); %> <br>
+            out.print("Rafter distance: " + ((length - (45 * qty)) / holes) + " mm"); %> <br>
 
 
         <!-- SVG drawing of carport for the customer -->
@@ -161,14 +161,46 @@
         <!--De 550mm afstand mellem spær er ikke korrekt, så den resterende længde er tilføjet på afstanden mellem sidste og næstsidste spær-->
 
         <!--Krydsbånd-->
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="5495" y2="5562.5"
+
+
+        <!-- if there's no shed present, the krydsbånd will range from the 
+             start of the first rafter, to the start of the last rafter -->
+        <% if (!shed)
+            {
+        %>
+        <!-- venstre top, til højre bund -->
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(width - rafterDistance); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="5475" y2="5582.5"
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(width - rafterDistance - 20); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="5562.5" x2="5475" y2="445"
+
+        <!-- højre top, til venstre bund -->
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 395); %>" x2="<% out.print(width - rafterDistance - 20); %>" y2="445"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="5582.5" x2="5495" y2="465"
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 415); %>" x2="<% out.print(width - rafterDistance); %>" y2="465"
               style="stroke: black; fill: white; stroke-width: 10;"/>
+
+        <% }
+        %>
+
+        <% if (shed)
+            {
+        %>
+        <!-- venstre top, til højre bund -->
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="<% out.print(width - 395); %>"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(length - rafterDistance - shedLength + 65); %>" y2="<% out.print(width - 395); %>"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+
+        <!-- højre top, til venstre bund -->
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="445"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="465"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+
+        <%
+            }
+        %>
 
         </SVG>
 
