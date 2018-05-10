@@ -12,10 +12,11 @@
 <%
     int width = 6000;
     int length = 7800;
-    int shedLength = 5155;
-    double shedWidth = 1831.5;
+    int shedWidth = 5300;
+    double shedLength = 1831.5;
     int rafterPos = 0;
     int rafterDistance = 600;
+    int wallPlateDistance = width - 700;
 %>
 
 <html>
@@ -37,13 +38,25 @@
         <!--Stolper-->
         <rect x="1077.5" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="4077.5" y="327.5" width="100" height="100"
-              style="stroke: black; fill: white; stroke-width: 10;"/>
-
         <rect x="1077.5" y="<% out.print(width - 417.5); %>" width="100" height="100"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+        <rect x="4077.5" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         <rect x="4077.5" y="<% out.print(width - 417.5); %>" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
+        
+        <% if(shedWidth < wallPlateDistance)
+        {
+            
+        %>
+        
+        <rect x="7377.5" y="<% out.print(width - 417.5); %>" width="100" height="100"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+        
+        <% } %>
+        
+        
+        
 
         <!--Rem-->
         <rect x="0" y="<% out.print(width - 395);%>" width="<% out.print(length); %>" height="45"
@@ -53,8 +66,8 @@
 
         <!--Spær-->
         <%  int qty = 2;
-            qty += length / 600;
-            if (length % 600 > 0)
+            qty += length / (width / 10);
+            if (length % (width / 10) > 0)
             {
                 qty++;
             }
@@ -74,15 +87,15 @@
         %>
         <!--Løsholte skur-->
         <!-- lodrette -->
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 85); %>" y="427.5" width="70" height="<% out.print(shedLength); %>"
+        <rect x="<% out.print(length - rafterDistance - shedLength + 85); %>" y="350" width="70" height="<% out.print(shedWidth); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="<% out.print(length - 395); %>" y="427.5" width="70" height="<% out.print(shedLength); %>"
+        <rect x="<% out.print(length - 395); %>" y="350" width="70" height="<% out.print(shedWidth); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <!-- vandrette -->
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 175); %>" y="327.5" width="<% out.print(shedWidth); %>" height="70"
+        <rect x="<% out.print(length - rafterDistance - shedLength + 175); %>" y="327.5" width="<% out.print(shedLength); %>" height="70"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 175); %>" y="5612.5" width="<% out.print(shedWidth); %>" height="70"
+        <rect x="<% out.print(length - rafterDistance - shedLength + 175); %>" y="<% out.print(shedWidth + 280);%>" width="<% out.print(shedLength); %>" height="70"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
 
@@ -103,19 +116,27 @@
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <!--Stolpe skur-->
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 85); %>" y="327.5" width="100" height="100"
+        <rect x="<% out.print(length - rafterDistance - shedLength + 85); %>" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7377.5" y="327.5" width="100" height="100"
+        <rect x="<% out.print(length - 425); %>" y="327.5" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 85); %>" y="2950" width="100" height="100"
+        <%
+            if (shedWidth >= 3000)
+            {
+        %>
+        
+        <!-- 350 is the distance from the edge of the carport to the wallPlate, where the shed starts-->
+        <rect x="<% out.print(length - rafterDistance - shedLength + 85); %>" y="<% out.print(shedWidth / 2 + 350); %>" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7377.5" y="2950" width="100" height="100"
+        <rect x="<% out.print(length - 425); %>" y="<% out.print(shedWidth / 2 + 350); %>" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/> 
+        <%
+            }
 
-        <rect x="<% out.print(length - rafterDistance - shedWidth + 85); %>" y="5582.5" width="100" height="100"
+        %>
+        <rect x="<% out.print(length - rafterDistance - shedLength + 85); %>" y="<% out.print(shedWidth + 250); %>" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <rect x="7377.5" y="5582.5" width="100" height="100"
+        <rect x="<% out.print(length - 425); %>" y="<% out.print(shedWidth + 250); %>" width="100" height="100"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         </SVG>
 
