@@ -168,6 +168,7 @@
         <% if (!shed)
             {
         %>
+        <!-- TODO fix the X coordinates -->
         <!-- venstre top, til højre bund -->
         <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(width - rafterDistance); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
@@ -187,15 +188,16 @@
             {
         %>
         <!-- venstre top, til højre bund -->
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="<% out.print(width - 395); %>"
+
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(length - rafterDistance - shedLength - 20); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(length - rafterDistance - shedLength + 65); %>" y2="<% out.print(width - 395); %>"
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(length - rafterDistance - shedLength); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <!-- højre top, til venstre bund -->
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="445"
+        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 375); %>" x2="<% out.print(length - rafterDistance - shedLength - 20); %>" y2="445"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength + 85); %>" y2="465"
+        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength); %>" y2="465"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <%
