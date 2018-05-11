@@ -39,7 +39,7 @@ public class OrderConfirmation extends Command {
         if (!request.getParameter("shedLength").isEmpty())
             order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));
         if (!request.getParameter("shedWidth").isEmpty())
-            order.setShedLength(Integer.parseInt(request.getParameter("shedWidth")));
+            order.setShedWidth(Integer.parseInt(request.getParameter("shedWidth")));
         if (!request.getParameter("comment").isEmpty());
             order.setComment(request.getParameter("comment"));
 
