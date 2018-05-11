@@ -61,6 +61,11 @@ public class BillOfMaterials
         return shedWidth() == (width() - 700); // shedWidth == width
     }
 
+    public List<LineItem> getBillOfMaterials()
+    {
+        return billOfMaterials;
+    }
+
     public void createBoM() // mastermethod
     {
         // Træ og træplader
@@ -72,7 +77,7 @@ public class BillOfMaterials
         if (shed())
         {
             createZBacksideDoor();
-            createShedFrame(); // skur løsholter
+            createShedFrame(); // skur løsholter 
             createShedCladding(); // skur beklædning
         }
 
@@ -91,11 +96,6 @@ public class BillOfMaterials
         createBracketScrew(); // 40x50mm skruer til beslag
         createBoardScrewAndSquareWasher(); // bræddebolt 10x120mm og firkantskiver til rem på stolpe
 
-    }
-
-    public List<LineItem> getBillOfMaterials()
-    {
-        return billOfMaterials;
     }
 
     void createPole() // Stolper  
