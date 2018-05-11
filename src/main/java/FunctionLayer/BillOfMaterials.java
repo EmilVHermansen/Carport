@@ -60,6 +60,11 @@ public class BillOfMaterials
     {
         return order.getShedWidth();
     }
+    
+    public List<LineItem> getBillOfMaterials()
+    {
+        return billOfMaterials;
+    }
 
     public void createBoM() // mastermethod
     {
@@ -72,7 +77,7 @@ public class BillOfMaterials
         if (shed())
         {
         createZBacksideDoor();
-        createShedFrame(); // skur løsholter
+        createShedFrame(); // skur løsholter 
         createShedCladding(); // skur beklædning
         }
 
@@ -93,10 +98,6 @@ public class BillOfMaterials
 
     }
 
-    public List<LineItem> getBillOfMaterials()
-    {
-        return billOfMaterials;
-    }
     
     // TODO Shed can not be more than 3 m long (Need change)
     void createPole() // Stolper  
