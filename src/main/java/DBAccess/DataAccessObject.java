@@ -209,6 +209,7 @@ public class DataAccessObject
             ps.setString(15, order.getStatus());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
             int id = ids.getInt(1);
             order.setIdOrder(id);
         } catch (SQLException | ClassNotFoundException ex)
@@ -250,6 +251,7 @@ public class DataAccessObject
             ps.setString(6, lineItem.getDescriptionUse());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
             int id = ids.getInt(1);
             lineItem.setIdorder(id);
         } catch (SQLException | ClassNotFoundException ex) {

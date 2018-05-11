@@ -69,21 +69,27 @@ public class BillOfMaterials
         createRafter(); // Spær
         createFasciaAndWaterBoard(); // Stern og vandbræt (over and under, front/back and sides)(front and sides)
         createRoofPlate(); // Tagplader
+        if (shed())
+        {
         createZBacksideDoor();
         createShedFrame(); // skur løsholter
         createShedCladding(); // skur beklædning
+        }
 
         // Beslag og skruer
-        createPerforatedBand(); // hulbånd
+        if (shed())
+        {
         createShedDoorKnob(); // stalddørsgreb
         createShedDoorHinge(); // Skurhængsler
+        createShedCladdingScrews(); // 4,5x50mm and 4,5x70mm screws for inner and outer cladding
+        createAngleBracket(); // vinkelbeslag til skurets løsholter
+        }
+        createPerforatedBand(); // hulbånd
         createUniversalBracket(); // universal beslag til spær på rem
         createBottomScrew(); // bundskruer til tagplader
         createFasciaWaterBoardScrew();  // 4,5x60mm skruer til stern og vandbræt
         createBracketScrew(); // 40x50mm skruer til beslag
         createBoardScrewAndSquareWasher(); // bræddebolt 10x120mm og firkantskiver til rem på stolpe
-        createShedCladdingScrews(); // 4,5x50mm and 4,5x70mm screws for inner and outer cladding
-        createAngleBracket(); // vinkelbeslag til skurets løsholter
 
     }
 

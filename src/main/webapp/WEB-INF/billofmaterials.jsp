@@ -32,7 +32,13 @@
                 { %>
             <tr>
                 <td><% out.print(lineItem.getName()); %></td>
-                <td><% out.print(lineItem.getLength()); %></td>
+                <td><% if (lineItem.getLength() != 0)
+                    {
+                        out.print(lineItem.getLength());
+                    } else
+                    {
+                        out.print("");
+                    } %></td>
                 <td><% out.print(lineItem.getQty()); %></td>
                 <td><% out.print(lineItem.getUnit()); %></td>
                 <td><% out.print(lineItem.getDescriptionUse()); %></td>
