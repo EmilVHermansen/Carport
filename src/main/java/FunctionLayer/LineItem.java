@@ -12,6 +12,7 @@ package FunctionLayer;
 public class LineItem {
     
     private int idlineitem;
+    private String name = "";
     private int length = 0;
     private int qty;
     private String unit;
@@ -24,6 +25,10 @@ public class LineItem {
         this.descriptionUse = descriptionUse;
         this.idorder = idorder;
         this.idmaterial = idmaterial;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getIdlineitem() {

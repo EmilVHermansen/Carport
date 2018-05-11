@@ -67,7 +67,7 @@ public class BillOfMaterials
         createPole(); // Stolper
         createWallPlate(); // Remme (carport and shed)
         createRafter(); // Spær
-        createFasciaAndWaterBoard(); // Stern og vandbrædt (over and under, front/back and sides)(front and sides)
+        createFasciaAndWaterBoard(); // Stern og vandbræt (over and under, front/back and sides)(front and sides)
         createRoofPlate(); // Tagplader
         createZBacksideDoor();
         createShedFrame(); // skur løsholter
@@ -158,7 +158,7 @@ public class BillOfMaterials
 
     void createRafter() // Spær
     {
-        LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 3);
+        LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 2);
         rafter.setLength(width());
         int qty = 1 + ((length() - 45) / 600);
         if ((length() - 45) % 600 > 0)
@@ -169,24 +169,24 @@ public class BillOfMaterials
         billOfMaterials.add(rafter);
     }
 
-    void createFasciaAndWaterBoard() // Stern (over and under, front/back and sides) og vandbrædt (front and sides)
+    void createFasciaAndWaterBoard() // Stern (over and under, front/back and sides) og vandbræt (front and sides)
     {
-        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder(), 4);
+        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder(), 3);
         fasciaBoardUnderFrontBack.setQty(4);
 
-        LineItem fasciaBoardUnderSides = new LineItem("stk", "understernbrædder til siderne", idOrder(), 4);
+        LineItem fasciaBoardUnderSides = new LineItem("stk", "understernbrædder til siderne", idOrder(), 3);
         fasciaBoardUnderSides.setQty(4);
 
-        LineItem fasciaBoardFront = new LineItem("stk", "oversternbrædder til forenden", idOrder(), 5);
+        LineItem fasciaBoardFront = new LineItem("stk", "oversternbrædder til forenden", idOrder(), 4);
         fasciaBoardFront.setQty(2);
 
-        LineItem fasciaBoardSides = new LineItem("stk", "oversternbrædder til siderne", idOrder(), 5);
+        LineItem fasciaBoardSides = new LineItem("stk", "oversternbrædder til siderne", idOrder(), 4);
         fasciaBoardSides.setQty(4);
 
-        LineItem waterBoardFront = new LineItem("stk", "vandbrædt på stern i forende", idOrder(), 6);
+        LineItem waterBoardFront = new LineItem("stk", "vandbræt på stern i forende", idOrder(), 5);
         waterBoardFront.setQty(2);
 
-        LineItem waterBoardSides = new LineItem("stk", "vandbrædt på stern i sider", idOrder(), 6);
+        LineItem waterBoardSides = new LineItem("stk", "vandbræt på stern i sider", idOrder(), 5);
         waterBoardSides.setQty(4);
 
         int frontBackLength = width() - (width() % 300);
@@ -219,7 +219,7 @@ public class BillOfMaterials
 
     void createRoofPlate() // Tagplader
     {
-        LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 7);
+        LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 6);
         int qty = width() / 1040; //width of a roofplate on Fogs website
 
         if (width() % 1040 > 0)
@@ -232,7 +232,7 @@ public class BillOfMaterials
         if (length() > 6000)
         {
             roofPlate1.setLength(6000);
-            LineItem roofPlate2 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 7);
+            LineItem roofPlate2 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 6);
             roofPlate2.setQty(qty);
             int length2 = length() - 6000;
             if (length2 <= 2400)
@@ -279,7 +279,7 @@ public class BillOfMaterials
 
     void createZBacksideDoor()
     {
-        LineItem zBacksideDoor = new LineItem("stk", "til z på bagside	af dør", idOrder(), 8);
+        LineItem zBacksideDoor = new LineItem("stk", "til z på bagside	af dør", idOrder(), 7);
         zBacksideDoor.setQty(1);
         zBacksideDoor.setLength(420);
         billOfMaterials.add(zBacksideDoor);
@@ -289,8 +289,8 @@ public class BillOfMaterials
     {
         if (shed())
         {
-            LineItem shedFrameFrontBack = new LineItem("stk", "løsholter til skur gavle", idOrder(), 9);
-            LineItem shedFrameSides = new LineItem("stk", "løsholter til skur sider", idOrder(), 9);
+            LineItem shedFrameFrontBack = new LineItem("stk", "løsholter til skur gavle", idOrder(), 8);
+            LineItem shedFrameSides = new LineItem("stk", "løsholter til skur sider", idOrder(), 8);
 
             int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
             if (shedLength() % maxPoleDistance > 0)
@@ -323,7 +323,7 @@ public class BillOfMaterials
 
     void createShedCladding() // skur beklædning
     {
-        LineItem shedCladding = new LineItem("stk", "til beklædning af skur 1 på 2", idOrder(), 10);
+        LineItem shedCladding = new LineItem("stk", "til beklædning af skur 1 på 2", idOrder(), 5);
         shedCladding.setLength(2100);
         
         double avgBoardWidth = 7.4; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 7.4
@@ -371,7 +371,7 @@ public class BillOfMaterials
             perforatedBandQty *= 2;
         }
 
-        LineItem perforatedBand = new LineItem("stk", "Til vindkryds på spær", idOrder(), 11);
+        LineItem perforatedBand = new LineItem("stk", "Til vindkryds på spær", idOrder(), 9);
 
         perforatedBand.setQty(perforatedBandQty);
 
@@ -380,22 +380,22 @@ public class BillOfMaterials
 
     void createShedDoorKnob()
     {
-        LineItem shedDoorKnop = new LineItem("sæt", "Til lås på dør i skur", idOrder(), 12);
-        shedDoorKnop.setQty(1);
-        billOfMaterials.add(shedDoorKnop);
+        LineItem shedDoorKnob = new LineItem("sæt", "Til lås på dør i skur", idOrder(), 10);
+        shedDoorKnob.setQty(1);
+        billOfMaterials.add(shedDoorKnob);
     }
 
     void createShedDoorHinge()
     {
-        LineItem shedDoorHinge = new LineItem("stk", "Til skurdør", idOrder(), 13);
+        LineItem shedDoorHinge = new LineItem("stk", "Til skurdør", idOrder(), 11);
         shedDoorHinge.setQty(2);
         billOfMaterials.add(shedDoorHinge);
     }
 
     void createUniversalBracket()
     {
-        LineItem universalHingeLeft = new LineItem("stk", "Til montering af spær på rem", idOrder(), 14);
-        LineItem universalHingeRight = new LineItem("stk", "Til	montering af spær på rem", idOrder(), 15);
+        LineItem universalHingeLeft = new LineItem("stk", "Til montering af spær på rem", idOrder(), 12);
+        LineItem universalHingeRight = new LineItem("stk", "Til	montering af spær på rem", idOrder(), 13);
 
         int qty = 1 + ((length() - 45) / 600);
         if ((length() - 45) % 600 > 0)
@@ -410,7 +410,7 @@ public class BillOfMaterials
 
     private void createBottomScrew()
     {
-        LineItem bottomScrew = new LineItem("Pakke", "Skruer til tagplader", idOrder(), 16);
+        LineItem bottomScrew = new LineItem("Pakke", "Skruer til tagplader", idOrder(), 14);
         //based on existing example of BoM and manual
         int length = 7800;
         int width = 6000;
@@ -426,7 +426,7 @@ public class BillOfMaterials
 
     private void createFasciaWaterBoardScrew()
     {
-        LineItem FasciaWaterBoardScrew = new LineItem("Pakke", "Til montering af stern & vandbræt", idOrder(), 17);
+        LineItem FasciaWaterBoardScrew = new LineItem("Pakke", "Til montering af stern & vandbræt", idOrder(), 15);
         FasciaWaterBoardScrew.setQty(1);
         billOfMaterials.add(FasciaWaterBoardScrew);
 
@@ -434,7 +434,7 @@ public class BillOfMaterials
 
     private void createBracketScrew()
     {
-        LineItem bracketScrew = new LineItem("Pakke", "Til montering af universalbeslag & hulbånd", idOrder(), 18);
+        LineItem bracketScrew = new LineItem("Pakke", "Til montering af universalbeslag & hulbånd", idOrder(), 16);
         int rafterQty = 1 + ((length() - 45) / 600);
         if ((length() - 45) % 600 > 0)
         {
@@ -454,8 +454,8 @@ public class BillOfMaterials
     private void createBoardScrewAndSquareWasher()
     {
         int length = length();
-        LineItem boardScrew = new LineItem("stk", "Montering af rem på stolper", idOrder(), 19);
-        LineItem squareWasher = new LineItem("stk", "Montering af rem på stolper", idOrder(), 20);
+        LineItem boardScrew = new LineItem("stk", "Montering af rem på stolper", idOrder(), 17);
+        LineItem squareWasher = new LineItem("stk", "Montering af rem på stolper", idOrder(), 18);
 
         int poleAmount = 2; // minimum amount of poles
 
@@ -475,8 +475,8 @@ public class BillOfMaterials
 
     private void createShedCladdingScrews()
     {
-        LineItem outerScrew = new LineItem("stk", "Til montering af yderste beklædning", idOrder(), 21);
-        LineItem innerScrew = new LineItem("stk", "Til montering af inderste beklædning", idOrder(), 22);
+        LineItem outerScrew = new LineItem("stk", "Til montering af yderste beklædning", idOrder(), 19);
+        LineItem innerScrew = new LineItem("stk", "Til montering af inderste beklædning", idOrder(), 20);
         
         double avgBoardWidth = 7.4; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 7.4
         double circumference = shedLength() * 2 + shedWidth() * 2;
@@ -499,7 +499,7 @@ public class BillOfMaterials
     {
         if (shed())
         {
-            LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 23);
+            LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
             int angleBracketQty;
             
             int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
