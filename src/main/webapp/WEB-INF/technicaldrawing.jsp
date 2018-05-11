@@ -12,8 +12,8 @@
 <%
     int width = 7500;
     int length = 7800;
-    int shedWidth = 3300;
-    double shedLength = 1831.5;
+    int shedWidth = 2700;
+    double shedLength = 3300;
     int rafterPos = 0;
     int farRightPoleX = length - 425;
     boolean shed = true;
@@ -26,6 +26,17 @@
     }
     int holes = qty - 1;
     int rafterDistance = (length - 45) / holes;
+
+    
+    //Used to find the placement of the KRYDSBÅND if there is a shed.
+    int RafterQty = 1;
+    RafterQty += ((length - shedLength - 395) - 45) / 600;
+    if (((length - shedLength - 395) - 45) % 600 > 0)
+    {
+        RafterQty++;
+    }
+    int holesWithoutShed = RafterQty - 2;
+
 %>
 
 
@@ -39,6 +50,7 @@
 
         <% //TODO delete this nephew
             out.print("Rafter distance: " + ((length - (45 * qty)) / holes) + " mm"); %> <br>
+
 
 
         <!-- SVG drawing of carport for the customer -->
@@ -170,15 +182,15 @@
         %>
         <!-- TODO fix the X coordinates -->
         <!-- venstre top, til højre bund -->
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(width - rafterDistance); %>" y2="<% out.print(width - 395); %>"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="395" x2="<% out.print(length - rafterDistance - 25); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(width - rafterDistance - 20); %>" y2="<% out.print(width - 395); %>"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="415" x2="<% out.print(length - rafterDistance - 85); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <!-- højre top, til venstre bund -->
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 395); %>" x2="<% out.print(width - rafterDistance - 20); %>" y2="445"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - 25); %>" y2="395"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 415); %>" x2="<% out.print(width - rafterDistance); %>" y2="465"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="<% out.print(width - 415); %>" x2="<% out.print(length - rafterDistance - 85); %>" y2="415"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <% }
@@ -189,15 +201,15 @@
         %>
         <!-- venstre top, til højre bund -->
 
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="395" x2="<% out.print(length - rafterDistance - shedLength - 20); %>" y2="<% out.print(width - 395); %>"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="395" x2="<% out.print(holesWithoutShed * rafterDistance); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="415" x2="<% out.print(length - rafterDistance - shedLength); %>" y2="<% out.print(width - 395); %>"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="415" x2="<% out.print(holesWithoutShed * rafterDistance - 50); %>" y2="<% out.print(width - 395); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
-        <!-- højre top, til venstre bund -->
-        <line stroke-dasharray="50, 50"              x1="552.5" y1="<% out.print(width - 375); %>" x2="<% out.print(length - rafterDistance - shedLength - 20); %>" y2="445"
+        <!-- venstre bund, til højre top -->
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="<% out.print(width - 375); %>" x2="<% out.print(holesWithoutShed * rafterDistance); %>" y2="395"
               style="stroke: black; fill: white; stroke-width: 10;"/>
-        <line stroke-dasharray="50, 50"              x1="572.5" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - shedLength); %>" y2="465"
+        <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="<% out.print(width - 395); %>" x2="<% out.print(holesWithoutShed * rafterDistance - 50); %>" y2="415"
               style="stroke: black; fill: white; stroke-width: 10;"/>
 
         <%
