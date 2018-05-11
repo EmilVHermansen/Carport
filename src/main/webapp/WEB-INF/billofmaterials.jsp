@@ -25,7 +25,7 @@
             <th>Længde</th>
             <th>Antal</th>
             <th>Enhed</th>
-            <th>Beskrivelse</th>
+            <th>Brugsbeskrivelse</th>
         </thead>
         <tbody>
             <%for (LineItem lineItem : lineItems)

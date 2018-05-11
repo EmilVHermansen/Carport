@@ -12,7 +12,7 @@
     </head>
      <%@include file="header.jsp" %>
     <body>
-        <h1>Ordre bekræfted</h1>
+        <h1>Ordre bekræftet</h1>
        ${order}
     </body>
 </html>

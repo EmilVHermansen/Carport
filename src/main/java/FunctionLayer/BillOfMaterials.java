@@ -171,22 +171,22 @@ public class BillOfMaterials
 
     void createFasciaAndWaterBoard() // Stern (over and under, front/back and sides) og vandbræt (front and sides)
     {
-        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "understernbrædder til for & bag ende", idOrder(), 3);
+        LineItem fasciaBoardUnderFrontBack = new LineItem("stk", "Understernbrædder til for & bag ende", idOrder(), 3);
         fasciaBoardUnderFrontBack.setQty(4);
 
-        LineItem fasciaBoardUnderSides = new LineItem("stk", "understernbrædder til siderne", idOrder(), 3);
+        LineItem fasciaBoardUnderSides = new LineItem("stk", "Understernbrædder til siderne", idOrder(), 3);
         fasciaBoardUnderSides.setQty(4);
 
-        LineItem fasciaBoardFront = new LineItem("stk", "oversternbrædder til forenden", idOrder(), 4);
+        LineItem fasciaBoardFront = new LineItem("stk", "Oversternbrædder til forenden", idOrder(), 4);
         fasciaBoardFront.setQty(2);
 
-        LineItem fasciaBoardSides = new LineItem("stk", "oversternbrædder til siderne", idOrder(), 4);
+        LineItem fasciaBoardSides = new LineItem("stk", "Oversternbrædder til siderne", idOrder(), 4);
         fasciaBoardSides.setQty(4);
 
-        LineItem waterBoardFront = new LineItem("stk", "vandbræt på stern i forende", idOrder(), 5);
+        LineItem waterBoardFront = new LineItem("stk", "Vandbræt på stern i forende", idOrder(), 5);
         waterBoardFront.setQty(2);
 
-        LineItem waterBoardSides = new LineItem("stk", "vandbræt på stern i sider", idOrder(), 5);
+        LineItem waterBoardSides = new LineItem("stk", "Vandbræt på stern i sider", idOrder(), 5);
         waterBoardSides.setQty(4);
 
         int frontBackLength = width() - (width() % 300);
@@ -219,7 +219,7 @@ public class BillOfMaterials
 
     void createRoofPlate() // Tagplader
     {
-        LineItem roofPlate1 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 6);
+        LineItem roofPlate1 = new LineItem("stk", "Tagplader monteres på spær", idOrder(), 6);
         int qty = width() / 1040; //width of a roofplate on Fogs website
 
         if (width() % 1040 > 0)
@@ -232,7 +232,7 @@ public class BillOfMaterials
         if (length() > 6000)
         {
             roofPlate1.setLength(6000);
-            LineItem roofPlate2 = new LineItem("stk", "tagplader monteres på spær", idOrder(), 6);
+            LineItem roofPlate2 = new LineItem("stk", "Tagplader monteres på spær", idOrder(), 6);
             roofPlate2.setQty(qty);
             int length2 = length() - 6000;
             if (length2 <= 2400)
@@ -279,7 +279,7 @@ public class BillOfMaterials
 
     void createZBacksideDoor()
     {
-        LineItem zBacksideDoor = new LineItem("stk", "til z på bagside	af dør", idOrder(), 7);
+        LineItem zBacksideDoor = new LineItem("stk", "Til z på bagside	af dør", idOrder(), 7);
         zBacksideDoor.setQty(1);
         zBacksideDoor.setLength(420);
         billOfMaterials.add(zBacksideDoor);
@@ -289,8 +289,8 @@ public class BillOfMaterials
     {
         if (shed())
         {
-            LineItem shedFrameFrontBack = new LineItem("stk", "løsholter til skur gavle", idOrder(), 8);
-            LineItem shedFrameSides = new LineItem("stk", "løsholter til skur sider", idOrder(), 8);
+            LineItem shedFrameFrontBack = new LineItem("stk", "Løsholter til skur gavle", idOrder(), 8);
+            LineItem shedFrameSides = new LineItem("stk", "Løsholter til skur sider", idOrder(), 8);
 
             int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
             if (shedLength() % maxPoleDistance > 0)
@@ -323,7 +323,7 @@ public class BillOfMaterials
 
     void createShedCladding() // skur beklædning
     {
-        LineItem shedCladding = new LineItem("stk", "til beklædning af skur 1 på 2", idOrder(), 5);
+        LineItem shedCladding = new LineItem("stk", "Til beklædning af skur 1 på 2", idOrder(), 5);
         shedCladding.setLength(2100);
         
         double avgBoardWidth = 7.4; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 7.4
