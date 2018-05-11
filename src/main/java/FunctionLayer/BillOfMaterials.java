@@ -33,12 +33,12 @@ public class BillOfMaterials
 
     private int length()
     {
-        return order.getLength();
+        return order.getLength() * 10;
     }
 
     private int width()
     {
-        return order.getWidth();
+        return order.getWidth() * 10;
     }
 
     private boolean shed()
@@ -46,19 +46,19 @@ public class BillOfMaterials
         return order.getShed().equals("shed");
     }
 
-    private boolean fullShed()
-    {
-        return order.getShedWidth() == (order.getWidth() - 700); // shedWidth == width
-    }
-
     private int shedLength()
     {
-        return order.getShedLength();
+        return order.getShedLength() * 10;
     }
 
     private int shedWidth()
     {
-        return order.getShedWidth();
+        return order.getShedWidth() * 10;
+    }
+
+    private boolean fullShed()
+    {
+        return shedWidth() == (width() - 700); // shedWidth == width
     }
 
     public void createBoM() // mastermethod
@@ -71,18 +71,18 @@ public class BillOfMaterials
         createRoofPlate(); // Tagplader
         if (shed())
         {
-        createZBacksideDoor();
-        createShedFrame(); // skur løsholter
-        createShedCladding(); // skur beklædning
+            createZBacksideDoor();
+            createShedFrame(); // skur løsholter
+            createShedCladding(); // skur beklædning
         }
 
         // Beslag og skruer
         if (shed())
         {
-        createShedDoorKnob(); // stalddørsgreb
-        createShedDoorHinge(); // Skurhængsler
-        createShedCladdingScrews(); // 4,5x50mm and 4,5x70mm screws for inner and outer cladding
-        createAngleBracket(); // vinkelbeslag til skurets løsholter
+            createShedDoorKnob(); // stalddørsgreb
+            createShedDoorHinge(); // Skurhængsler
+            createShedCladdingScrews(); // 4,5x50mm and 4,5x70mm screws for inner and outer cladding
+            createAngleBracket(); // vinkelbeslag til skurets løsholter
         }
         createPerforatedBand(); // hulbånd
         createUniversalBracket(); // universal beslag til spær på rem
@@ -97,7 +97,6 @@ public class BillOfMaterials
     {
         return billOfMaterials;
     }
-    
 
     void createPole() // Stolper  
     {
@@ -114,23 +113,24 @@ public class BillOfMaterials
             {
                 poleAmount += 2;
             }
-            if (shedLength()> maxPoleDistance)
+            if (shedLength() > maxPoleDistance)
             {
                 poleAmount += 2;
             }
-            if (shedLength()> 2*maxPoleDistance)
+            if (shedLength() > 2 * maxPoleDistance)
             {
                 poleAmount += 2;
             }
-            if (shedLength() > length()-150-1200)
+            if (shedLength() > length() - 150 - 1200)
             {
                 if (fullShed())
                 {
                     poleAmount -= 2;
-                } else {
+                } else
+                {
                     poleAmount -= 1;
                 }
-                
+
             }
             if (fullShed())
             {
@@ -158,20 +158,24 @@ public class BillOfMaterials
         if (shed())
         {
             LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder(), 2);
-            wallPlateShed.setLength(shedLength() * 2);
             wallPlateShed.setQty(1);
-            billOfMaterials.add(wallPlateShed);
 
             if (fullShed())
             {
+                wallPlateShed.setLength(shedLength() * 2 + 300);
                 wallPlateCarport.setLength(length() - shedLength());
                 wallPlateCarport.setQty(2);
             } else
             {
+                wallPlateShed.setLength(shedLength());
                 wallPlateCarport.setLength(length());
                 wallPlateCarport.setQty(1);
-
+                LineItem wallPlateCarport2 = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder(), 2);
+                wallPlateCarport2.setLength(length() - shedLength());
+                wallPlateCarport2.setQty(1);
+                billOfMaterials.add(wallPlateCarport2);
             }
+            billOfMaterials.add(wallPlateShed);
         } else
         {
             wallPlateCarport.setLength(length());
@@ -184,8 +188,8 @@ public class BillOfMaterials
     {
         LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 2);
         rafter.setLength(width());
-        int qty = 1 + ((length() - 45) / 600);
-        if ((length() - 45) % 600 > 0)
+        int qty = 1 + ((length() - 45) / 645);
+        if ((length() - 45) % 645 > 0)
         {
             qty++;
         }
@@ -326,7 +330,7 @@ public class BillOfMaterials
             sidelength += 300 - (sidelength % 300); // make sure the length is divisible by 300 mm and make sure there is more than enough.
             shedFrameSides.setLength(sidelength);
 
-            shedFrameSides.setQty(sideSpaces * 2 + (fullShed() ? 0 : 1));
+            shedFrameSides.setQty((sideSpaces * 2 + sideSpaces * (fullShed() ? 2 : 3)));
 
             int frontBackSpaces = shedWidth() / maxPoleDistance; // spaces between the poles
             if (shedWidth() % maxPoleDistance > 0)
@@ -338,7 +342,7 @@ public class BillOfMaterials
             frontBacklength += 300 - (frontBacklength % 300); // make sure the length is divisible by 300 mm and make sure there is more than enough.
             shedFrameFrontBack.setLength(frontBacklength);
 
-            shedFrameFrontBack.setQty(frontBackSpaces * 3);
+            shedFrameFrontBack.setQty(frontBackSpaces * 3 * 2);
 
             billOfMaterials.add(shedFrameSides);
             billOfMaterials.add(shedFrameFrontBack);
@@ -349,10 +353,9 @@ public class BillOfMaterials
     {
         LineItem shedCladding = new LineItem("stk", "Til beklædning af skur 1 på 2", idOrder(), 5);
         shedCladding.setLength(2100);
-        
-        double avgBoardWidth = 7.4; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 7.4
+
+        int avgBoardWidth = 74; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 74
         double circumference = shedLength() * 2 + shedWidth() * 2;
-        
 
         int shedCladdingQty = (int) (circumference / avgBoardWidth);
         shedCladdingQty += (shedCladdingQty % avgBoardWidth == 0) ? 0 : 1;
@@ -483,16 +486,16 @@ public class BillOfMaterials
 
         int poleAmount = 2; // minimum amount of poles
 
-        poleAmount += (length / maxPoleDistance * 2);
+        poleAmount += ((length() - shedLength()) / maxPoleDistance * 2);
 
         if (length % maxPoleDistance > 1200)
         {
             poleAmount += 2;
         }
-        
-        boardScrew.setQty(poleAmount*3);
-        squareWasher.setQty(poleAmount*2);
-        
+
+        boardScrew.setQty(poleAmount * 3);
+        squareWasher.setQty(poleAmount * 2);
+
         billOfMaterials.add(boardScrew);
         billOfMaterials.add(squareWasher);
     }
@@ -501,20 +504,21 @@ public class BillOfMaterials
     {
         LineItem outerScrew = new LineItem("stk", "Til montering af yderste beklædning", idOrder(), 19);
         LineItem innerScrew = new LineItem("stk", "Til montering af inderste beklædning", idOrder(), 20);
-        
-        double avgBoardWidth = 7.4; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 7.4
+
+        int avgBoardWidth = 74; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 74
         double circumference = shedLength() * 2 + shedWidth() * 2;
-        
 
         int shedCladdingQty = (int) (circumference / avgBoardWidth);
         shedCladdingQty += (shedCladdingQty % avgBoardWidth == 0) ? 0 : 1;
-        
-        int outerScrewQty = (shedCladdingQty / 2) + (shedCladdingQty % 2) * 8;
+
+        int outerScrewQty = ((shedCladdingQty / 2) + (shedCladdingQty % 2)) * 8;
+        outerScrewQty /= 400; // 400 screws per pack
         outerScrew.setQty(outerScrewQty);
-        
-        int innerScrewQty = (shedCladdingQty / 2) + (shedCladdingQty % 2) * 6;
+
+        int innerScrewQty = ((shedCladdingQty / 2) + (shedCladdingQty % 2)) * 6;
+        innerScrewQty /= 300; // 300 screws per pack
         innerScrew.setQty(innerScrewQty);
-        
+
         billOfMaterials.add(outerScrew);
         billOfMaterials.add(innerScrew);
     }
@@ -525,13 +529,13 @@ public class BillOfMaterials
         {
             LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
             int angleBracketQty;
-            
+
             int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
             if (shedLength() % maxPoleDistance > 0)
             {
                 sideSpaces++;
             }
-            
+
             angleBracketQty = sideSpaces * 2 + (fullShed() ? 0 : 1);
 
             int frontBackSpaces = shedWidth() / maxPoleDistance; // spaces between the poles
@@ -540,10 +544,9 @@ public class BillOfMaterials
                 frontBackSpaces++;
             }
 
-
             angleBracketQty += frontBackSpaces * 3;
             angleBracketQty *= 2;
-            
+
             angleBracket.setQty(angleBracketQty);
 
             billOfMaterials.add(angleBracket);
