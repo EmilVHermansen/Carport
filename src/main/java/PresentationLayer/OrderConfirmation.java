@@ -21,10 +21,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author s_ele
  */
-public class OrderConfirmation extends Command {
+public class OrderConfirmation extends Command
+{
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response)  {
+    String execute(HttpServletRequest request, HttpServletResponse response)
+    {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         String inclination = request.getParameter("shed");
@@ -37,21 +39,26 @@ public class OrderConfirmation extends Command {
         String email = request.getParameter("email");
         Order order = new Order(length, width, inclination, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width, email);
         if (!request.getParameter("shedLength").isEmpty())
+        {
             order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));
+        }
         if (!request.getParameter("shedWidth").isEmpty())
+        {
             order.setShedWidth(Integer.parseInt(request.getParameter("shedWidth")));
+        }
         if (!request.getParameter("comment").isEmpty());
-            order.setComment(request.getParameter("comment"));
+        order.setComment(request.getParameter("comment"));
 
-        
-        request.setAttribute("order", order);
-        try {
+        try
+        {
             LogicFacade.submitOrder(order);
-        } catch (OrderException ex) {
+            
+        } catch (OrderException ex)
+        {
             Logger.getLogger(OrderConfirmation.class.getName()).log(Level.SEVERE, null, ex);
         }
+        request.setAttribute("order", order);
         return "orderconfirmationpage";
     }
-    
-    
+
 }
