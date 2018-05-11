@@ -10,17 +10,18 @@
 <% Customer user = (Customer) session.getAttribute("customer"); %>
 <!DOCTYPE html>
 <%
-    int width = 7500;
-    int length = 7800;
+    int width = 4700;
+    int length = 4700;
     int shedWidth = 2700;
-    double shedLength = 3300;
+    double shedLength = 1500;
     int rafterPos = 0;
     int farRightPoleX = length - 425;
     boolean shed = true;
 
+    //Used to find the amount of rafters needed
     int qty = 1;
-    qty += (length - 45) / 600;
-    if ((length - 45) % 600 > 0)
+    qty += (length - 45) / 645;
+    if ((length - 45) % 645 > 0)
     {
         qty++;
     }
@@ -30,8 +31,8 @@
     
     //Used to find the placement of the KRYDSBÅND if there is a shed.
     int RafterQty = 1;
-    RafterQty += ((length - shedLength - 395) - 45) / 600;
-    if (((length - shedLength - 395) - 45) % 600 > 0)
+    RafterQty += ((length - shedLength - 395) - 45) / 645;
+    if (((length - shedLength - 395) - 45) % 645 > 0)
     {
         RafterQty++;
     }
