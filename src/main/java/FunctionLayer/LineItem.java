@@ -28,6 +28,11 @@ public class LineItem {
         this.idmaterial = idmaterial;
     }
 
+    public String getName()
+    {
+        return name;
+    }
+
     public int getIdlineitem() {
         return idlineitem;
     }
@@ -56,6 +61,11 @@ public class LineItem {
         return idmaterial;
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+    
     public void setIdlineitem(int idlineitem) {
         this.idlineitem = idlineitem;
     }
