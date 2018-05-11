@@ -99,7 +99,7 @@ public class BillOfMaterials
     }
 
     
-    // TODO Shed can not be more than 3 m long (Need change)
+
     void createPole() // Stolper  
     {
 
@@ -114,6 +114,24 @@ public class BillOfMaterials
             if (shedWidth() > maxPoleDistance)
             {
                 poleAmount += 2;
+            }
+            if (shedLength()> maxPoleDistance)
+            {
+                poleAmount += 2;
+            }
+            if (shedLength()> 2*maxPoleDistance)
+            {
+                poleAmount += 2;
+            }
+            if (shedLength() > length()-150-1200)
+            {
+                if (fullShed())
+                {
+                    poleAmount -= 2;
+                } else {
+                    poleAmount -= 1;
+                }
+                
             }
             if (fullShed())
             {
@@ -328,7 +346,7 @@ public class BillOfMaterials
         }
     }
 
-    void createShedCladding() // skur beklædning
+    void createShedCladding() // skur beklædning 
     {
         LineItem shedCladding = new LineItem("stk", "Til beklædning af skur 1 på 2", idOrder(), 5);
         shedCladding.setLength(2100);
