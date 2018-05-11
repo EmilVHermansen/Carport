@@ -4,6 +4,7 @@ import FunctionLayer.Customer;
 import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LineItem;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Material;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.User;
@@ -279,5 +280,34 @@ public class DataAccessObject
             throw new SQLException(ex.getMessage());
         }
 
+    }
+    
+    public static Material getMaterial(int idMaterial) throws SQLException
+    {
+        
+        Material material = null;
+        try
+        {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM `material` WHERE `idmaterial`=?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idMaterial);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next())
+            {
+
+                int id = rs.getInt("idmaterial");
+                String name = rs.getString("name");
+                int MSRP = rs.getInt("MSRP");
+                material = new Material(id, name, MSRP);
+            }
+        } catch (ClassNotFoundException ex)
+        {
+            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return material;
     }
 }

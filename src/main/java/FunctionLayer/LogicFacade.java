@@ -38,5 +38,11 @@ public class LogicFacade {
     public static void submitOrder(Order order) throws OrderException {
         DataAccessObject.submitOrder(order);
     }
+    
+    public static Material getMaterial(int materialId) throws SQLException {
+        Material material;
+        material = DataAccessObject.getMaterial(materialId);
+        return material;
+    }
 
 }

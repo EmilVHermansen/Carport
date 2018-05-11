@@ -21,6 +21,7 @@
         <h1>Stykliste</h1>
         <table class="table table-hover">
             <thead class="thead-dark">
+            <th>Beskrivelse</th>
             <th>Længde</th>
             <th>Antal</th>
             <th>Enhed</th>
@@ -30,6 +31,7 @@
             <%for (LineItem lineItem : lineItems)
                 { %>
             <tr>
+                <td><% out.print(lineItem.getName()); %></td>
                 <td><% out.print(lineItem.getLength()); %></td>
                 <td><% out.print(lineItem.getQty()); %></td>
                 <td><% out.print(lineItem.getUnit()); %></td>
