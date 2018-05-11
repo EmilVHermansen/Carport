@@ -4,6 +4,7 @@ import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -41,6 +42,10 @@ public class FrontController extends HttpServlet {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/customerinfo.jsp").forward(request, response);
 
+        } catch (SQLException ex)
+        {
+           request.setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/WEB-INF/billofmaterials.jsp").forward(request, response); 
         }
     }
 

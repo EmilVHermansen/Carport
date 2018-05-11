@@ -19,6 +19,7 @@ public class LineItem {
     private String descriptionUse;
     private int idorder;
     private int idmaterial;
+    private int price = 0;
 
     public LineItem(String unit, String descriptionUse, int idorder, int idmaterial) {
         this.unit = unit;
@@ -27,7 +28,8 @@ public class LineItem {
         this.idmaterial = idmaterial;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
@@ -59,6 +61,11 @@ public class LineItem {
         return idmaterial;
     }
 
+    public int getPrice()
+    {
+        return price;
+    }
+    
     public void setIdlineitem(int idlineitem) {
         this.idlineitem = idlineitem;
     }
@@ -86,6 +93,18 @@ public class LineItem {
     public void setIdmaterial(int idmaterial) {
         this.idmaterial = idmaterial;
     }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+    
+    
 
     @Override
     public String toString() {
