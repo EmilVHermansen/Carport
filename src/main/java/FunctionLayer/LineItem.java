@@ -12,12 +12,14 @@ package FunctionLayer;
 public class LineItem {
     
     private int idlineitem;
+    private String name = "";
     private int length = 0;
     private int qty;
     private String unit;
     private String descriptionUse;
     private int idorder;
     private int idmaterial;
+    private int price = 0;
 
     public LineItem(String unit, String descriptionUse, int idorder, int idmaterial) {
         this.unit = unit;
@@ -81,6 +83,18 @@ public class LineItem {
     public void setIdmaterial(int idmaterial) {
         this.idmaterial = idmaterial;
     }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setPrice(int price)
+    {
+        this.price = price;
+    }
+    
+    
 
     @Override
     public String toString() {

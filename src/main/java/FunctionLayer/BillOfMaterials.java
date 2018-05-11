@@ -91,7 +91,7 @@ public class BillOfMaterials
     {
         return billOfMaterials;
     }
-
+    
     // TODO Shed can not be more than 3 m long (Need change)
     void createPole() // Stolper  
     {
