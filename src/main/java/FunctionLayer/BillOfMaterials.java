@@ -217,20 +217,13 @@ public class BillOfMaterials
         LineItem waterBoardSides = new LineItem("stk", "Vandbræt på stern i sider", idOrder(), 5);
         waterBoardSides.setQty(4);
 
-        int frontBackLength = width() - (width() % 300);
-        if (width() % 300 > 0)
-        {
-            frontBackLength += 300;
-        }
+        int frontBackLength = width() / 2 + (300 - width() % 300);
+        
         fasciaBoardUnderFrontBack.setLength(frontBackLength);
         fasciaBoardFront.setLength(frontBackLength);
         waterBoardFront.setLength(frontBackLength);
 
-        int sideLength = length() - (length() % 300);
-        if (length() % 300 != 0)
-        {
-            sideLength += 300;
-        }
+        int sideLength = length() / 2 + (300 - length() % 300);
 
         fasciaBoardUnderSides.setLength(sideLength);
         fasciaBoardSides.setLength(sideLength);
@@ -309,7 +302,7 @@ public class BillOfMaterials
     {
         LineItem zBacksideDoor = new LineItem("stk", "Til z på bagside	af dør", idOrder(), 7);
         zBacksideDoor.setQty(1);
-        zBacksideDoor.setLength(420);
+        zBacksideDoor.setLength(4200);
         billOfMaterials.add(zBacksideDoor);
     }
 
@@ -338,7 +331,7 @@ public class BillOfMaterials
                 frontBackSpaces++;
             }
 
-            int frontBacklength = shedWidth() - ((frontBackSpaces + 1) * 97) / frontBackSpaces; // shedsidelength - polewidth divided by number of spaces
+            int frontBacklength = (shedWidth() - ((frontBackSpaces + 1) * 97)) / frontBackSpaces; // shedsidelength - polewidth divided by number of spaces
             frontBacklength += 300 - (frontBacklength % 300); // make sure the length is divisible by 300 mm and make sure there is more than enough.
             shedFrameFrontBack.setLength(frontBacklength);
 
