@@ -10,10 +10,11 @@
 <% Customer user = (Customer) session.getAttribute("customer"); %>
 <!DOCTYPE html>
 <%
-    int width = 4700;
-    int length = 4700;
-    int shedWidth = 2700;
-    double shedLength = 1500;
+    Order order = (Order) session.getAttribute("order");
+    int width = order.getWidth() * 10;
+    int length = order.getLength() * 10;
+    int shedWidth = order.getShedWidth() * 10;
+    int shedLength = order.getShedLength() * 10;
     int rafterPos = 0;
     int farRightPoleX = length - 425;
     boolean shed = true;
@@ -28,7 +29,6 @@
     int holes = qty - 1;
     int rafterDistance = (length - 45) / holes;
 
-    
     //Used to find the placement of the KRYDSBÅND if there is a shed.
     int RafterQty = 1;
     RafterQty += ((length - shedLength - 395) - 45) / 645;
@@ -48,11 +48,17 @@
     </head>
     <body>
         <h1> Teknisk tegning af carport for <% out.print(user.getEmail());%></h1>
-
+        <h2>Mål: <% out.print(order.getLength() * 10); %> x <% out.print(order.getWidth() * 10); %></h2>
+        <% if (shedWidth > 0 && shedLength > 0)
+            {
+        %>
+        <h2>Skur mål: <% out.print(shedWidth); %> x <% out.print(shedLength); %></h2>
+        <% } %>
+<!--
         <% //TODO delete this nephew
             out.print("Rafter distance: " + ((length - (45 * qty)) / holes) + " mm"); %> <br>
 
-
+-->
 
         <!-- SVG drawing of carport for the customer -->
         <SVG width="<% out.print(length / 10); %>" height="<% out.print(width / 10); %>" 
