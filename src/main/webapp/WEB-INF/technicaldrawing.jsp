@@ -17,7 +17,12 @@
     int shedLength = order.getShedLength() * 10;
     int rafterPos = 0;
     int farRightPoleX = length - 425;
-    boolean shed = true;
+    boolean shed = false;
+    if (shedWidth > 0 && shedLength > 0)
+    {
+    shed = true;
+    }
+
 
     //Used to find the amount of rafters needed
     int qty = 1;
