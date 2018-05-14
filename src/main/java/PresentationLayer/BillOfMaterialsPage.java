@@ -1,6 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.BillOfMaterials;
+import FunctionLayer.BillOfMaterialsFlat;
 import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LineItem;
 import FunctionLayer.LogicFacade;
@@ -26,7 +26,7 @@ public class BillOfMaterialsPage extends Command
     {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
-        BillOfMaterials bom = new BillOfMaterials(order);
+        BillOfMaterialsFlat bom = new BillOfMaterialsFlat(order);
         bom.createBoM();
         List<LineItem> lineItems = bom.getBillOfMaterials();
         for (LineItem lineItem : lineItems)

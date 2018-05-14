@@ -29,7 +29,7 @@ public class OrderConfirmation extends Command
     {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
-        String inclination = request.getParameter("shed");
+        String inclination = request.getParameter("inclination");
         String roofMaterial = request.getParameter("roofMaterial");
         String shed = request.getParameter("shed");
         String name = request.getParameter("name");

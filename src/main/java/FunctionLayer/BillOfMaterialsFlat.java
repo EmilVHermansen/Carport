@@ -13,14 +13,14 @@ import java.util.List;
  *
  * @author s_ele
  */
-public class BillOfMaterials
+public class BillOfMaterialsFlat
 {
 
     private List<LineItem> billOfMaterials;
     private final int maxPoleDistance = 3000; // 3000 mm
     private final Order order;
 
-    public BillOfMaterials(Order order)
+    public BillOfMaterialsFlat(Order order)
     {
         this.billOfMaterials = new ArrayList();
         this.order = order;
