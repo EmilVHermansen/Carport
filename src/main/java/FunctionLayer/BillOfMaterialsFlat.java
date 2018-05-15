@@ -188,8 +188,8 @@ public class BillOfMaterialsFlat
     {
         LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 2);
         rafter.setLength(width());
-        int qty = 1 + ((length() - 45) / 645);
-        if ((length() - 45) % 645 > 0)
+        int qty = 1 + ((length() - 45) / 945);
+        if ((length() - 45) % 945 > 0)
         {
             qty++;
         }
