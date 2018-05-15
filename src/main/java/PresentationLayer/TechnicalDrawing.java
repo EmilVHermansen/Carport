@@ -4,6 +4,7 @@ import FunctionLayer.Customer;
 import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,12 @@ public class TechnicalDrawing extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, CustomerInfoError {
-        return "technicaldrawing";
+        HttpSession session = request.getSession();
+        Order order = (Order) session.getAttribute("order");
+        if (order.getInclination().equals("ja"))
+            return "techdrawinclination";
+        else
+            return "technicaldrawing";
     }
     
 }

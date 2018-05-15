@@ -53,11 +53,11 @@
     </head>
     <body>
         <h1> Teknisk tegning af carport for <% out.print(user.getEmail());%></h1>
-        <h2>Mål: <% out.print(order.getLength() * 10); %> x <% out.print(order.getWidth() * 10); %></h2>
+        <h2>Mål: <% out.print(order.getLength() * 10); %> x <% out.print(order.getWidth() * 10); %> mm</h2>
         <% if (shedWidth > 0 && shedLength > 0)
             {
         %>
-        <h2>Skur mål: <% out.print(shedWidth); %> x <% out.print(shedLength); %></h2>
+        <h2>Skur mål: <% out.print(shedWidth); %> x <% out.print(shedLength); %> mm</h2>
         <% } %>
 <!--
         <% //TODO delete this nephew

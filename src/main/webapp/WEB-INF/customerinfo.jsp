@@ -55,7 +55,7 @@
             <% //TODO change value to employee in session when loggin in %>
             <input type="hidden" name="empnumber" value="a01">
             <input type="hidden" name="password" value="admin">
-            <input type="submit" name="submit" value="Tilbage til ordre">
+            <input type="submit" name="submit" value="Tilbage til ordrer">
         </form>
 
         <!-- button to access the technical drawing -->
