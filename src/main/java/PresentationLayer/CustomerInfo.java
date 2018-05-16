@@ -33,7 +33,7 @@ public class CustomerInfo extends Command {
                 session.setAttribute("order", order);
                 return "customerinfo";
             } else {
-                throw new CustomerInfoError("A customer with that email does not exist");
+                throw new CustomerInfoError("An order with that order id does not exist");
             }
         } catch (SQLException ex) {
             Logger.getLogger(CustomerInfo.class.getName()).log(Level.SEVERE, null, ex);
