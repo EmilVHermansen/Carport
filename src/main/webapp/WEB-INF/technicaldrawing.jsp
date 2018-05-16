@@ -9,6 +9,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% Customer user = (Customer) session.getAttribute("customer"); %>
 <!DOCTYPE html>
+
+    <!-- TERMINOLOGY
+
+     RAFTER == SPÆR
+     WALLPLATE == REM
+     PERFORATED BAND == KRYDSBÅND
+
+    -->
 <%
     Order order = (Order) session.getAttribute("order");
     int width = order.getWidth() * 10;
@@ -34,7 +42,7 @@
     int holes = qty - 1;
     int rafterDistance = (length - 45) / holes;
 
-    //Used to find the placement of the KRYDSBÅND if there is a shed.
+    //Used to find the placement of the perforated band if there is a shed.
     int RafterQty = 1;
     RafterQty += ((length - shedLength - 395) - 45) / 645;
     if (((length - shedLength - 395) - 45) % 645 > 0)
