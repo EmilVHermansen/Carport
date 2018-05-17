@@ -30,6 +30,7 @@ public class OrderConfirmation extends Command
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
         String inclination = request.getParameter("inclination");
+        int angle = Integer.parseInt(request.getParameter("angle"));
         String roofMaterial = request.getParameter("roofMaterial");
         String shed = request.getParameter("shed");
         String name = request.getParameter("name");
@@ -37,7 +38,7 @@ public class OrderConfirmation extends Command
         String zipcode = request.getParameter("zipcode");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
-        Order order = new Order(length, width, inclination, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width, email);
+        Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width, email);
         if (!request.getParameter("shedLength").isEmpty())
         {
             order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));

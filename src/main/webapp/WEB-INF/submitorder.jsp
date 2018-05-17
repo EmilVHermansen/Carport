@@ -50,6 +50,18 @@
                             <option value="Fladt tag">Flat tag</option>
                         </select>
                         <br>
+                        Vinkel:<br>
+                        <select name="angle">
+                            <option value="0">0</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="35">35</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                        <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>
                         <select name="roofMaterial">
                             <option value="ingen">Ingen</option>

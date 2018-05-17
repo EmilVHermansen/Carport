@@ -99,6 +99,7 @@ public class DataAccessObject
                 int width = rs.getInt("width");
                 double price = rs.getDouble("price");
                 String inclination = rs.getString("inclination");
+                int angle = rs.getInt("angle");
                 String roofMaterial = rs.getString("roof_material");
                 String shed = rs.getString("shed");
                 int shedLength = rs.getInt("shed_length");
@@ -110,7 +111,7 @@ public class DataAccessObject
                 String custEmail = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(id, length, width, inclination, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price, status);
+                order = new Order(id, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price, status);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
@@ -142,6 +143,7 @@ public class DataAccessObject
                 int width = rs.getInt("width");
                 double price = rs.getDouble("price");
                 String inclination = rs.getString("inclination");
+                int angle = rs.getInt("angle");
                 String roofMaterial = rs.getString("roof_material");
                 String shed = rs.getString("shed");
                 int shedLength = rs.getInt("shed_length");
@@ -153,7 +155,7 @@ public class DataAccessObject
                 String email = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(orderId, length, width, inclination, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price, status);
+                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price, status);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
@@ -189,24 +191,25 @@ public class DataAccessObject
         try
         {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `order` (length, width, inclination, roof_material, shed, shed_length, shed_width, name, address, zipcode, phonenumber, email, comment, price, status) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO `order` (length, width, inclination, angle, roof_material, shed, shed_length, shed_width, name, address, zipcode, phonenumber, email, comment, price, status) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getLength());
             ps.setInt(2, order.getWidth());
             ps.setString(3, order.getInclination());
-            ps.setString(4, order.getRoofMaterial());
-            ps.setString(5, order.getShed());
-            ps.setInt(6, order.getShedLength());
-            ps.setInt(7, order.getShedWidth());
-            ps.setString(8, order.getName());
-            ps.setString(9, order.getAddress());
-            ps.setString(10, order.getZipCode());
-            ps.setString(11, order.getPhoneNumber());
-            ps.setString(12, order.getEmail());
-            ps.setString(13, order.getComment());
-            ps.setDouble(14, order.getPrice());
-            ps.setString(15, order.getStatus());
+            ps.setInt(4, order.getAngle());
+            ps.setString(5, order.getRoofMaterial());
+            ps.setString(6, order.getShed());
+            ps.setInt(7, order.getShedLength());
+            ps.setInt(8, order.getShedWidth());
+            ps.setString(9, order.getName());
+            ps.setString(10, order.getAddress());
+            ps.setString(11, order.getZipCode());
+            ps.setString(12, order.getPhoneNumber());
+            ps.setString(13, order.getEmail());
+            ps.setString(14, order.getComment());
+            ps.setDouble(15, order.getPrice());
+            ps.setString(16, order.getStatus());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();

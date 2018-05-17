@@ -21,12 +21,13 @@ public class Order
     private String status;
     private int angle = 0;
 
-    public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
+    public Order(int idOrder, int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
     {
         this.idOrder = idOrder;
         this.length = length;
         this.width = width;
         this.inclination = inclination;
+        this.angle = angle;
         this.roofMaterial = roofMaterial;
         this.shed = shed;
         this.name = name;
@@ -38,11 +39,12 @@ public class Order
         this.status = status;
     }
 
-    public Order(int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
+    public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
     {
         this.length = length;
         this.width = width;
         this.inclination = inclination;
+        this.angle = angle;
         this.roofMaterial = roofMaterial;
         this.shed = shed;
         this.name = name;
@@ -179,7 +181,7 @@ public class Order
     {
         return "Order: " + idOrder + ", length: " + length
                 + ", width: " + width + ", inclination: " + inclination
-                + ", roofMaterial: " + roofMaterial + ", shed: " + shed
+                + ", angle: " + angle + ", roofMaterial: " + roofMaterial + ", shed: " + shed
                 + ", shedLength: " + shedLength + ", shedWidth: " + shedWidth
                 + ", comment: " + comment + ", price: " + price
                 + ", status: " + status;
