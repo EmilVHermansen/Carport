@@ -11,19 +11,20 @@
     int length = 7800;
     String widthToString = Integer.toString(width);
     int displace = 800;
-    int shedPos = (displace / 2) + 38 + 800 + 2750 + 1200;
-    int shedLength = 0; //2412
-    int farRightPole = (length + (displace / 2)) - (97 * 2);
+    int shedLength = 2412; //2412
     int xTopOfPoles = (displace / 2) + 150;
-
+    //Set the far right pole to the edge of the top of the poles & shed
+    int farRightPole = (xTopOfPoles + length - 250) - 97;
+    int shedPos = farRightPole - shedLength + 97;
+    
     int poleQty = 1;
-    poleQty += (length - 97) / 3097;
-    if ((length - 97) % 3097 > 0)
+    poleQty += ((xTopOfPoles + length - 250) - 1200 - 97) / 3097;
+    if (((xTopOfPoles + length - 250) - 97 - 1200) % 3097 > 0)
     {
         poleQty++;
     }
     int holes = poleQty - 1;
-    int poleDistance = (length - 97) / holes;
+    int poleDistance = ((xTopOfPoles + length - 250) - 1200 - 97) / holes;
 
 %>
 <html>
@@ -57,25 +58,25 @@
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
         <!-- first pole -->
-        <% for (int i = farRightPole; i >= xTopOfPoles; i -= poleDistance)
+        <% for (int i = 0; i <= poleQty; i++)
             {
-        %>
-        <rect x="<% out.print(i); %>" y="1060" width="<% out.print(97); %>" height="2005"
-              style="stroke: black; fill: none; stroke-width: 10;"/>
-        <% } %>
+                if (farRightPole < xTopOfPoles)
+                {
+                    //farRightPole = xTopOfPoles + 800;
+                }
 
-        <% if (shedLength > 0)
+        %>
+        <rect x="<% out.print(farRightPole); %>" y="1060" width="<% out.print(97); %>" height="2005"
+              style="stroke: black; fill: none; stroke-width: 10;"/>
+
+        <% farRightPole -= poleDistance;
+            }
+            if (shedLength > 0)
             {
         %>
         <!--
              Shed cladding
         -->
-        <!-- far left shed cladding -->
-        <rect x="<% out.print((displace / 2) + 20 + 800 + 2750 + 1200); %>" y="1060" width="<% out.print(20); %>" height="2005"
-              style="stroke: black; fill: white; stroke-width: 10;"/>
-        <!-- far right shed cladding -->
-        <rect x="<% out.print((displace / 2) + 38 + 800 + 2750 + 1200 + 2412.5); %>" y="910" width="<% out.print(20); %>" height="<% out.print(150 + 2005); %>"
-              style="stroke: black; fill: white; stroke-width: 10;"/>
         <!-- Shed
              Starts at Second pole X + 1.2 metres
              width = X coordinates subtracted with each other
@@ -107,7 +108,14 @@
                     }
                     qty++;
                 }
-            }
+%>
+        <!-- far left shed cladding -->
+        <rect x="<% out.print(shedPos - 20); %>" y="1060" width="<% out.print(20); %>" height="2005"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+        <!-- far right shed cladding -->
+        <rect x="<% out.print(shedPos + shedLength); %>" y="910" width="<% out.print(20); %>" height="<% out.print(150 + 2005); %>"
+              style="stroke: black; fill: white; stroke-width: 10;"/>
+         <%   }
         %>
 
 
