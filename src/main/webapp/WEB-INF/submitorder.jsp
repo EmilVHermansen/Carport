@@ -27,7 +27,7 @@
                         <select name="width">
                             <% for (int i = 240; i < 750; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
                             } %>
                         </select>
                         <br>
@@ -38,7 +38,7 @@
                         <select name="length">
                             <% for (int j = 240; j < 780; j += 30)
                                 {
-                            %>  <option value=<% out.print(j); %>cm><% out.print(j);%>cm</option><% 
+                            %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><% 
                             } %>
                         </select>
                         <br>
@@ -46,8 +46,8 @@
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <option value="inclination">Med rejsning</option>
-                            <option value="flat">Flat tag</option>
+                            <option value="Med rejsning">Med rejsning</option>
+                            <option value="Fladt tag">Flat tag</option>
                         </select>
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>
@@ -68,7 +68,7 @@
                         <select name="shedWidth">
                             <% for (int i = 0; i < 720; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
                             } %>
                         </select>
 
@@ -77,7 +77,7 @@
                         <select name="shedLength">
                             <% for (int i = 0; i < 690; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
                             } %>
                         </select>
                         <br>

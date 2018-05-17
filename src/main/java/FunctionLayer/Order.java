@@ -1,6 +1,5 @@
 package FunctionLayer;
 
-
 public class Order
 {
 
@@ -20,6 +19,7 @@ public class Order
     private String comment = "";
     private double price;
     private String status;
+    private int angle = 0;
 
     public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
     {
@@ -134,6 +134,11 @@ public class Order
         return status;
     }
 
+    public int getAngle()
+    {
+        return angle;
+    }
+
     public void setIdOrder(int idOrder)
     {
         this.idOrder = idOrder;
@@ -162,6 +167,11 @@ public class Order
     public void setStatus(String status)
     {
         this.status = status;
+    }
+
+    public void setAngle(int angle)
+    {
+        this.angle = angle;
     }
 
     @Override

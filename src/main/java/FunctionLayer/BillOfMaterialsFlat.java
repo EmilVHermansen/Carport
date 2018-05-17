@@ -58,7 +58,7 @@ public class BillOfMaterialsFlat
 
     private boolean fullShed()
     {
-        return shedWidth() == (width() - 700); // shedWidth == width
+        return shedWidth() >= (width() - 600); // shedWidth == width
     }
 
     public List<LineItem> getBillOfMaterials()
@@ -518,8 +518,7 @@ public class BillOfMaterialsFlat
 
     private void createAngleBracket()
     {
-        if (shed())
-        {
+
             LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
             int angleBracketQty;
 
@@ -543,7 +542,6 @@ public class BillOfMaterialsFlat
             angleBracket.setQty(angleBracketQty);
 
             billOfMaterials.add(angleBracket);
-        }
     }
 
 }//CLASS

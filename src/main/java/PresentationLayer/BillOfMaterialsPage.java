@@ -1,6 +1,7 @@
 package PresentationLayer;
 
 import FunctionLayer.BillOfMaterialsFlat;
+import FunctionLayer.BillOfMaterialsInclination;
 import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LineItem;
 import FunctionLayer.LogicFacade;
@@ -26,16 +27,31 @@ public class BillOfMaterialsPage extends Command
     {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
-        BillOfMaterialsFlat bom = new BillOfMaterialsFlat(order);
-        bom.createBoM();
-        List<LineItem> lineItems = bom.getBillOfMaterials();
-        for (LineItem lineItem : lineItems)
+        if (order.getInclination().equals("Med rejsning"))
         {
-            Material mat = LogicFacade.getMaterial(lineItem.getIdmaterial());
-            lineItem.setName(mat.getName());
-            lineItem.setPrice(mat.getMSRP()); //TODO price is multiplied by either meterprice or quantity
+            BillOfMaterialsInclination bom = new BillOfMaterialsInclination(order);
+            bom.createBoM();
+            List<LineItem> lineItems = bom.getBillOfMaterials();
+            for (LineItem lineItem : lineItems)
+            {
+                Material mat = LogicFacade.getMaterial(lineItem.getIdmaterial());
+                lineItem.setName(mat.getName());
+                lineItem.setPrice(mat.getMSRP()); //TODO price is multiplied by either meterprice or quantity
+                session.setAttribute("lineitems", lineItems);
+            }
+        } else
+        {
+            BillOfMaterialsFlat bom = new BillOfMaterialsFlat(order);
+            bom.createBoM();
+            List<LineItem> lineItems = bom.getBillOfMaterials();
+            for (LineItem lineItem : lineItems)
+            {
+                Material mat = LogicFacade.getMaterial(lineItem.getIdmaterial());
+                lineItem.setName(mat.getName());
+                lineItem.setPrice(mat.getMSRP()); //TODO price is multiplied by either meterprice or quantity
+                session.setAttribute("lineitems", lineItems);
+            }
         }
-        session.setAttribute("lineitems", lineItems);
         return "billofmaterials";
     }
 
