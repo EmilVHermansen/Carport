@@ -15,7 +15,15 @@
     int shedLength = 0; //2412
     int farRightPole = (length + (displace / 2)) - (97 * 2);
     int xTopOfPoles = (displace / 2) + 150;
-    boolean extraPolesNeeded = false;
+
+    int poleQty = 1;
+    poleQty += (length - 97) / 3097;
+    if ((length - 97) % 3097 > 0)
+    {
+        poleQty++;
+    }
+    int holes = poleQty - 1;
+    int poleDistance = (length - 97) / holes;
 
 %>
 <html>
@@ -24,7 +32,7 @@
         <title>Carport with inclination</title>
     </head>
     <body>
-        <% out.print(farRightPole - ((xTopOfPoles + 1200) + farRightPole) / 2); %>
+        <% out.print(poleDistance); %>
         <h1>CaRpOrT!</h1>
         <SVG width="<% out.print(length / 6); %>" height="<% out.print(width / 6); %>" 
              viewBox="0 0 <% out.print(length + displace); %> <% out.print(width + displace); %> ">
@@ -47,26 +55,14 @@
         <!-- Top of pole & shed-->
         <rect x="<% out.print(xTopOfPoles); %>" y="910" width="<% out.print(length - 250); %>" height="150"
               style="stroke: black; fill: none; stroke-width: 10;"/>
-        <!-- far right pole, if no shed -->
-        <rect x="<% out.print(farRightPole); %>" y="1060" width="<% out.print(97); %>" height="2005"
-              style="stroke: black; fill: none; stroke-width: 4;"/>
-        <!-- Second pole from right
-             x = displace + (roof plate width / 2) + 0.8 metres from start of "bottom part of roof"
-        -->
-        <rect x="<% out.print(((xTopOfPoles + 1200) + farRightPole) / 2); %>" y="1060" width="<% out.print(97); %>" height="2005"
-              style="stroke: black; fill: none; stroke-width: 10;"/>
-        
-        <!-- if there's more than 1.2 meters distance from the edge to the nearest pole, and extra one is added
-            between the far left pole, and it's nearest pole.
-        -->
-        <% if (xTopOfPoles + 1200 < farRightPole - 3000)
+
+        <!-- first pole -->
+        <% for (int i = farRightPole; i >= xTopOfPoles; i -= poleDistance)
             {
         %>
-        <rect x="<% out.print((displace / 2) + 150 + 1200); %>" y="1060" width="<% out.print(97); %>" height="2005"
+        <rect x="<% out.print(i); %>" y="1060" width="<% out.print(97); %>" height="2005"
               style="stroke: black; fill: none; stroke-width: 10;"/>
-
         <% } %>
-
 
         <% if (shedLength > 0)
             {
