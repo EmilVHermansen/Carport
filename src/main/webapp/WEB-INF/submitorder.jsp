@@ -31,8 +31,8 @@
                         <br>
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <option value="inclination">Med rejsning</option>
-                            <option value="flat">Flat tag</option>
+                            <option value="Med rejsning">Med rejsning</option>
+                            <option value="Fladt tag">Fladt tag</option>
                         </select>
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>

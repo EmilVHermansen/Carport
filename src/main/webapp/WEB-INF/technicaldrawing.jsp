@@ -8,6 +8,8 @@
 <%@page import="FunctionLayer.Customer"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% Customer user = (Customer) session.getAttribute("customer"); %>
+<%@include file="header.jsp" %>
+
 <!DOCTYPE html>
 
     <!-- TERMINOLOGY

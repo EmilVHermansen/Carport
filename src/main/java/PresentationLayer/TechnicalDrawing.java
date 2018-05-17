@@ -1,12 +1,9 @@
 package PresentationLayer;
 
-import FunctionLayer.Customer;
 import FunctionLayer.CustomerInfoError;
-import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
-import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,7 +20,7 @@ public class TechnicalDrawing extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, CustomerInfoError {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
-        if (order.getInclination().equals("ja"))
+        if (order.getInclination().equals("Med rejsning"))
             return "techdrawinclination";
         else
             return "technicaldrawing";
