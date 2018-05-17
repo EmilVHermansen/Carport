@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%
     int width = 3050;
-    int length = 7800;
+    int length = 2400;
     String widthToString = Integer.toString(width);
 
     //Displace is used to expand the SVG canvas, and place the drawing of the carport in the middle of the canvas (done by dividing by 2)
@@ -45,7 +45,7 @@
     <% out.print(farRightPole); %>
     <body>
         <h1>CaRpOrT!</h1>
-        <SVG width="<% out.print(length / 6); %>" height="<% out.print(width / 6); %>" 
+        <SVG width="<% out.print(length / 5); %>" height="<% out.print(width / 5); %>" 
              viewBox="0 0 <% out.print(length + displace); %> <% out.print(width + displace); %> ">
 
 
@@ -181,14 +181,14 @@
         <path d="M0,0 L8,4 L0,8 L0,0" style="fill: #000000;" />
     </marker>
     </defs>
-    <line x1="50" y1="0" x2="50" y2="3065" 
+    <line x1="150" y1="0" x2="150" y2="3065" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
 
-    <text x="30" y="<% out.print(width / 2); %>" fill="red" transform="rotate(-90, 30, 
-          <% out.print(width / 2); %> )" style="font-size: 200;">
+    <text x="150" y="<% out.print(width / 2); %>" fill="red" transform="rotate(-90, 100, 
+          <% out.print(width / 2); %> )" style="font-size: 150;">
     <% out.print((widthToString.substring(0, 1)) + "," + widthToString.substring(1, 3)); %></text>
     <!-- Small arrow left 
          y1 = Top of pole & shed Y-coordinate
@@ -217,7 +217,7 @@
     <% String groundToRoof = Integer.toString(2155); %>
     <!-- Y = top of pole Y coordinate + height of it, and pole Y coordinate + height of it. -->
     <text x="400" y="<% out.print((910 + 150 + 1060 + 2005) / 2); %>" fill="red" transform="rotate(-90, 400, 
-          <% out.print((910 + 150 + 1060 + 2005) / 2); %> )" style="font-size: 200;">
+          <% out.print((910 + 150 + 1060 + 2005) / 2); %> )" style="font-size: 150;">
     <% out.print((groundToRoof.substring(0, 1)) + "," + groundToRoof.substring(1, 3)); %></text>
 
 
@@ -226,9 +226,9 @@
     <%  //Setting FarRightPole to it's original value, so we won't have to create a new variable
         if (shedLength == 0)
         {
-        farRightPole = topOfPoleLength - 97;
-        for (int i = 1; i <= poleQty; i++)
-        {
+            farRightPole = topOfPoleLength - 97;
+            for (int i = 1; i <= poleQty; i++)
+            {
     %> 
     <defs>
     <marker id="beginArrow" 
@@ -253,6 +253,8 @@
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
+    <text x="<% out.print((farRightPole + (farRightPole - poleDistance)) / 2); %>" y="3365" fill="red" style="font-size: 150;">
+    PH</text>
     <%
     } else if (i == 4)
     {
@@ -262,6 +264,8 @@
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
+    <text x="<% out.print(((farRightPole - (poleDistance * (i - 1))) + (displace / 2)) / 2); %>" y="3365" fill="red" style="font-size: 200;">
+    PH</text>
     <%
     } else
     {
@@ -271,10 +275,12 @@
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
+    <text x="<% out.print(((farRightPole - (poleDistance * (i - 1))) + (farRightPole - (poleDistance * i))) / 2); %>" y="3365" fill="red" style="font-size: 150;">
+    PH</text>
     <%
+                }
             }
         }
-}
     %> 
 
 
@@ -282,8 +288,8 @@
     <%  //TODO Fix int having a - instead of 0 at the start
         int botLeftSpace = ((displace / 2) + 38) - ((displace / 2) + 38 + displace);
         String bottomLeftLine = Integer.toString(botLeftSpace); %>
-    <text x="<% out.print((displace / 2) + 100); %>" y="3365" fill="red" style="font-size: 200;">
-    <% out.print((bottomLeftLine.substring(0, 1)) + "," + bottomLeftLine.substring(1, 3)); %></text>
+    <!-- <text x="<%// out.print((displace / 2) + 100); %>" y="3365" fill="red" style="font-size: 200;">
+    <% //out.print((bottomLeftLine.substring(0, 1)) + "," + bottomLeftLine.substring(1, 3)); %></text> -->
 
 
 
@@ -303,7 +309,8 @@
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);"/>
-
+<text x="<% out.print(((((displace / 2) + 38) + length) + ((displace / 2) + length + 500)) / 2 - 125); %>" y="3365" fill="red" style="font-size: 150;">
+    PH</text>
     </svg>
 </body>
 </html>
