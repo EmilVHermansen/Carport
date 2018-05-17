@@ -19,7 +19,7 @@
 
     int topOfPoleLength = xTopOfPoles + length - 250;
     //Set the far right pole to the edge of the top of the poles & shed
-    int farRightPole = (topOfPoleLength) - 97;
+    int farRightPole = topOfPoleLength - 97;
     int shedPos = farRightPole - shedLength + 97;
     // Calculate how many poles are needed, and the distance inbetween
     // 1200 is the distance from the left side of the Wallplate to the first pole
@@ -41,7 +41,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carport with inclination</title>
     </head>
-    <% out.print(poleQty); %>
+    <% out.print(poleDistance); %>
+    <% out.print(farRightPole); %>
     <body>
         <h1>CaRpOrT!</h1>
         <SVG width="<% out.print(length / 6); %>" height="<% out.print(width / 6); %>" 
@@ -67,14 +68,10 @@
         <rect x="<% out.print(xTopOfPoles); %>" y="910" width="<% out.print(length - 250); %>" height="150"
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
+
         <!-- first pole -->
         <% for (int i = 0; i <= poleQty; i++)
             {
-                if (farRightPole < xTopOfPoles)
-                {
-                    //farRightPole = xTopOfPoles + 800;
-                }
-
         %>
         <rect x="<% out.print(farRightPole); %>" y="1060" width="<% out.print(97); %>" height="2005"
               style="stroke: black; fill: none; stroke-width: 10;"/>
@@ -226,57 +223,58 @@
 
 
     <!-- Small arrow bottom left -->
-
-    <% for (int i = 1; i <= poleQty; i++)
+    <%  //Setting FarRightPole to it's original value, so we won't have to create a new variable
+        if (shedLength == 0)
         {
-
+        farRightPole = topOfPoleLength - 97;
+        for (int i = 1; i <= poleQty; i++)
+        {
     %> 
     <defs>
     <marker id="beginArrow" 
             markerWidth="9" markerHeight="9" 
-            refX="50" refY="4" 
+            refX="0" refY="4" 
             orient="auto">
         <path d="M0,4 L8,0 L8,8 L0,4" style="fill: #000000s;" />
     </marker>
     <marker id="endArrow" 
             markerWidth="9" markerHeight="9" 
-            refX="58" refY="4" 
+            refX="8" refY="4" 
             orient="auto">
         <path d="M0,0 L8,4 L0,8 L0,0" style="fill: #000000;" />
     </marker>
     </defs>
-    <% if (i == 1)
+    <%
+        if (i == 1)
         {
     %>
-    <line x1="<% out.print(farRightPole + (poleDistance * (i + 1))); %>" y1="3365" x2="<% out.print(farRightPole); %>" y2="3365" 
+    <line x1="<% out.print(farRightPole - poleDistance); %>"  y1="3365" x2="<% out.print(farRightPole); %>"   y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
-    <% } else if (i == 4)
+    <%
+    } else if (i == 4)
     {
     %>
-
-    <line x1="<% out.print(displace / 2); %>" y1="3365" x2="<% out.print(farRightPole + (poleDistance * i)); %>" y2="3365" 
+    <line x1="<% out.print(farRightPole - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(displace / 2); %>"   y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
-
-    <%} else
+    <%
+    } else
     {
     %>
-    <line x1="<% out.print(farRightPole + (poleDistance * (i + 1))); %>" y1="3365" x2="<% out.print(farRightPole + (poleDistance * i)); %>" y2="3365" 
+    <line x1="<% out.print(farRightPole - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(farRightPole - (poleDistance * i)); %>"   y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
-
-
-
     <%
             }
         }
+}
     %> 
 
 
@@ -301,7 +299,7 @@
     </marker>
 
     </defs>
-    <line x1="<% out.print(((displace / 2) + 38) + length); %>" y1="3365" x2="<% out.print((displace / 2) + length + 300);%>" y2="3365" 
+    <line x1="<% out.print(((displace / 2) + 38) + length); %>" y1="3365" x2="<% out.print((displace / 2) + length + 500);%>" y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);"/>
