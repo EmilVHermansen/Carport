@@ -74,7 +74,7 @@ public class BillOfMaterialsFlat
         createRafter(); // Spær
         createFasciaAndWaterBoard(); // Stern og vandbræt (over and under, front/back and sides)(front and sides)
         createRoofPlate(); // Tagplader
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             createZBacksideDoor();
             createShedFrame(); // skur løsholter 
@@ -82,7 +82,7 @@ public class BillOfMaterialsFlat
         }
 
         // Beslag og skruer
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             createShedDoorKnob(); // stalddørsgreb
             createShedDoorHinge(); // Skurhængsler
@@ -106,7 +106,7 @@ public class BillOfMaterialsFlat
 
         int poleAmount = 2; // minimum amount of poles
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             poleAmount += 4; // mimimum addition of shedpoles (1 for the door)
             if (shedWidth() > maxPoleDistance)
@@ -155,7 +155,7 @@ public class BillOfMaterialsFlat
     {
         LineItem wallPlateCarport = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder(), 2);
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder(), 2);
             wallPlateShed.setQty(1);
@@ -308,7 +308,7 @@ public class BillOfMaterialsFlat
 
     void createShedFrame() // skur løsholter
     {
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             LineItem shedFrameFrontBack = new LineItem("stk", "Løsholter til skur gavle", idOrder(), 8);
             LineItem shedFrameSides = new LineItem("stk", "Løsholter til skur sider", idOrder(), 8);
@@ -372,7 +372,7 @@ public class BillOfMaterialsFlat
 
         int sublength2;
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             sublength2 = shedLength() + 150;
         } else

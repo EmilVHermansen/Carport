@@ -85,7 +85,7 @@ public class BillOfMaterialsInclination
         createRoofFootBatten(); // Tagfodslægte
         createBatten(); // Lægte
         createTopBatten(); // Toplægte
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             createZBacksideDoor();
             createShedFrame(); // skur løsholter 
@@ -100,7 +100,7 @@ public class BillOfMaterialsInclination
         
 
         // Beslag og skruer
-        if (shed())
+        if (shed()  && shedLength() != 0 && shedWidth() != 0)
         {
             createShedDoorKnob(); // stalddørsgreb
             createShedDoorHinge(); // Skurhængsler
@@ -122,7 +122,7 @@ public class BillOfMaterialsInclination
 
         int poleAmount = 2; // minimum amount of poles
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             poleAmount += 4; // mimimum addition of shedpoles (1 for the door)
             if (shedWidth() > maxPoleDistance)
@@ -170,7 +170,7 @@ public class BillOfMaterialsInclination
     {
         LineItem wallPlateCarport = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder(), 2);
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder(), 2);
             wallPlateShed.setQty(1);
@@ -441,7 +441,7 @@ public class BillOfMaterialsInclination
         int innerScrewQty = 0;
         int outerScrewQty = 0;
         
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
         int avgBoardWidth = 74; //Based on example manual and blueprint, shed circumference divided by qty of cladding boards equals 74
         double circumference = shedLength() * 2 + shedWidth() * 2;

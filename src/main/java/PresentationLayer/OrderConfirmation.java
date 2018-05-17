@@ -42,7 +42,7 @@ public class OrderConfirmation extends Command
         String zipcode = request.getParameter("zipcode");
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
-        Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width, email);
+        Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width);
 
         order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));
         order.setShedWidth(Integer.parseInt(request.getParameter("shedWidth")));
@@ -58,7 +58,8 @@ public class OrderConfirmation extends Command
             Material material = LogicFacade.getMaterial(lineItem.getIdmaterial());
             lineItem.setPrice(material.getMSRP());   
         }
-        LogicFacade.calcPrice(BoM);
+         int orderPrice = LogicFacade.calcPrice(BoM);
+         order.setPrice(orderPrice);
 
         try
         {

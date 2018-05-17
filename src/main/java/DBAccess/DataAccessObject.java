@@ -97,7 +97,7 @@ public class DataAccessObject
                 int id = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
-                double price = rs.getDouble("price");
+                int price = rs.getInt("price");
                 String inclination = rs.getString("inclination");
                 int angle = rs.getInt("angle");
                 String roofMaterial = rs.getString("roof_material");
@@ -111,10 +111,11 @@ public class DataAccessObject
                 String custEmail = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(id, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price, status);
+                order = new Order(id, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
+                order.setStatus(status);
             }
         } catch (ClassNotFoundException ex)
         {
@@ -123,8 +124,6 @@ public class DataAccessObject
         return order;
     }
     
-    public static 
-
     public static List<Order> getOrders() throws OrderException
     {
         try
@@ -143,7 +142,7 @@ public class DataAccessObject
                 int orderId = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
-                double price = rs.getDouble("price");
+                int price = rs.getInt("price");
                 String inclination = rs.getString("inclination");
                 int angle = rs.getInt("angle");
                 String roofMaterial = rs.getString("roof_material");
@@ -157,10 +156,11 @@ public class DataAccessObject
                 String email = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price, status);
+                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
+                order.setStatus(status);
                 orders.add(order);
             }
             return orders;
@@ -210,7 +210,7 @@ public class DataAccessObject
             ps.setString(12, order.getPhoneNumber());
             ps.setString(13, order.getEmail());
             ps.setString(14, order.getComment());
-            ps.setDouble(15, order.getPrice());
+            ps.setInt(15, order.getPrice());
             ps.setString(16, order.getStatus());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
@@ -223,7 +223,7 @@ public class DataAccessObject
         }
     }
 
-    //Make it so String status is a dropdown menu with different choices for update
+    //TODO Make it so String status is a dropdown menu with different choices for update
     public static void updateOrderStatus(Order order) throws LoginSampleException
     {
         try
@@ -242,52 +242,53 @@ public class DataAccessObject
         }
     }
 
-    public static void createLineItem(LineItem lineItem) throws SQLException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "INSERT INTO `lineitem` (material_idmaterial, order_idorder, length, qty, unit, description_use) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, lineItem.getIdmaterial());
-            ps.setInt(2, lineItem.getIdorder());
-            ps.setInt(3, lineItem.getLength());
-            ps.setInt(4, lineItem.getQty());
-            ps.setString(5, lineItem.getUnit());
-            ps.setString(6, lineItem.getDescriptionUse());
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            lineItem.setIdorder(id);
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new SQLException(ex.getMessage());
-        }
-
-    }
+    // TODO Maybe
+//    public static void createLineItem(LineItem lineItem) throws SQLException {
+//        try {
+//            Connection con = Connector.connection();
+//            String SQL = "INSERT INTO `lineitem` (material_idmaterial, order_idorder, length, qty, unit, description_use) "
+//                    + "VALUES (?, ?, ?, ?, ?, ?)";
+//            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+//            ps.setInt(1, lineItem.getIdmaterial());
+//            ps.setInt(2, lineItem.getIdorder());
+//            ps.setInt(3, lineItem.getLength());
+//            ps.setInt(4, lineItem.getQty());
+//            ps.setString(5, lineItem.getUnit());
+//            ps.setString(6, lineItem.getDescriptionUse());
+//            ps.executeUpdate();
+//            ResultSet ids = ps.getGeneratedKeys();
+//            ids.next();
+//            int id = ids.getInt(1);
+//            lineItem.setIdorder(id);
+//        } catch (SQLException | ClassNotFoundException ex) {
+//            throw new SQLException(ex.getMessage());
+//        }
+//
+//    }
 
     //TODO use sebbe and emils BoM class
-    public LineItem getLineItems(int idOrder) throws SQLException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM `lineitem` WHERE order_idorder= ?";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, idOrder);
-            LineItem lineItem = null;
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                int length = rs.getInt("length");
-                int qty = rs.getInt("qty");
-                String unit = rs.getString("unit");
-                String descriptionUse = rs.getString("description_use");
-                int orderId = rs.getInt("order_idorder");
-                int materialId = rs.getInt("material_idmaterial");
-            }
-            return lineItem;
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new SQLException(ex.getMessage());
-        }
-
-    }
+//    public LineItem getLineItems(int idOrder) throws SQLException {
+//        try {
+//            Connection con = Connector.connection();
+//            String SQL = "SELECT * FROM `lineitem` WHERE order_idorder= ?";
+//            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+//            ps.setInt(1, idOrder);
+//            LineItem lineItem = null;
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                int length = rs.getInt("length");
+//                int qty = rs.getInt("qty");
+//                String unit = rs.getString("unit");
+//                String descriptionUse = rs.getString("description_use");
+//                int orderId = rs.getInt("order_idorder");
+//                int materialId = rs.getInt("material_idmaterial");
+//            }
+//            return lineItem;
+//        } catch (SQLException | ClassNotFoundException ex) {
+//            throw new SQLException(ex.getMessage());
+//        }
+//
+//    }
     
     public static Material getMaterial(int idMaterial) throws SQLException
     {
