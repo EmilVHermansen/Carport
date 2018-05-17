@@ -39,21 +39,21 @@ public class OrderConfirmation extends Command
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width, email);
-        if (!request.getParameter("shedLength").isEmpty())
-        {
-            order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));
-        }
-        if (!request.getParameter("shedWidth").isEmpty())
-        {
-            order.setShedWidth(Integer.parseInt(request.getParameter("shedWidth")));
-        }
+
+        order.setShedLength(Integer.parseInt(request.getParameter("shedLength")));
+        order.setShedWidth(Integer.parseInt(request.getParameter("shedWidth")));
+
         if (!request.getParameter("comment").isEmpty());
-        order.setComment(request.getParameter("comment"));
+        {
+            order.setComment(request.getParameter("comment"));
+        }
+        
+        calcPrice();
 
         try
         {
             LogicFacade.submitOrder(order);
-            
+
         } catch (OrderException ex)
         {
             Logger.getLogger(OrderConfirmation.class.getName()).log(Level.SEVERE, null, ex);
