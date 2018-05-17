@@ -122,6 +122,8 @@ public class DataAccessObject
         }
         return order;
     }
+    
+    public static 
 
     public static List<Order> getOrders() throws OrderException
     {

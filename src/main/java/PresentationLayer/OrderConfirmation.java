@@ -5,11 +5,15 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.LineItem;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Material;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
+import FunctionLayer.PriceCalculator;
 import FunctionLayer.User;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +29,7 @@ public class OrderConfirmation extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response)
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, SQLException
     {
         int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
@@ -48,7 +52,13 @@ public class OrderConfirmation extends Command
             order.setComment(request.getParameter("comment"));
         }
         
-        calcPrice();
+        List<LineItem> BoM = LogicFacade.createBoM(order);
+        for (LineItem lineItem : BoM)
+        {
+            Material material = LogicFacade.getMaterial(lineItem.getIdmaterial());
+            lineItem.setPrice(material.getMSRP());   
+        }
+        LogicFacade.calcPrice(BoM);
 
         try
         {
