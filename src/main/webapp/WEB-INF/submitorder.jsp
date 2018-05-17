@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Order</title>
     </head>
-     <%@include file="header.jsp" %>
+    <%@include file="header.jsp" %>
 
     <body>
         <h1>Bestil din carport her</h1>
@@ -24,11 +24,26 @@
                         <input type="hidden" name="command" value="orderconfirmation">
                         <%--TODO custom exceptions--%>
                         Bredde i cm:<br>
-                        <input type="number" name="width" min="240" max="750" required>
+                        <select name="width">
+                            <% for (int i = 240; i < 750; i += 30)
+                                {
+                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            } %>
+                        </select>
                         <br>
+
+
+
                         Længde i cm:<br>
-                        <input type="number" name="length" min="240" max="780" required>
+                        <select name="length">
+                            <% for (int j = 240; j < 780; j += 30)
+                                {
+                            %>  <option value=<% out.print(j); %>cm><% out.print(j);%>cm</option><% 
+                            } %>
+                        </select>
                         <br>
+
+
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
                             <option value="inclination">Med rejsning</option>
@@ -50,10 +65,21 @@
                         <%--TODO custom exceptions--%>
                         <br>
                         Skur bredde i cm:<br>
-                        <input type="number" name="shedWidth" min="0" max="720" value="0">
+                        <select name="shedWidth">
+                            <% for (int i = 0; i < 720; i += 30)
+                                {
+                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            } %>
+                        </select>
+
                         <br>
                         Skur længde i cm:<br>
-                        <input type="number" name="shedLength" min="0" max="690" value="0">
+                        <select name="shedLength">
+                            <% for (int i = 0; i < 690; i += 30)
+                                {
+                            %>  <option value=<% out.print(i); %>cm><% out.print(i);%>cm</option><% 
+                            } %>
+                        </select>
                         <br>
                         Navn:<br>
                         <input type="text" name="name" required>
@@ -78,6 +104,6 @@
                 </td>
             </tr>
         </table>
-        
+
     </body>
 </html>
