@@ -430,7 +430,7 @@ public class BillOfMaterialsFlat
 
     private void createBottomScrew()
     {
-        LineItem bottomScrew = new LineItem("Pakke", "Skruer til tagplader", idOrder(), 14);
+        LineItem bottomScrew = new LineItem("pk.", "Skruer til tagplader", idOrder(), 14);
         //based on existing example of BoM and manual
         int length = 7800;
         int width = 6000;
@@ -446,7 +446,7 @@ public class BillOfMaterialsFlat
 
     private void createFasciaWaterBoardScrew()
     {
-        LineItem FasciaWaterBoardScrew = new LineItem("Pakke", "Til montering af stern & vandbræt", idOrder(), 15);
+        LineItem FasciaWaterBoardScrew = new LineItem("pk.", "Til montering af stern & vandbræt", idOrder(), 15);
         FasciaWaterBoardScrew.setQty(1);
         billOfMaterials.add(FasciaWaterBoardScrew);
 
@@ -454,7 +454,7 @@ public class BillOfMaterialsFlat
 
     private void createBracketScrew()
     {
-        LineItem bracketScrew = new LineItem("Pakke", "Til montering af universalbeslag & hulbånd", idOrder(), 16);
+        LineItem bracketScrew = new LineItem("pk.", "Til montering af universalbeslag & hulbånd", idOrder(), 16);
         int rafterQty = 1 + ((length() - 45) / 600);
         if ((length() - 45) % 600 > 0)
         {

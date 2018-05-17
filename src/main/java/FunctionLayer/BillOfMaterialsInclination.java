@@ -5,6 +5,7 @@
  */
 package FunctionLayer;
 
+import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +109,7 @@ public class BillOfMaterialsInclination
         createCladdingScrews(); // 4,5x50mm and 4,5x70mm screws for inner and outer cladding
         createUniversalBracket(); // universal beslag til spær på rem
         createFasciaWaterBoardScrew();  // 4,5x60mm skruer til stern og vandbræt
-        createBracketScrew(); // 40x50mm skruer til beslag
+        createBracketScrew(); // 40x50mm skruer til montering af universalbeslag & toplægte
         createTileRidgeScrews(); // 5,0 x 100 mm skruer til taglægter
         createBoardScrewAndSquareWasher(); // bræddebolt 10x120mm og firkantskiver til rem på stolpe
 
@@ -242,8 +243,6 @@ public class BillOfMaterialsInclination
 
     private void createShedFrame()
     {
-        if (shed())
-        {
             LineItem shedFrameFrontBack = new LineItem("stk", "Løsholter til skur gavle", idOrder(), 8);
             LineItem shedFrameSides = new LineItem("stk", "Løsholter til skur sider", idOrder(), 8);
 
@@ -273,7 +272,6 @@ public class BillOfMaterialsInclination
 
             billOfMaterials.add(shedFrameSides);
             billOfMaterials.add(shedFrameFrontBack);
-        }
     }
 
     private void createShedCladding()
@@ -293,10 +291,11 @@ public class BillOfMaterialsInclination
 
     private void createBargeAndWaterBoard()
     {
-        double aLength = width() / 2;
-        int bargeBoardLength = (int) ((aLength * sin(Math.toRadians((180-90-angle())))) / sin(Math.toRadians(90)));
-        bargeBoardLength *= bargeBoardLength * 2;
-        bargeBoardLength += (300 - bargeBoardLength % 300);
+        double bLength = width() / 2;
+//        int bargeBoardLength = (int) ((bLength * sin(Math.toRadians((90)))) / sin(Math.toRadians(180-90-angle())));
+        int bargeBoardLength = (int) (bLength / cos(Math.toRadians(angle())));
+        bargeBoardLength *= 2;
+        bargeBoardLength += (600 - bargeBoardLength % 300);
 
         LineItem bargeBoard = new LineItem("stk", "Vindskeder på rejsning", idOrder(), 22);
         bargeBoard.setLength(bargeBoardLength);
@@ -376,7 +375,7 @@ public class BillOfMaterialsInclination
         
         int tileWidthCoverage = 300; //Based on BoM example manual, carport width / number of tile amount per row.
         
-        roofTiles.setQty((length() / tileWidthCoverage + 1) * 14);
+        roofTiles.setQty((length() / tileWidthCoverage + 1) * 12);
         
         billOfMaterials.add(roofTiles);
     }
@@ -384,16 +383,16 @@ public class BillOfMaterialsInclination
     private void createRidgeTilesAanBrackets()
     {
         LineItem ridgeTiles = new LineItem("stk", "Monteres på toplægte med medfølgende beslag, se tagstensvejledning", idOrder(), 27);
-        LineItem ridgeTileBrackes = new LineItem("stk", "Til montering af rygsten", idOrder(), 28);
+        LineItem ridgeTileBrackets = new LineItem("stk", "Til montering af rygsten", idOrder(), 28);
         
         int tileWidthCoverage = 345; //Based on BoM example manual, carport width / number of ridgetiles.
         int qty = (length() / tileWidthCoverage + 1);
         
         ridgeTiles.setQty(qty);
-        ridgeTiles.setQty(qty);
+        ridgeTileBrackets.setQty(qty);
         
         billOfMaterials.add(ridgeTiles);
-        billOfMaterials.add(ridgeTileBrackes);
+        billOfMaterials.add(ridgeTileBrackets);
     }
 
     private void createTopBattenHolder()
@@ -413,7 +412,7 @@ public class BillOfMaterialsInclination
     private void createRoofTileBindersAndNeckHooks()
     {
         
-        LineItem RoofTileBindersAndNeckHooks = new LineItem("stk", "Til montering af tagsten, alle ydersten. Hver anden fastgøres", idOrder(), 30);
+        LineItem RoofTileBindersAndNeckHooks = new LineItem("pk.", "Til montering af tagsten, alle ydersten. Hver anden fastgøres", idOrder(), 30);
         
         RoofTileBindersAndNeckHooks.setQty(2);
         
@@ -485,7 +484,7 @@ public class BillOfMaterialsInclination
                 sideSpaces++;
             }
 
-            angleBracketQty = sideSpaces * 2 + (fullShed() ? 0 : 1);
+            angleBracketQty = sideSpaces * 2 + sideSpaces * (fullShed() ? 2 : 3);
 
             int frontBackSpaces = shedWidth() / maxPoleDistance; // spaces between the poles
             if (shedWidth() % maxPoleDistance > 0)
@@ -493,7 +492,7 @@ public class BillOfMaterialsInclination
                 frontBackSpaces++;
             }
 
-            angleBracketQty += frontBackSpaces * 3;
+            angleBracketQty += frontBackSpaces * 3 * 2;
             angleBracketQty *= 2;
 
             angleBracket.setQty(angleBracketQty);
@@ -520,14 +519,14 @@ public class BillOfMaterialsInclination
 
     private void createFasciaWaterBoardScrew() // 
     {
-        LineItem FasciaWaterBoardScrew = new LineItem("Pakke", "Til montering af stern, vindskeder, vindkryds og vandbræt", idOrder(), 15);
+        LineItem FasciaWaterBoardScrew = new LineItem("pk.", "Til montering af stern, vindskeder, vindkryds og vandbræt", idOrder(), 15);
         FasciaWaterBoardScrew.setQty(1);
         billOfMaterials.add(FasciaWaterBoardScrew);
     }
 
     private void createBracketScrew()
     {
-        LineItem bracketScrew = new LineItem("Pakke", "Til montering af universalbeslag & toplægte", idOrder(), 16);
+        LineItem bracketScrew = new LineItem("pk.", "Til montering af universalbeslag & toplægte", idOrder(), 16);
         int rafterQty = 1 + ((length() - 645) / 1045); //645 is 300mmm in each end + 45 for rafter width. 
         if ((length() - 45) % 1045 > 0) //1000 is max distance between rafter + 45 of rafter width
         {
@@ -535,7 +534,7 @@ public class BillOfMaterialsInclination
         }
             /* We multiply with 2 because there are 2 brackets per rafter
            We multiply with 20 because we assume there are 20 screws per bracket
-           We add 5 for the perforated band
+           We add 5 for the topbatten
              */
         int totalScrews = rafterQty * 2 * 20 + 5;
         int qty = (totalScrews / 250) + ((totalScrews % 250 == 0) ? 0 : 1);
