@@ -8,12 +8,15 @@
 <!DOCTYPE html>
 <%
     int width = 3050;
-    int length = 7300;
+    int length = 7800;
     String widthToString = Integer.toString(width);
     int displace = 800;
     int shedPos = (displace / 2) + 38 + 800 + 2750 + 1200;
-    int shedLength = 2412;
-    //Used to find the amount of rafters needed
+    int shedLength = 0; //2412
+    int farRightPole = (length + (displace / 2)) - (97 * 2);
+    int xTopOfPoles = (displace / 2) + 150;
+    boolean extraPolesNeeded = false;
+
 %>
 <html>
     <head>
@@ -21,19 +24,20 @@
         <title>Carport with inclination</title>
     </head>
     <body>
+        <% out.print(farRightPole - ((xTopOfPoles + 1200) + farRightPole) / 2); %>
         <h1>CaRpOrT!</h1>
-        <SVG width="<% out.print(length / 10); %>" height="<% out.print(width / 10); %>" 
-             viewBox="0 0 <% out.print(length + (displace / 2)); %> <% out.print(width + displace); %> ">
+        <SVG width="<% out.print(length / 6); %>" height="<% out.print(width / 6); %>" 
+             viewBox="0 0 <% out.print(length + displace); %> <% out.print(width + displace); %> ">
 
 
         <!-- Top part of roof 
              x = displace + (roof plate width/2)
         -->
-        <rect x="<% out.print((displace / 2) + 37.5); %>" y="50" width="<% out.print(length); %>" height="635"
+        <rect x="<% out.print((displace / 2) + 38); %>" y="50" width="<% out.print(length); %>" height="635"
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
         <!-- Bottom part of roof -->
-        <rect x="<% out.print((displace / 2) + 37.5); %>" y="685" width="<% out.print(length); %>" height="225"
+        <rect x="<% out.print((displace / 2) + 38); %>" y="685" width="<% out.print(length); %>" height="225"
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
         <!-- Line that goes from start of edge plate 1 to end of edge plate 2 -->
@@ -41,21 +45,32 @@
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
         <!-- Top of pole & shed-->
-        <rect x="<% out.print((displace / 2) + 150); %>" y="910" width="<% out.print(length - 250); %>" height="150"
+        <rect x="<% out.print(xTopOfPoles); %>" y="910" width="<% out.print(length - 250); %>" height="150"
               style="stroke: black; fill: none; stroke-width: 10;"/>
-
-        <!-- First pole 
+        <!-- far right pole, if no shed -->
+        <rect x="<% out.print(farRightPole); %>" y="1060" width="<% out.print(97); %>" height="2005"
+              style="stroke: black; fill: none; stroke-width: 4;"/>
+        <!-- Second pole from right
              x = displace + (roof plate width / 2) + 0.8 metres from start of "bottom part of roof"
         -->
-        <rect x="<% out.print((displace / 2) + 37.5 + 800); %>" y="1060" width="<% out.print(97); %>" height="2005"
+        <rect x="<% out.print(((xTopOfPoles + 1200) + farRightPole) / 2); %>" y="1060" width="<% out.print(97); %>" height="2005"
               style="stroke: black; fill: none; stroke-width: 10;"/>
-
-        <!-- Second pole 
-             x = -||- + 2.75 metres
+        
+        <!-- if there's more than 1.2 meters distance from the edge to the nearest pole, and extra one is added
+            between the far left pole, and it's nearest pole.
         -->
-        <rect x="<% out.print((displace / 2) + 37.5 + 800 + 2750); %>" y="1060" width="<% out.print(97); %>" height="2005"
+        <% if (xTopOfPoles + 1200 < farRightPole - 3000)
+            {
+        %>
+        <rect x="<% out.print((displace / 2) + 150 + 1200); %>" y="1060" width="<% out.print(97); %>" height="2005"
               style="stroke: black; fill: none; stroke-width: 10;"/>
 
+        <% } %>
+
+
+        <% if (shedLength > 0)
+            {
+        %>
         <!--
              Shed cladding
         -->
@@ -63,7 +78,7 @@
         <rect x="<% out.print((displace / 2) + 20 + 800 + 2750 + 1200); %>" y="1060" width="<% out.print(20); %>" height="2005"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         <!-- far right shed cladding -->
-        <rect x="<% out.print((displace / 2) + 37.5 + 800 + 2750 + 1200 + 2412.5); %>" y="910" width="<% out.print(20); %>" height="<% out.print(150 + 2005); %>"
+        <rect x="<% out.print((displace / 2) + 38 + 800 + 2750 + 1200 + 2412.5); %>" y="910" width="<% out.print(20); %>" height="<% out.print(150 + 2005); %>"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         <!-- Shed
              Starts at Second pole X + 1.2 metres
@@ -92,11 +107,14 @@
         <rect x="<% out.print(i); %>" y="1000" width="<% out.print(75); %>" height="2065"
               style="stroke: black; fill: white; stroke-width: 10;"/>
         <%
-                    i += 75;
+                        i += 75;
+                    }
+                    qty++;
                 }
-                qty++;
             }
         %>
+
+
 
         <!-- FOR loop to add all the rafters(?) in the roof
                 
@@ -189,7 +207,7 @@
           <% out.print((910 + 150 + 1060 + 2005) / 2); %> )" style="font-size: 200;">
     <% out.print((groundToRoof.substring(0, 1)) + "," + groundToRoof.substring(1, 3)); %></text>
 
-    <!-- Small arrow bottom left -->111
+    <!-- Small arrow bottom left -->
     <defs>
     <marker id="beginArrow" 
             markerWidth="9" markerHeight="9" 
@@ -204,7 +222,7 @@
         <path d="M0,0 L8,4 L0,8 L0,0" style="fill: #000000;" />
     </marker>
     </defs>
-    <line x1="<% out.print(displace / 2); %>" y1="3365" x2="<% out.print((displace / 2) + 37.5 + 800); %>" y2="3365" 
+    <line x1="<% out.print(displace / 2); %>" y1="3365" x2="<% out.print((displace / 2) + 38 + 800); %>" y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
@@ -225,7 +243,7 @@
         <path d="M0,0 L8,4 L0,8 L0,0" style="fill: #000000;" />
     </marker>
     </defs>
-    <line x1="<% out.print(displace / 2); %>" y1="3365" x2="<% out.print((displace / 2) + 37.5 + 800 + 2750); %>" y2="3365" 
+    <line x1="<% out.print(displace / 2); %>" y1="3365" x2="<% out.print((displace / 2) + 38 + 800 + 2750); %>" y2="3365" 
           style="stroke:#006600;
           stroke-width: 10;
           marker-start: url(#beginArrow);
