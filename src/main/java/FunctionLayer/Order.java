@@ -1,6 +1,5 @@
 package FunctionLayer;
 
-
 public class Order
 {
 
@@ -18,15 +17,17 @@ public class Order
     private String phoneNumber;
     private String email;
     private String comment = "";
-    private double price;
-    private String status;
+    private int price;
+    private String status = "Afventer behandling";
+    private int angle = 0;
 
-    public Order(int idOrder, int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
+    public Order(int idOrder, int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, int price)
     {
         this.idOrder = idOrder;
         this.length = length;
         this.width = width;
         this.inclination = inclination;
+        this.angle = angle;
         this.roofMaterial = roofMaterial;
         this.shed = shed;
         this.name = name;
@@ -35,14 +36,14 @@ public class Order
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.price = price;
-        this.status = status;
     }
 
-    public Order(int length, int width, String inclination, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, double price, String status)
+    public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, int price)
     {
         this.length = length;
         this.width = width;
         this.inclination = inclination;
+        this.angle = angle;
         this.roofMaterial = roofMaterial;
         this.shed = shed;
         this.name = name;
@@ -51,7 +52,6 @@ public class Order
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.price = price;
-        this.status = status;
     }
 
     public int getIdOrder()
@@ -124,7 +124,7 @@ public class Order
         return comment;
     }
 
-    public double getPrice()
+    public int getPrice()
     {
         return price;
     }
@@ -132,6 +132,11 @@ public class Order
     public String getStatus()
     {
         return status;
+    }
+
+    public int getAngle()
+    {
+        return angle;
     }
 
     public void setIdOrder(int idOrder)
@@ -154,7 +159,7 @@ public class Order
         this.comment = comment;
     }
 
-    public void setPrice(double price)
+    public void setPrice(int price)
     {
         this.price = price;
     }
@@ -164,14 +169,19 @@ public class Order
         this.status = status;
     }
 
+    public void setAngle(int angle)
+    {
+        this.angle = angle;
+    }
+
     @Override
     public String toString()
     {
-        return "Order: " + idOrder + ", length: " + length
-                + ", width: " + width + ", inclination: " + inclination
-                + ", roofMaterial: " + roofMaterial + ", shed: " + shed
-                + ", shedLength: " + shedLength + ", shedWidth: " + shedWidth
-                + ", comment: " + comment + ", price: " + price
+        return "Ordre: " + idOrder + ", længde: " + length
+                + ", bredde: " + width + ", Med rejsning eller fladt tag: " + inclination
+                + ", hældning: " + angle + ", tagmateriale: " + roofMaterial + ", Med eller uden skur: " + shed
+                + ", skurlængde: " + shedLength + ", skurbredde: " + shedWidth
+                + ", kommentar: " + comment + ", pris: " + price
                 + ", status: " + status;
     }
 }

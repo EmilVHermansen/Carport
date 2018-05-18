@@ -44,5 +44,25 @@ public class LogicFacade {
         material = DataAccessObject.getMaterial(materialId);
         return material;
     }
+    
+    public static List<LineItem> createBoM(Order order) throws OrderException {
+        List<LineItem> BoM;
+        if (order.getInclination().equals("Med rejsning"))
+        {
+            BillOfMaterialsInclination BoMInclination = new BillOfMaterialsInclination(order);
+            BoMInclination.createBoM();
+            BoM = BoMInclination.getBillOfMaterials();
+        } else{
+            BillOfMaterialsFlat BoMFlat = new BillOfMaterialsFlat(order);
+            BoMFlat.createBoM();
+            BoM = BoMFlat.getBillOfMaterials();
+        }
+        return BoM;
+    }
+    
+    public static int calcPrice(List<LineItem> BoM)
+    {
+        return PriceCalculator.calcPrice(BoM);
+    }
 
 }

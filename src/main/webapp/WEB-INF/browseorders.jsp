@@ -52,6 +52,7 @@
                     <th>Længde</th>
                     <th>Bredde</th>
                     <th>Hældning</th>
+                    <th>Grader</th>
                     <th>Tag materiale</th>
                     <th>Skur</th>
                     <th>Skur længde</th>
@@ -68,6 +69,7 @@
                         <td><% out.print(order.getLength()); %></td>
                         <td><% out.print(order.getWidth()); %></td>
                         <td><% out.print(order.getInclination()); %></td>
+                        <td><% out.print(order.getAngle()); %></td>
                         <td><% out.print(order.getRoofMaterial()); %></td>
                         <td><% out.print(order.getShed()); %></td>
                         <td><% out.print(order.getShedLength()); %></td>

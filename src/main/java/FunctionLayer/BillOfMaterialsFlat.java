@@ -13,14 +13,14 @@ import java.util.List;
  *
  * @author s_ele
  */
-public class BillOfMaterials
+public class BillOfMaterialsFlat
 {
 
     private List<LineItem> billOfMaterials;
     private final int maxPoleDistance = 3000; // 3000 mm
     private final Order order;
 
-    public BillOfMaterials(Order order)
+    public BillOfMaterialsFlat(Order order)
     {
         this.billOfMaterials = new ArrayList();
         this.order = order;
@@ -58,7 +58,7 @@ public class BillOfMaterials
 
     private boolean fullShed()
     {
-        return shedWidth() == (width() - 700); // shedWidth == width
+        return shedWidth() >= (width() - 600); // shedWidth == width
     }
 
     public List<LineItem> getBillOfMaterials()
@@ -74,7 +74,7 @@ public class BillOfMaterials
         createRafter(); // Spær
         createFasciaAndWaterBoard(); // Stern og vandbræt (over and under, front/back and sides)(front and sides)
         createRoofPlate(); // Tagplader
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             createZBacksideDoor();
             createShedFrame(); // skur løsholter 
@@ -82,7 +82,7 @@ public class BillOfMaterials
         }
 
         // Beslag og skruer
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             createShedDoorKnob(); // stalddørsgreb
             createShedDoorHinge(); // Skurhængsler
@@ -106,7 +106,7 @@ public class BillOfMaterials
 
         int poleAmount = 2; // minimum amount of poles
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             poleAmount += 4; // mimimum addition of shedpoles (1 for the door)
             if (shedWidth() > maxPoleDistance)
@@ -155,7 +155,7 @@ public class BillOfMaterials
     {
         LineItem wallPlateCarport = new LineItem("stk", "Remme i sider, sadles ned i stolper", idOrder(), 2);
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             LineItem wallPlateShed = new LineItem("stk", "Remme i sider, sadles ned i stolper (skur del, deles)", idOrder(), 2);
             wallPlateShed.setQty(1);
@@ -188,8 +188,8 @@ public class BillOfMaterials
     {
         LineItem rafter = new LineItem("stk", "Spær, monteres på rem", idOrder(), 2);
         rafter.setLength(width());
-        int qty = 1 + ((length() - 45) / 645);
-        if ((length() - 45) % 645 > 0)
+        int qty = 1 + ((length() - 45) / 945);
+        if ((length() - 45) % 945 > 0)
         {
             qty++;
         }
@@ -308,7 +308,7 @@ public class BillOfMaterials
 
     void createShedFrame() // skur løsholter
     {
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             LineItem shedFrameFrontBack = new LineItem("stk", "Løsholter til skur gavle", idOrder(), 8);
             LineItem shedFrameSides = new LineItem("stk", "Løsholter til skur sider", idOrder(), 8);
@@ -372,7 +372,7 @@ public class BillOfMaterials
 
         int sublength2;
 
-        if (shed())
+        if (shed() && shedLength() != 0 && shedWidth() != 0)
         {
             sublength2 = shedLength() + 150;
         } else
@@ -430,7 +430,7 @@ public class BillOfMaterials
 
     private void createBottomScrew()
     {
-        LineItem bottomScrew = new LineItem("Pakke", "Skruer til tagplader", idOrder(), 14);
+        LineItem bottomScrew = new LineItem("pk.", "Skruer til tagplader", idOrder(), 14);
         //based on existing example of BoM and manual
         int length = 7800;
         int width = 6000;
@@ -446,7 +446,7 @@ public class BillOfMaterials
 
     private void createFasciaWaterBoardScrew()
     {
-        LineItem FasciaWaterBoardScrew = new LineItem("Pakke", "Til montering af stern & vandbræt", idOrder(), 15);
+        LineItem FasciaWaterBoardScrew = new LineItem("pk.", "Til montering af stern & vandbræt", idOrder(), 15);
         FasciaWaterBoardScrew.setQty(1);
         billOfMaterials.add(FasciaWaterBoardScrew);
 
@@ -454,7 +454,7 @@ public class BillOfMaterials
 
     private void createBracketScrew()
     {
-        LineItem bracketScrew = new LineItem("Pakke", "Til montering af universalbeslag & hulbånd", idOrder(), 16);
+        LineItem bracketScrew = new LineItem("pk.", "Til montering af universalbeslag & hulbånd", idOrder(), 16);
         int rafterQty = 1 + ((length() - 45) / 600);
         if ((length() - 45) % 600 > 0)
         {
@@ -518,8 +518,7 @@ public class BillOfMaterials
 
     private void createAngleBracket()
     {
-        if (shed())
-        {
+
             LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
             int angleBracketQty;
 
@@ -543,7 +542,6 @@ public class BillOfMaterials
             angleBracket.setQty(angleBracketQty);
 
             billOfMaterials.add(angleBracket);
-        }
     }
 
 }//CLASS

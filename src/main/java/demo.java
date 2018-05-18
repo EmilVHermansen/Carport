@@ -1,5 +1,6 @@
 
 import FunctionLayer.LineItem;
+import static java.lang.Math.cos;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,13 +20,15 @@ public class demo
      */
     public static void main(String[] args)
     {
-        int length = 6000; 
-        int width = 7800;
-        double amountOfTotalScrews = 600;
-        double screwsPerSqrMilimeter = amountOfTotalScrews / (length * width); //bases on existing example of BoM and manual
-        int qty = (int) (length * width * screwsPerSqrMilimeter);
+        double bLength = 3600 / 2;
+//        int bargeBoardLength = (int) ((bLength * sin(Math.toRadians((90)))) / sin(Math.toRadians(180-90-angle())));
+        int bargeBoardLength = (int) (bLength / cos(Math.toRadians(45)));
+        bargeBoardLength *= 2;
+        bargeBoardLength += (300 - bargeBoardLength % 300);
         
-        System.out.println(qty);
+        System.out.println(bargeBoardLength);
+        
+        
     }
     
 }
