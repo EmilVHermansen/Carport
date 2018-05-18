@@ -15,13 +15,13 @@ public class TechDrawing
     public String mmToMeter(int i)
     {
         i = Math.abs(i);
-        String cm = Integer.toString(i);
+        String m = Integer.toString(i);
         if (i < 1000)
         {
-            return "0," + cm.substring(0, 2);
+            return "0," + m.substring(0, 2);
         } else
         {
-            return cm.substring(0, 1) + "," + cm.substring(1, 3);
+            return m.substring(0, 1) + "," + m.substring(1, 3);
         }
     }
 }
