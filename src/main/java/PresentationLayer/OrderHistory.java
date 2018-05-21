@@ -22,7 +22,7 @@ public class OrderHistory extends Command {
     }
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, OrderException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
         HttpSession session = request.getSession();
 //        User user = (User) session.getAttribute("user");
         List<Order> orders = LogicFacade.getOrders();

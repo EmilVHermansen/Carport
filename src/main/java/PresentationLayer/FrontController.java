@@ -3,6 +3,7 @@ package PresentationLayer;
 import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.OrderException;
+import FunctionLayer.SubmitOrderException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -13,8 +14,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "FrontController", urlPatterns = {"/FrontController"})
-public class FrontController extends HttpServlet {
+@WebServlet(name = "FrontController", urlPatterns =
+{
+    "/FrontController"
+})
+public class FrontController extends HttpServlet
+{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -26,15 +31,19 @@ public class FrontController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
+            throws ServletException, IOException
+    {
+        try
+        {
             Command action = Command.from(request);
             String view = action.execute(request, response);
             request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
-        } catch (LoginSampleException ex) {
+        } catch (LoginSampleException ex)
+        {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("index.jsp").forward(request, response);
-        } catch (OrderException ex) {
+        } catch (OrderException ex)
+        {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/browseorders.jsp").forward(request, response);
         } catch (CustomerInfoError ex)
@@ -44,8 +53,13 @@ public class FrontController extends HttpServlet {
 
         } catch (SQLException ex)
         {
-           request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("/WEB-INF/billofmaterials.jsp").forward(request, response); 
+            request.setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/WEB-INF/billofmaterials.jsp").forward(request, response);
+            
+        } catch (SubmitOrderException ex)
+        {
+            request.setAttribute("error", ex.getMessage());
+            request.getRequestDispatcher("/WEB-INF/submitorder.jsp").forward(request, response);
         }
     }
 
@@ -58,15 +72,15 @@ public class FrontController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      * @throws CustomerInfoError if the customer does not exist
-
+     *
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-           
-                processRequest(request, response);
-           
+            throws ServletException, IOException
+    {
+
+        processRequest(request, response);
+
     }
 
     /**
@@ -80,8 +94,9 @@ public class FrontController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-            processRequest(request, response);
+            throws ServletException, IOException
+    {
+        processRequest(request, response);
     }
 
     /**
@@ -90,7 +105,8 @@ public class FrontController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 

@@ -16,7 +16,14 @@
 
     <body>
         <h1>Bestil din carport her</h1>
-
+        
+        <% String error = (String) request.getAttribute( "error");
+           if ( error != null) { %>
+           <h5 style="color:red"><%= error %></h5>
+           <br>
+        <% }
+        %>
+        
         <table>
             <tr>Vælg specifikationer på din carport
                 <td>
@@ -111,7 +118,7 @@
                         Evt. bemærkninger:<br>
                         <input type="text" name="comment">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Bekræft">
                     </form>
                 </td>
             </tr>
