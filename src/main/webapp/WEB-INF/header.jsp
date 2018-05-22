@@ -16,5 +16,4 @@
     <header class="mainHeader">
         <a href="index.jsp"><img src="resources/img/fog-logo.png"></a>
     </header>
-
 </html>
