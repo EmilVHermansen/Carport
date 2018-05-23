@@ -65,7 +65,7 @@
     <body>
         <h1>Carport with Inclination!</h1>
         <h3><% out.print("Length: " + td.mmToMeter(length) + "m"); %></h3>
-        <h3><% out.print("Height:  " + td.mmToMeter(width) + "m" ); %></h3>
+        <h3><% out.print("Height:  " + td.mmToMeter(width) + "m"); %></h3>
         <SVG width="<% out.print(length / 6); %>" height="<% out.print(width / 6); %>" 
              viewBox="0 0 <% out.print(length + displace); %> <% out.print(width + displace); %> ">
 
@@ -225,7 +225,7 @@
     <text x="150" y="<% out.print(width / 2); %>" fill="red" transform="rotate(-90, 100, 
           <% out.print(width / 2); %> )" style="font-size: 150;">
     <% out.print(td.mmToMeter(groundToTop)); %></text>
-    
+
     <!-- Small arrow left 
          y1 = Top of pole & shed Y-coordinate
     -->
@@ -395,7 +395,7 @@
           stroke-width: 10;
           marker-start: url(#beginArrow);
           marker-end: url(#endArrow);"/>
-    <text x="<% out.print((shedPos + (shedLength/2))); %>" y="3365" fill="red" style="font-size: 150;"><%out.print(td.mmToMeter(shedLength));%></text>
+    <text x="<% out.print((shedPos + (shedLength / 2))); %>" y="3365" fill="red" style="font-size: 150;"><%out.print(td.mmToMeter(shedLength));%></text>
     <%
         }
     %> 
@@ -419,12 +419,14 @@
     <text x="<% out.print(((((displace / 2) + 75) + length) + ((displace / 2) + length + 500)) / 2 - 125); %>" y="3365" fill="red" style="font-size: 150;"> <% out.print(td.mmToMeter(300));%>
     </text>
     </svg>
-          <form name="login" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="login">
-            <% //TODO change value to employee in session when loggin in %>
-            <input type="hidden" name="empnumber" value="a01">
-            <input type="hidden" name="password" value="admin">
-            <input type="submit" name="submit" value="Tilbage til ordre">
-        </form>
+    <form name="login" action="FrontController" method="POST">
+        <input type="hidden" name="command" value="login">
+        <% //TODO change value to employee in session when loggin in %>
+        <input type="hidden" name="empnumber" value="a01">
+        <input type="hidden" name="password" value="admin">
+        <input type="submit" name="submit" value="Tilbage til ordre">
+    </form>
+    <%@include file="footer.jsp" %>
+
 </body>
 </html>

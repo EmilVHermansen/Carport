@@ -20,6 +20,21 @@ body {
     height: 100%;
 }
 
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title-content {
+    align-self: center;
+}
+
+.title-content h1 {
+    color: #0c2069;
+}
+
 .footer-parent {
     display: flex;
     position: absolute;
@@ -71,15 +86,10 @@ body {
     justify-content: center;
 }
 
-.bot-title {
-    margin-bottom: 20px;
-    margin-right: 200px;
-}
-
-.bot-title h1 {
-    color: #0c2069;
-}
-
 .bot-content {
     align-self: center;
+}
+
+.order-table {
+    overflow: auto;
 }

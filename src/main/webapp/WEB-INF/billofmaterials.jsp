@@ -56,5 +56,6 @@
         <input type="hidden" name="password" value="admin">
         <input type="submit" name="submit" value="Tilbage til ordre">
     </form>
+                    <%@include file="footer.jsp" %>
 </body>
 </html>
