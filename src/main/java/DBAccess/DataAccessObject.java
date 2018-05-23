@@ -94,10 +94,8 @@ public class DataAccessObject
             if (rs.next())
             {
 
-                int id = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
-                int price = rs.getInt("price");
                 String inclination = rs.getString("inclination");
                 int angle = rs.getInt("angle");
                 String roofMaterial = rs.getString("roof_material");
@@ -110,12 +108,15 @@ public class DataAccessObject
                 String phoneNumber = rs.getString("phonenumber");
                 String custEmail = rs.getString("email");
                 String comment = rs.getString("comment");
+                int price = rs.getInt("price");
+                int salesPrice = rs.getInt("salesprice");
                 String status = rs.getString("status");
-                order = new Order(id, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
+                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
                 order.setStatus(status);
+                order.setSalesprice(salesPrice);
             }
         } catch (ClassNotFoundException ex)
         {
@@ -242,6 +243,47 @@ public class DataAccessObject
         }
     }
 
+    public static void updateOrder(Order order, String attribute) throws LoginSampleException
+    {
+        try
+        {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE `order` SET `"+ attribute + "`=? WHERE `idorder`=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            
+            if (attribute.equals("length"))
+                ps.setInt(1, order.getLength());
+            else if (attribute.equals("width"))
+                ps.setInt(1, order.getWidth());
+            else if (attribute.equals("inclination"))
+                ps.setString(1, order.getInclination());
+            else if (attribute.equals("angle"))
+                ps.setInt(1, order.getAngle());
+            else if (attribute.equals("roof_material"))
+                ps.setString(1, order.getRoofMaterial());
+            else if (attribute.equals("shed"))
+                ps.setString(1, order.getShed());
+            else if (attribute.equals("shed_length"))
+                ps.setInt(1, order.getShedLength());
+            else if (attribute.equals("shed_width"))
+                ps.setInt(1, order.getShedWidth());
+            else if (attribute.equals("comment"))
+                ps.setString(1, order.getComment());
+            else if (attribute.equals("salesprice"))
+                ps.setInt(1, order.getSalesprice());
+            else if (attribute.equals("status"))
+                ps.setString(1, order.getStatus());
+            
+            ps.setInt(2, order.getIdOrder());
+            ps.executeUpdate();
+
+        } catch (SQLException | ClassNotFoundException ex)
+        {
+            throw new LoginSampleException(ex.getMessage());
+        }
+    }
+    
+    
     // TODO Maybe
 //    public static void createLineItem(LineItem lineItem) throws SQLException {
 //        try {
@@ -318,4 +360,5 @@ public class DataAccessObject
         }
         return material;
     }
+
 }

@@ -27,7 +27,7 @@ public class UpdateStatus extends Command
         {
             Order order = LogicFacade.getOrder(orderId);
             order.setStatus(status);
-            LogicFacade.updateOrder(order);
+            LogicFacade.updateOrderStatus(order);
         } catch (SQLException ex)
         {
             Logger.getLogger(UpdateStatus.class.getName()).log(Level.SEVERE, null, ex);

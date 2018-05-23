@@ -30,9 +30,13 @@ public class LogicFacade {
     
     
 
-    public static void updateOrder(Order order) throws LoginSampleException {
+    public static void updateOrderStatus(Order order) throws LoginSampleException {
         DataAccessObject.updateOrderStatus(order);
 
+    }
+    
+    public static void updateOrder(Order order, String attribute) throws LoginSampleException {
+        DataAccessObject.updateOrder(order, attribute);
     }
     
     public static void submitOrder(Order order) throws OrderException {

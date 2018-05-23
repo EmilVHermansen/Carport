@@ -14,5 +14,7 @@
     <body>
         <h1>Ordre bekræftet</h1>
        ${order}
+       <br>
+       <h5>Du vil blive ringet op inden for 5 arbejdsdage omkring detaljerne af ordren</h5>
     </body>
 </html>

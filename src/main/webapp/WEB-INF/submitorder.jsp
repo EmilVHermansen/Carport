@@ -16,13 +16,19 @@
 
     <body>
         <h1>Bestil din carport her</h1>
-
+        
+        <% String error = (String) request.getAttribute( "error");
+           if ( error != null) { %>
+           <h5 style="color:red"><%= error %></h5>
+           <br>
+        <% }
+        %>
+        
         <table>
             <tr>Vælg specifikationer på din carport
                 <td>
                     <form name="submitorder" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderconfirmation">
-                        <%--TODO custom exceptions--%>
                         Bredde i cm:<br>
                         <select name="width">
                             <% for (int i = 240; i < 750; i += 30)
@@ -74,7 +80,6 @@
                             <option value="shed">Med Skur</option>
                             <option value="noShed">Uden Skur</option>
                         </select>
-                        <%--TODO custom exceptions--%>
                         <br>
                         Skur bredde i cm:<br>
                         <select name="shedWidth">
@@ -111,7 +116,7 @@
                         Evt. bemærkninger:<br>
                         <input type="text" name="comment">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Bekræft">
                     </form>
                 </td>
             </tr>
