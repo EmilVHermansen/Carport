@@ -181,7 +181,6 @@ public class Order
                 + ", bredde: " + width + ", Med rejsning eller fladt tag: " + inclination
                 + ", hældning: " + angle + ", tagmateriale: " + roofMaterial + ", Med eller uden skur: " + shed
                 + ", skurlængde: " + shedLength + ", skurbredde: " + shedWidth
-                + ", kommentar: " + comment + ", pris: " + price
-                + ", status: " + status;
+                + ", kommentar: " + comment + ", status: " + status;
     }
 }
