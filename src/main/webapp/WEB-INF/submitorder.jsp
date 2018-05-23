@@ -15,8 +15,11 @@
     <%@include file="header.jsp" %>
 
     <body>
+        <div class="title-container">
+            <div class="title-content">
         <h1>Bestil din carport her</h1>
-
+            </div>
+        </div>
         <% String error = (String) request.getAttribute("error");
             if (error != null)
             {%>
@@ -24,7 +27,8 @@
         <br>
         <% }
         %>
-
+        <div class="bot-container">
+            <div class ="bot-content">
         <table>
             <tr>Vælg specifikationer på din carport
                 <td>
@@ -122,6 +126,8 @@
                 </td>
             </tr>
         </table>
+            </div>
+        </div>
         <%@include file="footer.jsp" %>
 
     </body>
