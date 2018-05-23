@@ -5,8 +5,81 @@ header {
     height: 126px;
 }
 
-html,
+html {
+    height: 100%;
+}
+
 body {
+    position: relative;
     margin: 0;
-    padding: 0;
+    min-height: 100%;
+    padding-bottom: 50px;
+}
+
+.container {
+    height: 100%;
+}
+
+.footer-parent {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    /* Height of the footer */
+    align-content: center;
+    background-color: #0c2069;
+}
+
+.footer-content-left {
+    width: 100%;
+    color: #ffffff;
+    align-self: center;
+    padding-left: 50px;
+}
+
+.footer-content-right {
+    color: #ffffff;
+    width: 100%;
+    align-self: center;
+    text-align: right;
+    padding-right: 50px;
+}
+
+.top-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-content-left {
+    width: 50%;
+    padding: 20px 20px 20px 200px;
+}
+
+.top-content-right {
+    width: 50%;
+    padding: 20px 200px 20px 20px;
+}
+
+.bot-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bot-title {
+    margin-bottom: 20px;
+    margin-right: 200px;
+}
+
+.bot-title h1 {
+    color: #0c2069;
+}
+
+.bot-content {
+    align-self: center;
 }

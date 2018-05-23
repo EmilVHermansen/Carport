@@ -29,7 +29,7 @@ public class DataAccessObject
         {
 
             Connection con = Connector.connection();
-            String SQL = "SELECT * FROM user "
+            String SQL = "SELECT * FROM `user` "
                     + "WHERE empno=? AND password=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, employeenumber);
