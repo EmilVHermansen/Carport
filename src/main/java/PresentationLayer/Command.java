@@ -23,6 +23,8 @@ abstract class Command {
         commands.put("orderconfirmation", new OrderConfirmation());
         commands.put("billofmaterials", new BillOfMaterialsPage());
         commands.put("tegning", new TechnicalDrawing());
+        commands.put("orderinfo", new OrderInfo());
+        commands.put("orderedit", new OrderEdit());
 
     }
 

@@ -29,7 +29,6 @@
                 <td>
                     <form name="submitorder" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderconfirmation">
-                        <%--TODO custom exceptions--%>
                         Bredde i cm:<br>
                         <select name="width">
                             <% for (int i = 240; i < 750; i += 30)
@@ -81,7 +80,6 @@
                             <option value="shed">Med Skur</option>
                             <option value="noShed">Uden Skur</option>
                         </select>
-                        <%--TODO custom exceptions--%>
                         <br>
                         Skur bredde i cm:<br>
                         <select name="shedWidth">

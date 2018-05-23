@@ -12,7 +12,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% List<Order> orders = (ArrayList<Order>) session.getAttribute("orders");
 %>
-     <%@include file="header.jsp" %>
+<%@include file="header.jsp" %>
 
 <!DOCTYPE html>
 <html>
@@ -44,22 +44,24 @@
         </form>
 
 
-        <h1>Ordre historie</h1>
+        <h1>Ordre historik</h1>
         <div>
             <table class="table table-hover">
                 <thead class="thead-dark">
-                    <th>Ordrenr.</th>
-                    <th>Længde</th>
-                    <th>Bredde</th>
-                    <th>Hældning</th>
-                    <th>Grader</th>
-                    <th>Tag materiale</th>
-                    <th>Skur</th>
-                    <th>Skur længde</th>
-                    <th>Skur bredde</th>
-                    <th>Kommentar</th>
-                    <th>Pris</th>
-                    <th>Status</th>
+                <th>Ordrenr.</th>
+                <th>Længde</th>
+                <th>Bredde</th>
+                <th>Hældning</th>
+                <th>Grader</th>
+                <th>Tag materiale</th>
+                <th>Skur</th>
+                <th>Skur længde</th>
+                <th>Skur bredde</th>
+                <th>Kommentar</th>
+                <th>Vejledende Pris</th>
+                <th>Salgspris</th>
+                <th>Status</th>
+                <th>Rediger ordre</th>
                 </thead>
                 <tbody>
                     <%for (Order order : orders)
@@ -76,7 +78,15 @@
                         <td><% out.print(order.getShedWidth()); %></td>
                         <td><% out.print(order.getComment()); %></td>
                         <td><% out.print(order.getPrice()); %></td>
+                        <td><% out.print(order.getSalesprice()); %></td>
                         <td><% out.print(order.getStatus()); %></td>
+                        <td>
+                            <form name="orderinfo" action="FrontController" method="POST">
+                                <input type="hidden" name="command" value="orderinfo">
+                                <input type="hidden" name ="idOrder" value="<% out.print(order.getIdOrder()); %>">
+                                <input type="submit" name="Rediger" value="Rediger">
+                            </form>
+                        </td>
                     </tr>
                     <%};%>
                 </tbody>

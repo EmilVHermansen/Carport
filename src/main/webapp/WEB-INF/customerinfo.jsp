@@ -46,16 +46,10 @@
             </tr>
         </table>
         <% }%>
+        <!-- button to access the bill of materials -->
         <form name="billofmaterials" action="FrontController" method="POST">
             <input type="hidden" name="command" value="billofmaterials">
             <input type="submit" name="submit" value="Stykliste">
-        </form>
-        <form name="login" action="FrontController" method="POST">
-            <input type="hidden" name="command" value="login">
-            <% //TODO change value to employee in session when loggin in %>
-            <input type="hidden" name="empnumber" value="a01">
-            <input type="hidden" name="password" value="admin">
-            <input type="submit" name="submit" value="Tilbage til ordrer">
         </form>
 
         <!-- button to access the technical drawing -->
@@ -64,6 +58,14 @@
             <input type="submit" name="tegning" value="Tegning">
         </form>
 
+        <!-- button to go back to order history-->
+        <form name="login" action="FrontController" method="POST">
+            <input type="hidden" name="command" value="login">
+            <% //TODO change value to employee in session when loggin in %>
+            <input type="hidden" name="empnumber" value="a01">
+            <input type="hidden" name="password" value="admin">
+            <input type="submit" name="submit" value="Tilbage til ordrer">
+        </form>
 
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

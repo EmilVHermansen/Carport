@@ -7,6 +7,7 @@ public class Order
     private int length;
     private int width;
     private String inclination;
+    private int angle = 0;
     private String roofMaterial;
     private String shed;
     private int shedLength = 0;
@@ -18,8 +19,8 @@ public class Order
     private String email;
     private String comment = "";
     private int price;
+    private int salesprice = 0;
     private String status = "Afventer behandling";
-    private int angle = 0;
 
     public Order(int idOrder, int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, int price)
     {
@@ -129,6 +130,11 @@ public class Order
         return price;
     }
 
+    public int getSalesprice()
+    {
+        return salesprice;
+    }
+    
     public String getStatus()
     {
         return status;
@@ -144,6 +150,56 @@ public class Order
         this.idOrder = idOrder;
     }
 
+    public void setLength(int length)
+    {
+        this.length = length;
+    }
+
+    public void setWidth(int width)
+    {
+        this.width = width;
+    }
+
+    public void setInclination(String inclination)
+    {
+        this.inclination = inclination;
+    }
+
+    public void setRoofMaterial(String roofMaterial)
+    {
+        this.roofMaterial = roofMaterial;
+    }
+
+    public void setShed(String shed)
+    {
+        this.shed = shed;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setAddress(String address)
+    {
+        this.address = address;
+    }
+
+    public void setZipCode(String zipCode)
+    {
+        this.zipCode = zipCode;
+    }
+
+    public void setPhoneNumber(String phoneNumber)
+    {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
+    
     public void setShedLength(int shedLength)
     {
         this.shedLength = shedLength;
@@ -164,6 +220,11 @@ public class Order
         this.price = price;
     }
 
+    public void setSalesprice(int salesPrice)
+    {
+        this.salesprice = salesPrice;
+    }
+    
     public void setStatus(String status)
     {
         this.status = status;
