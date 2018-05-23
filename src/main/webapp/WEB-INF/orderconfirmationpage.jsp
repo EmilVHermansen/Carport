@@ -16,5 +16,6 @@
        ${order}
        <br>
        <h5>Du vil blive ringet op inden for 5 arbejdsdage omkring detaljerne af ordren</h5>
+           <%@include file="footer.jsp" %>
     </body>
 </html>
