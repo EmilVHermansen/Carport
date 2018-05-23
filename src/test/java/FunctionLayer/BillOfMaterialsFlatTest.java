@@ -24,35 +24,9 @@ public class BillOfMaterialsFlatTest
     {
     }
 
-    /**
-     * Test of getBillOfMaterials method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testGetBillOfMaterials()
-    {
-        System.out.println("getBillOfMaterials");
-        BillOfMaterialsFlat instance = null;
-        List<LineItem> expResult = null;
-        List<LineItem> result = instance.getBillOfMaterials();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
 
-    /**
-     * Test of createBoM method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateBoM()
-    {
-        System.out.println("createBoM");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
-        order.setShedLength(210);
-        order.setShedWidth(600);
-        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
-        instance.createBoM();
-        assertNotNull(instance.getBillOfMaterials());
-    }
+  
 
     /**
      * Test of createPole method, of class BillOfMaterialsFlat.
@@ -95,6 +69,32 @@ public class BillOfMaterialsFlatTest
     }
     
     @Test
+    public void testCreatePoleShedLengthMoreThanMaxPoleDistance()
+    {
+        System.out.println("CreatePoleShedLengthMoreThanMaxPoleDistance");
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        order.setShedLength(630);
+        order.setShedWidth(330);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
+        instance.createPole();
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        assertEquals(15, BoM.get(0).getQty());
+    }
+    
+    @Test
+    public void testCreatePoleFullShedLengthMoreThanMaxPoleDistance()
+    {
+        System.out.println("CreatePoleFullShedLengthMoreThanMaxPoleDistance");
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        order.setShedLength(630);
+        order.setShedWidth(570);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
+        instance.createPole();
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        assertEquals(9, BoM.get(0).getQty());
+    }
+    
+    @Test
     public void testCreatePoleHalfShedMorethanMaxPoleDistance()
     {
         System.out.println("CreatePoleHalfShedMorethanMaxPoleDistance");
@@ -105,19 +105,6 @@ public class BillOfMaterialsFlatTest
         instance.createPole();
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(12, BoM.get(0).getQty());
-    }
-
-    /**
-     * Test of createWallPlate method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateWallPlate()
-    {
-        System.out.println("createWallPlate");
-        BillOfMaterialsFlat instance = null;
-        instance.createWallPlate();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -135,122 +122,75 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(9, BoM.get(0).getQty());
     }
-
-    /**
-     * Test of createFasciaAndWaterBoard method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateFasciaAndWaterBoard()
-    {
-        System.out.println("createFasciaAndWaterBoard");
-        BillOfMaterialsFlat instance = null;
-        instance.createFasciaAndWaterBoard();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createRoofPlate method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateRoofPlate()
-    {
-        System.out.println("createRoofPlate");
-        BillOfMaterialsFlat instance = null;
-        instance.createRoofPlate();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createZBacksideDoor method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateZBacksideDoor()
-    {
-        System.out.println("createZBacksideDoor");
-        BillOfMaterialsFlat instance = null;
-        instance.createZBacksideDoor();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createShedFrame method, of class BillOfMaterialsFlat.
-     */
+    
+    
     @Test
     public void testCreateShedFrame()
     {
         System.out.println("createShedFrame");
-        BillOfMaterialsFlat instance = null;
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        order.setShedLength(330);
+        order.setShedWidth(630);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
         instance.createShedFrame();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createShedCladding method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateShedCladding()
-    {
-        System.out.println("createShedCladding");
-        BillOfMaterialsFlat instance = null;
-        instance.createShedCladding();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createPerforatedBand method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreatePerforatedBand()
-    {
-        System.out.println("createPerforatedBand");
-        BillOfMaterialsFlat instance = null;
-        instance.createPerforatedBand();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createShedDoorKnob method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateShedDoorKnob()
-    {
-        System.out.println("createShedDoorKnob");
-        BillOfMaterialsFlat instance = null;
-        instance.createShedDoorKnob();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createShedDoorHinge method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateShedDoorHinge()
-    {
-        System.out.println("createShedDoorHinge");
-        BillOfMaterialsFlat instance = null;
-        instance.createShedDoorHinge();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createUniversalBracket method, of class BillOfMaterialsFlat.
-     */
-    @Test
-    public void testCreateUniversalBracket()
-    {
-        System.out.println("createUniversalBracket");
-        BillOfMaterialsFlat instance = null;
-        instance.createUniversalBracket();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        int qty = 0;
+        for (LineItem lineItem : BoM)
+        {
+            qty += lineItem.getQty();
+        }
+        assertEquals(26, qty);
     }
     
+    @Test
+    public void testCreateWallPlateFullShed()
+    {
+        System.out.println("createWallPlateFullShed");
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        order.setShedLength(330);
+        order.setShedWidth(630);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
+        instance.createWallPlate();
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        int qty = 0;
+        for (LineItem lineItem : BoM)
+        {
+            qty += lineItem.getQty();
+        }
+        assertEquals(3, qty);
+    }
+    
+    @Test
+    public void testCreateWallPlateHalfShed()
+    {
+        System.out.println("createWallPlateHalfShed");
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        order.setShedLength(330);
+        order.setShedWidth(330);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
+        instance.createWallPlate();
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        int qty = 0;
+        for (LineItem lineItem : BoM)
+        {
+            qty += lineItem.getQty();
+        }
+        assertEquals(3, qty);
+    }
+    @Test
+    public void testCreateWallPlateNoShed()
+    {
+        System.out.println("createWallPlateNoShed");
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "noShed", "test", "test", "test", "test", "test", 28375);
+        BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
+        instance.createWallPlate();
+        List<LineItem> BoM = instance.getBillOfMaterials();
+        int qty = 0;
+        for (LineItem lineItem : BoM)
+        {
+            qty += lineItem.getQty();
+        }
+        assertEquals(2, qty);
+    }
+
 }
