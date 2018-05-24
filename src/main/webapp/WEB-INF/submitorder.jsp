@@ -57,8 +57,8 @@
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <option value="Med rejsning">Med rejsning</option>
                             <option value="Fladt tag">Flat tag</option>
+                            <option value="Med rejsning">Med rejsning</option>
                         </select>
                         <br>
                         Vinkel:<br>
@@ -82,8 +82,8 @@
                         <br>
                         Med skur:<br>
                         <select name="shed">
-                            <option value="shed">Med Skur</option>
                             <option value="noShed">Uden Skur</option>
+                            <option value="shed">Med Skur</option>
                         </select>
                         <br>
                         Skur bredde i cm:<br>
