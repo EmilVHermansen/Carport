@@ -21,6 +21,11 @@
         <title>Ordre</title>
     </head>
     <body>
+        <div class="title-container">
+            <div class="title-content">
+                <h1>Ordre historie</h1>
+            </div>
+        </div>
         <div class="top-container">
             <div class="top-content-left">
                 <form name="customerInfo" action="FrontController" method="POST">
@@ -48,63 +53,60 @@
             </div>
         </div>
         <div class="bot-container">
-            <div class="bot-title">
-                <h1>Ordre historie</h1>
-            </div>
             <div class="bot-content">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                <th>Ordrenr.</th>
-                <th>Længde</th>
-                <th>Bredde</th>
-                <th>Hældning</th>
-                <th>Grader</th>
-                <th>Tag materiale</th>
-                <th>Skur</th>
-                <th>Skur længde</th>
-                <th>Skur bredde</th>
-                <th>Kommentar</th>
-                <th>Vejledende Pris</th>
-                <th>Salgspris</th>
-                <th>Status</th>
-                <th>Rediger ordre</th>
-                </thead>
-                <tbody>
-                    <%for (Order order : orders)
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                    <th>Ordrenr.</th>
+                    <th>Længde</th>
+                    <th>Bredde</th>
+                    <th>Hældning</th>
+                    <th>Grader</th>
+                    <th>Tag materiale</th>
+                    <th>Skur</th>
+                    <th>Skur længde</th>
+                    <th>Skur bredde</th>
+                    <th>Kommentar</th>
+                    <th>Vejledende Pris</th>
+                    <th>Salgspris</th>
+                    <th>Status</th>
+                    <th>Rediger ordre</th>
+                    </thead>
+                    <tbody>
+                        <%for (Order order : orders)
                         { %>
-                    <tr>
-                        <td><% out.print(order.getIdOrder()); %></td>
-                        <td><% out.print(order.getLength()); %></td>
-                        <td><% out.print(order.getWidth()); %></td>
-                        <td><% out.print(order.getInclination()); %></td>
-                        <td><% out.print(order.getAngle()); %></td>
-                        <td><% out.print(order.getRoofMaterial()); %></td>
-                        <td><% out.print(order.getShed()); %></td>
-                        <td><% out.print(order.getShedLength()); %></td>
-                        <td><% out.print(order.getShedWidth()); %></td>
-                        <td><% out.print(order.getComment()); %></td>
-                        <td><% out.print(order.getPrice()); %></td>
-                        <td><% out.print(order.getSalesprice()); %></td>
-                        <td><% out.print(order.getStatus()); %></td>
-                        <td>
-                            <form name="orderinfo" action="FrontController" method="POST">
-                                <input type="hidden" name="command" value="orderinfo">
-                                <input type="hidden" name ="idOrder" value="<% out.print(order.getIdOrder()); %>">
-                                <input type="submit" name="Rediger" value="Rediger">
-                            </form>
-                        </td>
-                    </tr>
-                    <%};%>
-                </tbody>
-            </table>
+                        <tr>
+                            <td><% out.print(order.getIdOrder()); %></td>
+                            <td><% out.print(order.getLength()); %></td>
+                            <td><% out.print(order.getWidth()); %></td>
+                            <td><% out.print(order.getInclination()); %></td>
+                            <td><% out.print(order.getAngle()); %></td>
+                            <td><% out.print(order.getRoofMaterial()); %></td>
+                            <td><% out.print(order.getShed()); %></td>
+                            <td><% out.print(order.getShedLength()); %></td>
+                            <td><% out.print(order.getShedWidth()); %></td>
+                            <td><% out.print(order.getComment()); %></td>
+                            <td><% out.print(order.getPrice()); %></td>
+                            <td><% out.print(order.getSalesprice()); %></td>
+                            <td><% out.print(order.getStatus()); %></td>
+                            <td>
+                                <form name="orderinfo" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="orderinfo">
+                                    <input type="hidden" name ="idOrder" value="<% out.print(order.getIdOrder()); %>">
+                                    <input type="submit" name="Rediger" value="Rediger">
+                                </form>
+                            </td>
+                        </tr>
+                        <%};%>
+                    </tbody>
+                </table>
             </div>
         </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <%@include file="footer.jsp" %>
-    </body>
+</body>
 
 </html>

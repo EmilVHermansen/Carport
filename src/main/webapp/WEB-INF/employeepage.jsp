@@ -21,5 +21,7 @@
         <input type="hidden" name="orderid" value="<%=order.getIdOrder()%>">
         <input type="submit"  value="Update order">
     </form>
+            <%@include file="footer.jsp" %>
+
     </body>
 </html>

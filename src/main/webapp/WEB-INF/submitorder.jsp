@@ -15,15 +15,20 @@
     <%@include file="header.jsp" %>
 
     <body>
+        <div class="title-container">
+            <div class="title-content">
         <h1>Bestil din carport her</h1>
-        
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-           <h5 style="color:red"><%= error %></h5>
-           <br>
+            </div>
+        </div>
+        <% String error = (String) request.getAttribute("error");
+            if (error != null)
+            {%>
+        <h5 style="color:red"><%= error%></h5>
+        <br>
         <% }
         %>
-        
+        <div class="bot-container">
+            <div class ="bot-content">
         <table>
             <tr>Vælg specifikationer på din carport
                 <td>
@@ -33,8 +38,8 @@
                         <select name="width">
                             <% for (int i = 240; i < 750; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
-                            } %>
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                                } %>
                         </select>
                         <br>
 
@@ -44,28 +49,28 @@
                         <select name="length">
                             <% for (int j = 240; j < 780; j += 30)
                                 {
-                            %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><% 
-                            } %>
+                            %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><%
+                                } %>
                         </select>
                         <br>
 
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <option value="Med rejsning">Med rejsning</option>
                             <option value="Fladt tag">Flat tag</option>
+                            <option value="Med rejsning">Med rejsning</option>
                         </select>
                         <br>
-                        Vinkel:<br>
+                        Vinkel i grader:<br>
                         <select name="angle">
-                            <option value="0">0</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="30">30</option>
-                            <option value="45">45</option>
+                            <option value="0">0°</option>
+                            <option value="15">15°</option>
+                            <option value="20">20°</option>
+                            <option value="25">25°</option>
+                            <option value="30">30°</option>
+                            <option value="35">35°</option>
+                            <option value="30">30°</option>
+                            <option value="45">45°</option>
                         </select>
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>
@@ -77,16 +82,16 @@
                         <br>
                         Med skur:<br>
                         <select name="shed">
-                            <option value="shed">Med Skur</option>
                             <option value="noShed">Uden Skur</option>
+                            <option value="shed">Med Skur</option>
                         </select>
                         <br>
                         Skur bredde i cm:<br>
                         <select name="shedWidth">
                             <% for (int i = 0; i < 720; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
-                            } %>
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                                } %>
                         </select>
 
                         <br>
@@ -94,8 +99,8 @@
                         <select name="shedLength">
                             <% for (int i = 0; i < 690; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><% 
-                            } %>
+                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                                }%>
                         </select>
                         <br>
                         Navn:<br>
@@ -121,6 +126,9 @@
                 </td>
             </tr>
         </table>
+            </div>
+        </div>
+        <%@include file="footer.jsp" %>
 
     </body>
 </html>
