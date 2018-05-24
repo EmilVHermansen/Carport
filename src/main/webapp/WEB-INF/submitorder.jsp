@@ -67,13 +67,16 @@
         <h1>Bestil din carport her</h1>
             </div>
         </div>
-        <% String error = (String) request.getAttribute("error");
-            if (error != null)
-            {%>
-        <h5 style="color:red"><%= error%></h5>
-        <br>
-        <% }
-        %>
+          <div class="error-container">
+            <div class="error-content">
+                <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+                <h5 style="color:red"><%= error%></h5>
+                <br>
+                <% }
+                %>
+            </div>
+          </div>
         <div class="bot-container">
             <div class ="bot-content">
         <table>
