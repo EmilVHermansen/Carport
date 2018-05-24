@@ -10,7 +10,7 @@
         width = Integer.parseInt(0+request.getParameter("width")); %>
 <% int length = 240;
     if (request.getParameter("length") != null) 
-        length = Integer.parseInt(0+request.getParameter("length")); %>
+        length = Integer.parseInt(request.getParameter("length")); %>
 <% String inclination = "Fladt tag";
     if (request.getParameter("inclination") != null) 
         inclination = request.getParameter("inclination"); %>
@@ -67,13 +67,16 @@
         <h1>Bestil din carport her</h1>
             </div>
         </div>
-        <% String error = (String) request.getAttribute("error");
-            if (error != null)
-            {%>
-        <h5 style="color:red"><%= error%></h5>
-        <br>
-        <% }
-        %>
+          <div class="error-container">
+            <div class="error-content">
+                <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+                <h5 style="color:red"><%= error%></h5>
+                <br>
+                <% }
+                %>
+            </div>
+          </div>
         <div class="bot-container">
             <div class ="bot-content">
         <table>

@@ -26,15 +26,17 @@
                 <h1>Ordre Information</h1>
             </div>
         </div>
-        <% String error = (String) request.getAttribute("error");
-            if (error != null)
-            {%>
-        <H2>Error!!</h2>
-        <p><%= error%>
-            <% }
-            %>
-            <% if (error == null)
-                { %>
+        <div class="error-container">
+            <div class="error-content">
+                <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+                <H2>Error!!</h2>
+                <p><%= error%>
+                    <% } %>
+            </div>
+        </div>
+        %>
+        <% if (error == null) { %>
         <div class="order-table">
             <table class="table table-hover">
                 <thead class="thead-dark">
@@ -74,8 +76,7 @@
                             <form name="editLength" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="orderedit">
                                 <select name="length">
-                                    <% for (int j = 240; j < 780; j += 30)
-                                        {
+                                    <% for (int j = 240; j < 780; j += 30) {
                                     %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><%
                                         } %>
                                 </select>
@@ -86,8 +87,7 @@
                             <form name="editWidth" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="orderedit">
                                 <select name="width">
-                                    <% for (int j = 240; j < 780; j += 30)
-                                        {
+                                    <% for (int j = 240; j < 780; j += 30) {
                                     %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><%
                                         } %>
                                 </select>
@@ -145,8 +145,7 @@
                             <form name="editShedLength" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="orderedit">
                                 <select name="shedLength">
-                                    <% for (int i = 0; i < 690; i += 30)
-                                        {
+                                    <% for (int i = 0; i < 690; i += 30) {
                                             if (i == 0 || i >= 210)
                                     %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
                                         } %>
@@ -158,8 +157,7 @@
                             <form name="editShedWidth" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="orderedit">
                                 <select name="shedWidth">
-                                    <% for (int i = 0; i < 720; i += 30)
-                                        {
+                                    <% for (int i = 0; i < 720; i += 30) {
                                             if (i == 0 || i >= 150)
                                     %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
                                         } %>
