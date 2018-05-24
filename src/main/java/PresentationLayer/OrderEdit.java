@@ -33,7 +33,7 @@ public class OrderEdit extends Command
         if (order != null ) {
         String attribute = "";
 
-        // Check which attribute was chosen to be chenged
+        // Check which attribute was chosen to be changed
         if (request.getParameter("length") != null)
         {
             order.setLength(Integer.parseInt(request.getParameter("length")));

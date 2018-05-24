@@ -251,28 +251,44 @@ public class DataAccessObject
             String SQL = "UPDATE `order` SET `"+ attribute + "`=? WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             
-            if (attribute.equals("length"))
-                ps.setInt(1, order.getLength());
-            else if (attribute.equals("width"))
-                ps.setInt(1, order.getWidth());
-            else if (attribute.equals("inclination"))
-                ps.setString(1, order.getInclination());
-            else if (attribute.equals("angle"))
-                ps.setInt(1, order.getAngle());
-            else if (attribute.equals("roof_material"))
-                ps.setString(1, order.getRoofMaterial());
-            else if (attribute.equals("shed"))
-                ps.setString(1, order.getShed());
-            else if (attribute.equals("shed_length"))
-                ps.setInt(1, order.getShedLength());
-            else if (attribute.equals("shed_width"))
-                ps.setInt(1, order.getShedWidth());
-            else if (attribute.equals("comment"))
-                ps.setString(1, order.getComment());
-            else if (attribute.equals("salesprice"))
-                ps.setInt(1, order.getSalesprice());
-            else if (attribute.equals("status"))
-                ps.setString(1, order.getStatus());
+            switch (attribute)
+            {
+                case "length":
+                    ps.setInt(1, order.getLength());
+                    break;
+                case "width":
+                    ps.setInt(1, order.getWidth());
+                    break;
+                case "inclination":
+                    ps.setString(1, order.getInclination());
+                    break;
+                case "angle":
+                    ps.setInt(1, order.getAngle());
+                    break;
+                case "roof_material":
+                    ps.setString(1, order.getRoofMaterial());
+                    break;
+                case "shed":
+                    ps.setString(1, order.getShed());
+                    break;
+                case "shed_length":
+                    ps.setInt(1, order.getShedLength());
+                    break;
+                case "shed_width":
+                    ps.setInt(1, order.getShedWidth());
+                    break;
+                case "comment":
+                    ps.setString(1, order.getComment());
+                    break;
+                case "salesprice":
+                    ps.setInt(1, order.getSalesprice());
+                    break;
+                case "status":
+                    ps.setString(1, order.getStatus());
+                    break;
+                default:
+                    break;
+            }
             
             ps.setInt(2, order.getIdOrder());
             ps.executeUpdate();
