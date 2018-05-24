@@ -57,7 +57,7 @@
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <option value="Fladt tag">Flat tag</option>
+                            <option value="Fladt tag">Fladt tag</option>
                             <option value="Med rejsning">Med rejsning</option>
                         </select>
                         <br>
@@ -90,6 +90,7 @@
                         <select name="shedWidth">
                             <% for (int i = 0; i < 720; i += 30)
                                 {
+                                    if (i == 0 || i >= 210)
                             %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
                                 } %>
                         </select>
@@ -99,6 +100,7 @@
                         <select name="shedLength">
                             <% for (int i = 0; i < 690; i += 30)
                                 {
+                                     if (i == 0 || i >= 150)
                             %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
                                 }%>
                         </select>
