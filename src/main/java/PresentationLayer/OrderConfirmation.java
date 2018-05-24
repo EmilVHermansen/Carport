@@ -42,6 +42,9 @@ public class OrderConfirmation extends Command
         int shedLength = Integer.parseInt(request.getParameter("shedLength"));
         int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
 
+        // SubmitOrderExceptionCheck
+        checkForSubmitOrderException(length, width, inclination, angle, shed, shedLength, shedWidth);
+        
         // customer details
         String name = request.getParameter("name");
         String address = request.getParameter("address");
@@ -49,16 +52,12 @@ public class OrderConfirmation extends Command
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         
-        // Order creation initiation
-        Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email, width);
+        // Order creation
+        Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email);
         order.setShedLength(shedLength);
         order.setShedWidth(shedWidth);
-        
-        // SubmitOrderExceptionCheck
-        checkForSubmitOrderException(length, width, inclination, angle, shed, shedLength, shedWidth);
 
-        // Order creation continuation
-        if (!request.getParameter("comment").isEmpty());
+        if (request.getParameter("comment") != null);
         {
             order.setComment(request.getParameter("comment"));
         }
@@ -68,18 +67,11 @@ public class OrderConfirmation extends Command
             Material material = LogicFacade.getMaterial(lineItem.getIdmaterial());
             lineItem.setPrice(material.getMSRP());
         }
-        int orderPrice = LogicFacade.calcPrice(BoM);
-        order.setPrice(orderPrice);
+        order.setPrice(LogicFacade.calcPrice(BoM));
         
         // Submit order to database
-        try
-        {
-            LogicFacade.submitOrder(order);
+        LogicFacade.submitOrder(order);
 
-        } catch (OrderException ex)
-        {
-            Logger.getLogger(OrderConfirmation.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         // return 
         request.setAttribute("order", order);

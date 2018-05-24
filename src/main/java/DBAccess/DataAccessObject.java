@@ -7,6 +7,7 @@ import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
+import FunctionLayer.SubmitOrderException;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -189,13 +190,13 @@ public class DataAccessObject
 //            throw new OrderException(ex.getMessage());
 //        }
 //    }
-    public static void submitOrder(Order order) throws OrderException
+    public static void submitOrder(Order order) throws SubmitOrderException
     {
         try
         {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO `order` (length, width, inclination, angle, roof_material, shed, shed_length, shed_width, name, address, zipcode, phonenumber, email, comment, price, status) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO `order` (length, width, inclination, angle, roof_material, shed, shed_length, shed_width, name, address, zipcode, phonenumber, email, comment, price, salesprice, status) "
+                    + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getLength());
             ps.setInt(2, order.getWidth());
@@ -212,7 +213,8 @@ public class DataAccessObject
             ps.setString(13, order.getEmail());
             ps.setString(14, order.getComment());
             ps.setInt(15, order.getPrice());
-            ps.setString(16, order.getStatus());
+            ps.setInt(16, order.getSalesprice());
+            ps.setString(17, order.getStatus());
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -220,12 +222,14 @@ public class DataAccessObject
             order.setIdOrder(id);
         } catch (SQLException | ClassNotFoundException ex)
         {
-            throw new OrderException(ex.getMessage());
+            throw new SubmitOrderException("Der gik noget galt i at oprette din ordre. Kontakt venligst support for hjælp");
+            // Test exception
+//            throw new SubmitOrderException(order.toString());
         }
     }
 
     //TODO Make it so String status is a dropdown menu with different choices for update
-    public static void updateOrderStatus(Order order) throws LoginSampleException
+    public static void updateOrderStatus(Order order) throws OrderException
     {
         try
         {
@@ -239,11 +243,11 @@ public class DataAccessObject
 
         } catch (SQLException | ClassNotFoundException ex)
         {
-            throw new LoginSampleException(ex.getMessage());
+            throw new OrderException(ex.getMessage());
         }
     }
 
-    public static void updateOrder(Order order, String attribute) throws LoginSampleException
+    public static void updateOrder(Order order, String attribute) throws OrderException
     {
         try
         {
@@ -295,7 +299,7 @@ public class DataAccessObject
 
         } catch (SQLException | ClassNotFoundException ex)
         {
-            throw new LoginSampleException(ex.getMessage());
+            throw new OrderException("Der gik noget galt i at opdatere" + attribute + " for ordrenr " + order.getIdOrder());
         }
     }
     
