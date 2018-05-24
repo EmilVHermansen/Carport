@@ -1,7 +1,7 @@
 package PresentationLayer;
 
-import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.MaterialException;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
 import java.sql.SQLException;
@@ -37,6 +37,6 @@ abstract class Command {
     }
 
     abstract String execute(HttpServletRequest request, HttpServletResponse response)
-            throws LoginSampleException, OrderException, CustomerInfoError, SQLException, SubmitOrderException;
+            throws LoginSampleException, OrderException, MaterialException, SubmitOrderException;
 
 }

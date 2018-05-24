@@ -1,10 +1,9 @@
 package DBAccess;
 
 import FunctionLayer.Customer;
-import FunctionLayer.CustomerInfoError;
-import FunctionLayer.LineItem;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+import FunctionLayer.MaterialException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
@@ -16,14 +15,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class DataAccessObject
 {
-// Delete this, it's a test.
-
-
     public static User login(String employeenumber, String password) throws LoginSampleException
     {
         try
@@ -53,7 +47,7 @@ public class DataAccessObject
         }
     }
 
-    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError {
+    public static Customer getCustomerInfo(int orderId) throws OrderException {
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM `order` "
@@ -74,11 +68,11 @@ public class DataAccessObject
 
         } catch (ClassNotFoundException | SQLException ex) {
 
-            throw new CustomerInfoError(ex.getMessage());
+            throw new OrderException(ex.getMessage());
         }
     }
 
-    public static Order getOrder(int orderId) throws SQLException
+    public static Order getOrder(int orderId) throws OrderException
     {
 
         Order order = null;
@@ -119,9 +113,9 @@ public class DataAccessObject
                 order.setStatus(status);
                 order.setSalesprice(salesPrice);
             }
-        } catch (ClassNotFoundException ex)
+        } catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+            throw new OrderException("Der gik noget galt med at finde ordren. Kontakt venligst support for hjælp");
         }
         return order;
     }
@@ -172,24 +166,6 @@ public class DataAccessObject
         }
     }
 
-//    public static void createOrder(Order order, int userId) throws OrderException {
-//        try {
-//            Connection con = Connector.connection();
-//            String SQL = "INSERT INTO `Order` (length, width, height, User_idUser) VALUES (?, ?, ?, ?)";
-//            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-//            ps.setInt(1, order.getLength());
-//            ps.setInt(2, order.getWidth());
-//            ps.setInt(3, order.getHeight());
-//            ps.setInt(4, userId);
-//            ps.executeUpdate();
-//            ResultSet ids = ps.getGeneratedKeys();
-//            ids.next();
-//            int id = ids.getInt(1);
-//            order.setId(id);
-//        } catch (SQLException | ClassNotFoundException ex) {
-//            throw new OrderException(ex.getMessage());
-//        }
-//    }
     public static void submitOrder(Order order) throws SubmitOrderException
     {
         try
@@ -304,7 +280,7 @@ public class DataAccessObject
     }
     
     
-    // TODO Maybe
+    // TODO User story to be implemnted/prioritized by PO
 //    public static void createLineItem(LineItem lineItem) throws SQLException {
 //        try {
 //            Connection con = Connector.connection();
@@ -352,7 +328,7 @@ public class DataAccessObject
 //
 //    }
     
-    public static Material getMaterial(int idMaterial) throws SQLException
+    public static Material getMaterial(int idMaterial) throws MaterialException
     {
         
         Material material = null;
@@ -374,9 +350,9 @@ public class DataAccessObject
                 int MSRP = rs.getInt("MSRP");
                 material = new Material(id, name, MSRP);
             }
-        } catch (ClassNotFoundException ex)
+        } catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(DataAccessObject.class.getName()).log(Level.SEVERE, null, ex);
+            throw new MaterialException(ex.getMessage());
         }
         return material;
     }

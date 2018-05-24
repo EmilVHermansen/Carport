@@ -1,6 +1,5 @@
 package PresentationLayer;
 
-import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class TechnicalDrawing extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, CustomerInfoError {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
         if (order.getInclination().equals("Med rejsning"))

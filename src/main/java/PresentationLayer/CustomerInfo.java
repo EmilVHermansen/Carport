@@ -1,9 +1,7 @@
 package PresentationLayer;
 
 import FunctionLayer.Customer;
-import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import java.sql.SQLException;
@@ -20,9 +18,7 @@ import javax.servlet.http.HttpSession;
 public class CustomerInfo extends Command {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws CustomerInfoError, OrderException {
-
-        try {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
 
             HttpSession session = request.getSession();
             int orderid = Integer.parseInt(request.getParameter("custorderid"));
@@ -33,12 +29,8 @@ public class CustomerInfo extends Command {
                 session.setAttribute("order", order);
                 return "customerinfo";
             } else {
-                throw new CustomerInfoError("An order with that order id does not exist");
+                throw new OrderException("An order with that order id does not exist");
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(CustomerInfo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "customerinfo";
 
     }
 
