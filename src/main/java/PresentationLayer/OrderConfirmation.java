@@ -34,33 +34,49 @@ public class OrderConfirmation extends Command
     {
         // Carport details
         int length = Integer.parseInt(request.getParameter("length"));
+        request.setAttribute("length", length);
         int width = Integer.parseInt(request.getParameter("width"));
+        request.setAttribute("width", width);
         String inclination = request.getParameter("inclination");
+        request.setAttribute("inclination", inclination);
         int angle = Integer.parseInt(request.getParameter("angle"));
+        request.setAttribute("angle", angle);
         String roofMaterial = request.getParameter("roofMaterial");
+        request.setAttribute("roofMaterial", roofMaterial);
         String shed = request.getParameter("shed");
+        request.setAttribute("shed", shed);
         int shedLength = Integer.parseInt(request.getParameter("shedLength"));
+        request.setAttribute("shedLength", shedLength);
         int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
-
-        // SubmitOrderExceptionCheck
-        checkForSubmitOrderException(length, width, inclination, angle, shed, shedLength, shedWidth);
+        request.setAttribute("shedwidth", shedWidth);
         
         // customer details
         String name = request.getParameter("name");
+        request.setAttribute("name", name);
         String address = request.getParameter("address");
+        request.setAttribute("address", address);
         String zipcode = request.getParameter("zipcode");
+        request.setAttribute("zipcode", zipcode);
         String phoneNumber = request.getParameter("phoneNumber");
+        request.setAttribute("phoneNumber", phoneNumber);
         String email = request.getParameter("email");
+        request.setAttribute("email", email);
+        String comment = "";
+        if (request.getParameter("comment") != null);
+        {
+            comment = request.getParameter("comment");
+        }
+        request.setAttribute("comment", comment);
+        
+        // SubmitOrderExceptionCheck
+        checkForSubmitOrderException(length, width, inclination, angle, shed, shedLength, shedWidth);
         
         // Order creation
         Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email);
         order.setShedLength(shedLength);
         order.setShedWidth(shedWidth);
+        order.setComment(request.getParameter("comment"));
 
-        if (request.getParameter("comment") != null);
-        {
-            order.setComment(request.getParameter("comment"));
-        }
         List<LineItem> BoM = LogicFacade.createBoM(order);
         for (LineItem lineItem : BoM)
         {

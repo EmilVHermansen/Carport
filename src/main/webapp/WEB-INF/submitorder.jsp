@@ -5,6 +5,53 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% int width = 240;
+   if (request.getParameter("width") != null) 
+        width = Integer.parseInt(0+request.getParameter("width")); %>
+<% int length = 240;
+    if (request.getParameter("length") != null) 
+        length = Integer.parseInt(0+request.getParameter("length")); %>
+<% String inclination = "Fladt tag";
+    if (request.getParameter("inclination") != null) 
+        inclination = request.getParameter("inclination"); %>
+<% int angle = 0;
+    if (request.getParameter("angle") != null) 
+        angle = Integer.parseInt(0+request.getParameter("angle")); %>
+<% String roofMaterial = "Ingen";
+    if (request.getParameter("roofMaterial") != null) 
+        roofMaterial = request.getParameter("roofMaterial"); %>
+<% String shed = "noShed";
+    if (request.getParameter("shed") != null) 
+        shed = request.getParameter("shed"); %>
+<% String shedDanish = "";
+    if (shed.equals("noShed"))
+        shedDanish = "Uden skur";
+    else
+        shedDanish = "Med skur";%>
+<% int shedWidth = 210;
+    if (request.getParameter("shedWidth") != null) 
+        shedWidth = Integer.parseInt(0+request.getParameter("shedWidth")); %>
+<% int shedLength = 150;
+    if (request.getParameter("shedLength") != null) 
+        shedLength = Integer.parseInt(0+request.getParameter("shedLength")); %>
+<% String name = "";
+    if (request.getParameter("name") != null) 
+        name = request.getParameter("name"); %>
+<% String address = "";
+    if (request.getParameter("address") != null) 
+        address = request.getParameter("address"); %>
+<% String zipcode = "";
+    if (request.getParameter("zipcode") != null) 
+        zipcode = request.getParameter("zipcode"); %>
+<% String phoneNumber = "";
+    if (request.getParameter("phoneNumber") != null) 
+        phoneNumber = request.getParameter("phoneNumber"); %>
+<% String email = "";
+    if (request.getParameter("email") != null) 
+        email = request.getParameter("email"); %>
+<% String comment = "";
+    if (request.getParameter("comment") != null) 
+            comment = request.getParameter("comment"); %>
 <!DOCTYPE html>
 
 <html>
@@ -36,6 +83,7 @@
                         <input type="hidden" name="command" value="orderconfirmation">
                         Bredde i cm:<br>
                         <select name="width">
+                            <option value="<%out.print(width); %>" selected disabled hidden><%out.print(width); %></option>
                             <% for (int i = 240; i < 750; i += 30)
                                 {
                             %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
@@ -47,6 +95,7 @@
 
                         Længde i cm:<br>
                         <select name="length">
+                            <option value="<%out.print(length); %>" selected disabled hidden><%out.print(length); %></option>
                             <% for (int j = 240; j < 780; j += 30)
                                 {
                             %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><%
@@ -57,12 +106,14 @@
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
+                            <option value="<%out.print(inclination); %>" selected disabled hidden><%out.print(inclination); %></option>
                             <option value="Fladt tag">Fladt tag</option>
                             <option value="Med rejsning">Med rejsning</option>
                         </select>
                         <br>
                         Vinkel i grader:<br>
                         <select name="angle">
+                            <option value="<%out.print(angle); %>" selected disabled hidden><%out.print(angle); %></option>
                             <option value="0">0°</option>
                             <option value="15">15°</option>
                             <option value="20">20°</option>
@@ -75,6 +126,7 @@
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>
                         <select name="roofMaterial">
+                            <option value="<%out.print(roofMaterial); %>" selected disabled hidden><%out.print(roofMaterial); %></option>
                             <option value="ingen">Ingen</option>
                             <option value="betontagsten">Betontagsten</option>
                             <option value="eternittag b6">Eternittag B6</option>
@@ -82,12 +134,14 @@
                         <br>
                         Med skur:<br>
                         <select name="shed">
+                            <option value="<%out.print(shed); %>" selected disabled hidden><%out.print(shedDanish); %></option>
                             <option value="noShed">Uden Skur</option>
                             <option value="shed">Med Skur</option>
                         </select>
                         <br>
                         Skur bredde i cm:<br>
                         <select name="shedWidth">
+                            <option value="<%out.print(shedWidth); %>" selected disabled hidden><%out.print(shedWidth); %></option>
                             <% for (int i = 0; i < 720; i += 30)
                                 {
                                     if (i == 0 || i >= 210)
@@ -98,6 +152,7 @@
                         <br>
                         Skur længde i cm:<br>
                         <select name="shedLength">
+                            <option value="<%out.print(shedLength); %>" selected disabled hidden><%out.print(shedLength); %></option>
                             <% for (int i = 0; i < 690; i += 30)
                                 {
                                      if (i == 0 || i >= 150)
@@ -106,22 +161,22 @@
                         </select>
                         <br>
                         Navn:<br>
-                        <input type="text" name="name" required>
+                        <input type="text" name="name" value="<%out.print(name); %>" required>
                         <br>
                         Adresse:<br>
-                        <input type="text" name="address" required>
+                        <input type="text" name="address" value="<%out.print(address); %>" required>
                         <br>
                         Postnr. og by:<br>
-                        <input type="text" name="zipcode" required>
+                        <input type="text" name="zipcode" value="<%out.print(zipcode); %>" required>
                         <br>
                         Telefon:<br>
-                        <input type="text" name="phoneNumber" required>
+                        <input type="text" name="phoneNumber" value="<%out.print(phoneNumber); %>" required>
                         <br>
                         Email:<br>
-                        <input type="text" name="email" required>
+                        <input type="text" name="email" value="<%out.print(email); %>" required>
                         <br>
                         Evt. bemærkninger:<br>
-                        <input type="text" name="comment">
+                        <input type="text" name="comment" value="<%out.print(comment); %>">
                         <br>
                         <input type="submit" value="Bekræft">
                     </form>
