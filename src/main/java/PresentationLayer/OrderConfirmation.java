@@ -81,35 +81,36 @@ public class OrderConfirmation extends Command
     
     private static void checkForSubmitOrderException(Order o, HttpServletRequest request) throws SubmitOrderException 
     {
+        String msg = "";
         if ((o.getShed().equals("shed") && ((o.getShedLength() == 0) || (o.getShedWidth() == 0))))
         {
-            request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Du valgte med skur, men har ikke indtastet længde og/eller bredde på skuret");
+            msg = "Du har valgt med skur, men har ikke indtastet længde og/eller bredde på skuret";
         }
-        if ((o.getShed().equals("noShed") && ((o.getShedLength() > 0) || (o.getShedWidth() > 0))))
+        else if ((o.getShed().equals("noShed") && ((o.getShedLength() > 0) || (o.getShedWidth() > 0))))
+        {
+            msg = "Du har valgt uden skur, men har indtastet længde og/eller bredde større end 0 på skuret";
+        }
+        else if (o.getShedLength() >= o.getLength())
+        {
+            msg = "Længden af dit skur kan ikke være samme længde eller længere end din carport";
+        }
+        else if (o.getShedWidth() >= o.getWidth())
+        {
+            msg = "Bredden af dit skur kan ikke være samme bredde eller bredere end din carport";
+        }
+        else if (o.getInclination().equals("Med rejsning") && o.getAngle() == 0)
+        {
+            msg = "Du har valgt med rejsning, men har ikke valgt en vinkel større end 0 grader";
+        }
+        else if (o.getInclination().equals("Fladt tag") && o.getAngle() > 0)
+        {
+            msg = "Du har valgt med fladt tag, men har valgt en vinkel større end 0 grader";
+        }
+        
+        if (!msg.isEmpty())
         {
             request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Du valgte uden skur, men har indtastet længde og/eller bredde større end 0 på skuret");
-        }
-        if (o.getShedLength() >= o.getLength())
-        {
-            request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Længden af dit skur kan ikke være samme længde eller længere end din carport");
-        }
-        if (o.getShedWidth() >= o.getWidth())
-        {
-            request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Bredden af dit skur kan ikke være samme bredde eller bredere end din carport");
-        }
-        if (o.getInclination().equals("Med rejsning") && o.getAngle() == 0)
-        {
-            request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Du har valgt med rejsning, men har ikke valgt en vinkel større end 0 grader");
-        }
-        if (o.getInclination().equals("Fladt tag") && o.getAngle() > 0)
-        {
-            request.setAttribute("order", o); // Set to use by the exception
-            throw new SubmitOrderException("Du har valgt med fladt tag, men har valgt en vinkel større end 0 grader");
+            throw new SubmitOrderException(msg);
         }
     }
 
