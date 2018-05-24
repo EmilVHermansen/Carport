@@ -5,12 +5,9 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.Brick;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
-import FunctionLayer.User;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +21,6 @@ public class OrderHistory extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
         HttpSession session = request.getSession();
-//        User user = (User) session.getAttribute("user");
         List<Order> orders = LogicFacade.getOrders();
         session.setAttribute("orders", orders);
         return "browseorders";

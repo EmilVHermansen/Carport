@@ -18,21 +18,19 @@ public class UpdateStatus extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException
     {
 
         String status = request.getParameter("status");
         int orderId = Integer.parseInt(request.getParameter("orderid"));
-        try
+        Order order = LogicFacade.getOrder(orderId);
+        if (order != null)
         {
-            Order order = LogicFacade.getOrder(orderId);
             order.setStatus(status);
             LogicFacade.updateOrderStatus(order);
-        } catch (SQLException ex)
-        {
-            Logger.getLogger(UpdateStatus.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return "browseorders";
+            return "browseorders";
+        } else
+            throw new OrderException("Der gik noget galt. Prøv igen senere, ellers kontakt support");
     }
 
 }

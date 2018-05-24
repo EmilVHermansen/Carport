@@ -2,12 +2,11 @@ package FunctionLayer;
 
 import DBAccess.DataAccessObject;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class LogicFacade {
 
-    public static Customer getCustomerInfo(int orderId) throws CustomerInfoError
+    public static Customer getCustomerInfo(int orderId) throws OrderException
     {
         Customer customer;
         customer = DataAccessObject.getCustomerInfo(orderId);
@@ -23,7 +22,7 @@ public class LogicFacade {
         return orders;
     }
     
-    public static Order getOrder(int orderId) throws OrderException, SQLException {
+    public static Order getOrder(int orderId) throws OrderException {
         Order order = DataAccessObject.getOrder(orderId);
         return order;
     }
@@ -43,7 +42,7 @@ public class LogicFacade {
         DataAccessObject.submitOrder(order);
     }
     
-    public static Material getMaterial(int materialId) throws SQLException {
+    public static Material getMaterial(int materialId) throws MaterialException {
         Material material;
         material = DataAccessObject.getMaterial(materialId);
         return material;

@@ -1,7 +1,7 @@
 package PresentationLayer;
 
-import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.MaterialException;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
 import java.io.IOException;
@@ -46,15 +46,10 @@ public class FrontController extends HttpServlet
         {
             request.setAttribute("error", ex.getMessage());
             request.getRequestDispatcher("/WEB-INF/browseorders.jsp").forward(request, response);
-        } catch (CustomerInfoError ex)
+        } catch (MaterialException ex)
         {
             request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("/WEB-INF/customerinfo.jsp").forward(request, response);
-
-        } catch (SQLException ex)
-        {
-            request.setAttribute("error", ex.getMessage());
-            request.getRequestDispatcher("/WEB-INF/billofmaterials.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/orderedit.jsp").forward(request, response);
             
         } catch (SubmitOrderException ex)
         {

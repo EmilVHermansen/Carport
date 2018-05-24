@@ -7,20 +7,15 @@ package PresentationLayer;
 
 import FunctionLayer.LineItem;
 import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
+import FunctionLayer.MaterialException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
-import FunctionLayer.PriceCalculator;
 import FunctionLayer.SubmitOrderException;
-import FunctionLayer.User;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -30,7 +25,7 @@ public class OrderConfirmation extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, SQLException, SubmitOrderException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, MaterialException, SubmitOrderException
     {
         // Carport details
         int length = Integer.parseInt(request.getParameter("length"));
@@ -114,7 +109,7 @@ public class OrderConfirmation extends Command
         }
         if (inclination.equals("Med rejsning") && angle == 0)
         {
-            throw new SubmitOrderException("Du har valgt med rejsning, men har ikke valgte en vinkel større end 0 grader");
+            throw new SubmitOrderException("Du har valgt med rejsning, men har ikke valgt en vinkel større end 0 grader");
         }
         if (inclination.equals("Fladt tag") && angle > 0)
         {

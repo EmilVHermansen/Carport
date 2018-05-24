@@ -5,9 +5,9 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.CustomerInfoError;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.MaterialException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
@@ -24,7 +24,7 @@ public class OrderEdit extends Command
 {
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, CustomerInfoError, SQLException, SubmitOrderException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, MaterialException, SubmitOrderException
     {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
