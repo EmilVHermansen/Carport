@@ -4,7 +4,6 @@ import FunctionLayer.LoginSampleException;
 import FunctionLayer.MaterialException;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
-import java.sql.SQLException;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

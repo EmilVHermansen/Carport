@@ -352,7 +352,7 @@ public class DataAccessObject
             }
         } catch (ClassNotFoundException | SQLException ex)
         {
-            throw new MaterialException(ex.getMessage());
+            throw new MaterialException("Kunne ikke hente de relevante materialer fra databasen. Kontakt IT");
         }
         return material;
     }
