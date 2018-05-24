@@ -61,16 +61,16 @@
                             <option value="Med rejsning">Med rejsning</option>
                         </select>
                         <br>
-                        Vinkel:<br>
+                        Vinkel i grader:<br>
                         <select name="angle">
-                            <option value="0">0</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="30">30</option>
-                            <option value="45">45</option>
+                            <option value="0">0°</option>
+                            <option value="15">15°</option>
+                            <option value="20">20°</option>
+                            <option value="25">25°</option>
+                            <option value="30">30°</option>
+                            <option value="35">35°</option>
+                            <option value="30">30°</option>
+                            <option value="45">45°</option>
                         </select>
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>

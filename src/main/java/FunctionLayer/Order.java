@@ -7,18 +7,18 @@ public class Order
     private int length;
     private int width;
     private String inclination;
-    private int angle = 0;
+    private int angle;
     private String roofMaterial;
     private String shed;
-    private int shedLength = 0;
-    private int shedWidth = 0;
+    private int shedLength;
+    private int shedWidth;
     private String name;
     private String address;
     private String zipCode;
     private String phoneNumber;
     private String email;
     private String comment = "";
-    private int price;
+    private int price = 0;
     private int salesprice = 0;
     private String status = "Afventer behandling";
 
@@ -39,7 +39,7 @@ public class Order
         this.price = price;
     }
 
-    public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, int price)
+    public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email)
     {
         this.length = length;
         this.width = width;
@@ -52,7 +52,6 @@ public class Order
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.price = price;
     }
 
     public int getIdOrder()
@@ -220,11 +219,11 @@ public class Order
         this.price = price;
     }
 
-    public void setSalesprice(int salesPrice)
+    public void setSalesprice(int salesprice)
     {
-        this.salesprice = salesPrice;
+        this.salesprice = salesprice;
     }
-    
+
     public void setStatus(String status)
     {
         this.status = status;
@@ -244,4 +243,13 @@ public class Order
                 + ", skurlængde: " + shedLength + ", skurbredde: " + shedWidth
                 + ", kommentar: " + comment + ", status: " + status;
     }
+
+    // Test toString
+//    @Override
+//    public String toString()
+//    {
+//        return "Order{" + "idOrder=" + idOrder + ", length=" + length + ", width=" + width + ", inclination=" + inclination + ", angle=" + angle + ", roofMaterial=" + roofMaterial + ", shed=" + shed + ", shedLength=" + shedLength + ", shedWidth=" + shedWidth + ", name=" + name + ", address=" + address + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + ", comment=" + comment + ", price=" + price + ", salesprice=" + salesprice + ", status=" + status + '}';
+//    }
+    
+    
 }

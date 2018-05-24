@@ -99,7 +99,7 @@
 
                 <%
                     int poleX = shedPos;
-                    for (int i = 0; i <= poleQty; i++)
+                    for (int i = 0; i < poleQty; i++)
                     {
                         if (shedLength == 0)
                         {
