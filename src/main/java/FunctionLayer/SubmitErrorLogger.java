@@ -7,7 +7,6 @@ package FunctionLayer;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
@@ -28,7 +27,7 @@ public class SubmitErrorLogger
     {
         try
         {
-            fh = new FileHandler("/home/sebastian/carportlogs", true); // sidste parameter appende til eksisterende hvis true 
+            fh = new FileHandler("/home/sebastian/carportlogs/SubmitErrorLogger.txt", true); // sidste parameter appende til eksisterende hvis true 
         } catch (SecurityException | IOException e)
         {
             e.printStackTrace();

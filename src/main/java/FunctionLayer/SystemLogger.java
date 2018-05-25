@@ -28,7 +28,7 @@ public class SystemLogger
     {
         try
         {
-            fh = new FileHandler("/Users/emilv/Desktop/Systemlogger.txt", true); // sidste parameter appende til eksisterende hvis true 
+            fh = new FileHandler("/home/sebastian/carportlogs/SystemLogger.txt", true); // sidste parameter appende til eksisterende hvis true 
         } catch (SecurityException | IOException e)
         {
             e.printStackTrace();
