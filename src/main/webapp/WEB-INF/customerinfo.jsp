@@ -24,15 +24,16 @@
                 <h1>Order customer info</h1>
             </div>
         </div>
-        <% String error = (String) request.getAttribute("error");
-            if (error != null)
-            {%>
-        <H2>Error</h2>
-        <p><%= error%>
-            <% }
-            %>
-            <% if (error == null)
-                { %>
+        <div class="error-container">
+            <div class="error-content">
+                <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+                <H2>Error!!</h2>
+                <p><%= error%>
+                    <% }
+                    %>
+            </div>
+        </div>
         <div class="customer-container">
             <div class="customer-content">
 
