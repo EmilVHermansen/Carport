@@ -1,11 +1,13 @@
 package PresentationLayer;
 
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.MaterialException;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 })
 public class FrontController extends HttpServlet
 {
+    private final static Logger logger = Logger.getLogger(PresentationLayer.FrontController.class.getName());
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,19 +44,24 @@ public class FrontController extends HttpServlet
         } catch (LoginSampleException ex)
         {
             request.setAttribute("error", ex.getMessage());
+            LogicFacade.log(logger, ex);
             request.getRequestDispatcher("index.jsp").forward(request, response);
+            
         } catch (OrderException ex)
         {
             request.setAttribute("error", ex.getMessage());
+            LogicFacade.log(logger, ex);
             request.getRequestDispatcher("/WEB-INF/browseorders.jsp").forward(request, response);
         } catch (MaterialException ex)
         {
             request.setAttribute("error", ex.getMessage());
+            LogicFacade.log(logger, ex);
             request.getRequestDispatcher("/WEB-INF/orderedit.jsp").forward(request, response);
             
         } catch (SubmitOrderException ex)
         {
             request.setAttribute("error", ex.getMessage());
+            LogicFacade.log(logger, ex);
             request.getRequestDispatcher("/WEB-INF/submitorder.jsp").forward(request, response);
         }
     }
