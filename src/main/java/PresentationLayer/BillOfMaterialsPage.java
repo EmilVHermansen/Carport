@@ -4,11 +4,9 @@ import FunctionLayer.BillOfMaterialsFlat;
 import FunctionLayer.BillOfMaterialsInclination;
 import FunctionLayer.LineItem;
 import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
 import FunctionLayer.MaterialException;
 import FunctionLayer.Order;
-import FunctionLayer.OrderException;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,9 +18,10 @@ import javax.servlet.http.HttpSession;
  */
 public class BillOfMaterialsPage extends Command
 {
+    
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, MaterialException
+    String execute(HttpServletRequest request, HttpServletResponse response) throws MaterialException
     {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");

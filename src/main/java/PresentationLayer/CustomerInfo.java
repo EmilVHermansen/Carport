@@ -4,8 +4,6 @@ import FunctionLayer.Customer;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
-import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +14,7 @@ import javax.servlet.http.HttpSession;
  * @author adams
  */
 public class CustomerInfo extends Command {
-
+    
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
 
@@ -30,6 +28,7 @@ public class CustomerInfo extends Command {
                 return "customerinfo";
             } else {
                 throw new OrderException("An order with that order id does not exist");
+                
             }
 
     }

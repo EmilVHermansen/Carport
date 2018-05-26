@@ -12,6 +12,7 @@ import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -22,7 +23,6 @@ import javax.servlet.http.HttpSession;
  */
 public class OrderEdit extends Command
 {
-
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, MaterialException, SubmitOrderException
     {

@@ -24,9 +24,17 @@
         <div class="title-container">
             <div class="title-content">
                 <h1>Ordre historie</h1>
+                <% String error = (String) request.getAttribute("error");
+                     if (error != null)
+                     {%>
+                <h5 style="color:red"><%= error%></h5>
+                <br>
+                <% }
+                %>
             </div>
         </div>
         <div class="top-container">
+
             <div class="top-content-left">
                 <form name="customerInfo" action="FrontController" method="POST">
                     <h2>Find kunde information</h2>
@@ -35,6 +43,7 @@
                     <input type="number" name ="custorderid" placeholder="Ordrenr." required>
                     <input type="submit" name="submit" value="Søg">
                 </form>
+
             </div>
             <div class="top-content-right">
                 <form name="updatestatus" action="FrontController" method="post">
@@ -73,7 +82,7 @@
                     </thead>
                     <tbody>
                         <%for (Order order : orders)
-                        { %>
+                            { %>
                         <tr>
                             <td><% out.print(order.getIdOrder()); %></td>
                             <td><% out.print(order.getLength()); %></td>

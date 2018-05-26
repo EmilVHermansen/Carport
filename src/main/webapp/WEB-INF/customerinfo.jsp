@@ -34,7 +34,6 @@
                     %>
             </div>
         </div>
-
         <div class="customer-container">
             <div class="customer-content">
 

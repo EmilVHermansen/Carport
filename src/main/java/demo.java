@@ -1,5 +1,7 @@
 
 import FunctionLayer.LineItem;
+import FunctionLayer.LogicFacade;
+import FunctionLayer.SubmitErrorLogger;
 import static java.lang.Math.cos;
 
 /*
@@ -20,14 +22,8 @@ public class demo
      */
     public static void main(String[] args)
     {
-        double bLength = 3600 / 2;
-//        int bargeBoardLength = (int) ((bLength * sin(Math.toRadians((90)))) / sin(Math.toRadians(180-90-angle())));
-        int bargeBoardLength = (int) (bLength / cos(Math.toRadians(45)));
-        bargeBoardLength *= 2;
-        bargeBoardLength += (300 - bargeBoardLength % 300);
         
-        System.out.println(bargeBoardLength);
-        
+        System.out.println(SubmitErrorLogger.class.getSimpleName());
         
     }
     
