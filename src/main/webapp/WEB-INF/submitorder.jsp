@@ -7,14 +7,13 @@
 <%@page import="FunctionLayer.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<% Order order = (Order) request.getAttribute("order");%>
 <% String shedDanish = "";
-    if (order != null)
+if (request.getParameter("shed") != null)
 {
-        if (order.getShed().equals("noShed"))
-            shedDanish = "Uden skur";
-        else
-            shedDanish = "Med skur";
+    if (request.getParameter("shed").equals("noShed"))
+        shedDanish = "Uden skur";
+    else
+        shedDanish = "Med skur";
 }%>
 <!DOCTYPE html>
 
@@ -50,7 +49,7 @@
                         <input type="hidden" name="command" value="orderconfirmation">
                         Bredde:<br>
                         <select name="width">
-                            <% if (order != null) 
+                            <% if (request.getParameter("width") != null) 
                             { %>
                             <option value="${param.width}" selected hidden>${param.width}cm</option> 
                             <% } %>
@@ -65,7 +64,7 @@
 
                         Længde:<br>
                         <select name="length">
-                            <% if (order != null) 
+                            <% if (request.getParameter("length") != null) 
                             { %>
                                 <option value="${param.length}" selected hidden>${param.length}cm</option>) 
                             <% } %>
@@ -79,7 +78,7 @@
 
                         Med rejsning eller fladt tag:<br>
                         <select name="inclination">
-                            <% if (order != null) 
+                            <% if (request.getParameter("inclination") != null) 
                             { %>
                                 <option value="${param.inclination}" selected hidden>${param.inclination}</option> 
                             <% } %>
@@ -89,7 +88,7 @@
                         <br>
                         Vinkel:<br>
                         <select name="angle">
-                            <% if (order != null) 
+                            <% if (request.getParameter("angle") != null) 
                             { %>
                                 <option value="${param.angle}" selected hidden>${param.angle}°</option>) 
                             <% } %>
@@ -105,7 +104,7 @@
                         <br>
                         Tag materiale (hvis der er valgt med rejsning):<br>
                         <select name="roofMaterial">
-                            <% if (order != null) 
+                            <% if (request.getParameter("roofMaterial") != null) 
                             { %>
                                 <option value="${param.roofMaterial}" selected hidden>${param.roofMaterial}</option> 
                             <% } %>
@@ -116,7 +115,7 @@
                         <br>
                         Med skur:<br>
                         <select name="shed">
-                            <% if (order != null) 
+                            <% if (request.getParameter("shed") != null) 
                             { %>
                                 <option value="${param.shed}" selected hidden><%= shedDanish %></option> 
                             <% } %>
@@ -126,7 +125,7 @@
                         <br>
                         Skur bredde:<br>
                         <select name="shedWidth">
-                            <% if (order != null) 
+                            <% if (request.getParameter("shedWidth") != null) 
                             { %>
                                 <option value="${param.shedWidth}" selected hidden>${param.shedWidth}cm</option> 
                             <% } %>
@@ -140,7 +139,7 @@
                         <br>
                         Skur længde:<br>
                         <select name="shedLength">
-                            <% if (order != null) 
+                            <% if (request.getParameter("shedLength") != null) 
                             { %>
                                 <option value="${param.shedLength}" selected hidden>${param.shedLength}cm</option> 
                             <% } %>

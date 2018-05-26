@@ -27,14 +27,17 @@ public class OrderConfirmation extends Command
     String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException, MaterialException, SubmitOrderException
     {
         // Carport details
-        int length = Integer.parseInt(request.getParameter("length"));
         int width = Integer.parseInt(request.getParameter("width"));
+        int length = Integer.parseInt(request.getParameter("length"));
         String inclination = request.getParameter("inclination");
         int angle = Integer.parseInt(request.getParameter("angle"));
         String roofMaterial = request.getParameter("roofMaterial");
         String shed = request.getParameter("shed");
         int shedLength = Integer.parseInt(request.getParameter("shedLength"));
         int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
+        
+        // SubmitOrderExceptionCheck
+        checkForSubmitOrderException(width, length, inclination, angle, shed, shedWidth, shedLength);
         
         // customer details
         String name = request.getParameter("name");
@@ -48,17 +51,12 @@ public class OrderConfirmation extends Command
             comment = request.getParameter("comment");
         }
         
-        
         // Order creation
         Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email);
         order.setShedLength(shedLength);
         order.setShedWidth(shedWidth);
-        order.setComment(request.getParameter("comment"));
+        order.setComment(comment);
 
-        // SubmitOrderExceptionCheck
-        checkForSubmitOrderException(order, request);
-        
-        
         List<LineItem> BoM = LogicFacade.createBoM(order);
         for (LineItem lineItem : BoM)
         {
@@ -67,48 +65,44 @@ public class OrderConfirmation extends Command
         }
         order.setPrice(LogicFacade.calcPrice(BoM));
         
-        
-
         // Submit order to database
         LogicFacade.submitOrder(order);
 
-        
         // return 
         request.setAttribute("order", order);
         return "orderconfirmationpage";
     }
     
-    private static void checkForSubmitOrderException(Order o, HttpServletRequest request) throws SubmitOrderException 
+    private static void checkForSubmitOrderException(int width, int length, String inclination, int angle, String shed, int shedWidth, int shedLength) throws SubmitOrderException 
     {
         String msg = "";
-        if ((o.getShed().equals("shed") && ((o.getShedLength() == 0) || (o.getShedWidth() == 0))))
+        if ((shed.equals("shed") && ((shedLength == 0) || (shedWidth == 0))))
         {
             msg = "Du har valgt med skur, men har ikke indtastet længde og/eller bredde på skuret";
         }
-        else if ((o.getShed().equals("noShed") && ((o.getShedLength() > 0) || (o.getShedWidth() > 0))))
+        else if ((shed.equals("noShed") && ((shedLength > 0) || (shedWidth > 0))))
         {
             msg = "Du har valgt uden skur, men har indtastet længde og/eller bredde større end 0 på skuret";
         }
-        else if (o.getShedLength() >= o.getLength())
+        else if (shedLength >= length)
         {
             msg = "Længden af dit skur kan ikke være samme længde eller længere end din carport";
         }
-        else if (o.getShedWidth() >= o.getWidth())
+        else if (shedWidth >= width)
         {
             msg = "Bredden af dit skur kan ikke være samme bredde eller bredere end din carport";
         }
-        else if (o.getInclination().equals("Med rejsning") && o.getAngle() == 0)
+        else if (inclination.equals("Med rejsning") && angle == 0)
         {
             msg = "Du har valgt med rejsning, men har ikke valgt en vinkel større end 0 grader";
         }
-        else if (o.getInclination().equals("Fladt tag") && o.getAngle() > 0)
+        else if (inclination.equals("Fladt tag") && angle > 0)
         {
             msg = "Du har valgt med fladt tag, men har valgt en vinkel større end 0 grader";
         }
         
         if (!msg.isEmpty())
         {
-            request.setAttribute("order", o); // Set to use by the exception
             throw new SubmitOrderException(msg);
         }
     }
