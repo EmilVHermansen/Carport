@@ -52,11 +52,11 @@
                         <select name="width">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getWidth()); %>" selected hidden><%out.print(order.getWidth()); %>cm</option>) 
+                            <option value="${param.width}" selected hidden>${param.width}cm</option> 
                             <% } %>
                             <% for (int i = 240; i < 750; i += 30)
                                 {
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                            %>  <option value=<%= i %>><%= i%>cm</option><%
                                 } %>
                         </select>
                         <br>
@@ -67,11 +67,11 @@
                         <select name="length">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getLength()); %>" selected hidden><%out.print(order.getLength()); %>cm</option>) 
+                                <option value="${param.length}" selected hidden>${param.length}cm</option>) 
                             <% } %>
                             <% for (int j = 240; j < 780; j += 30)
                                 {
-                            %>  <option value=<% out.print(j); %>><% out.print(j);%>cm</option><%
+                            %>  <option value=<%= j %>><%= j %>cm</option><%
                                 } %>
                         </select>
                         <br>
@@ -81,7 +81,7 @@
                         <select name="inclination">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getInclination()); %>" selected hidden><%out.print(order.getInclination()); %></option>) 
+                                <option value="${param.inclination}" selected hidden>${param.inclination}</option> 
                             <% } %>
                             <option value="Fladt tag">Fladt tag</option>
                             <option value="Med rejsning">Med rejsning</option>
@@ -91,7 +91,7 @@
                         <select name="angle">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getAngle()); %>" selected hidden><%out.print(order.getAngle()); %>°</option>) 
+                                <option value="${param.angle}" selected hidden>${param.angle}°</option>) 
                             <% } %>
                             <option value="0">0°</option>
                             <option value="15">15°</option>
@@ -107,7 +107,7 @@
                         <select name="roofMaterial">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getRoofMaterial()); %>" selected hidden><%out.print(order.getRoofMaterial()); %></option>) 
+                                <option value="${param.roofMaterial}" selected hidden>${param.roofMaterial}</option> 
                             <% } %>
                             <option value="ingen">Ingen</option>
                             <option value="betontagsten">Betontagsten</option>
@@ -118,7 +118,7 @@
                         <select name="shed">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getShed()); %>" selected hidden><%out.print(shedDanish); %></option>) 
+                                <option value="${param.shed}" selected hidden><%= shedDanish %></option> 
                             <% } %>
                             <option value="noShed">Uden Skur</option>
                             <option value="shed">Med Skur</option>
@@ -128,12 +128,12 @@
                         <select name="shedWidth">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getShedWidth()); %>" selected hidden><%out.print(order.getShedWidth()); %>cm</option>) 
+                                <option value="${param.shedWidth}" selected hidden>${param.shedWidth}cm</option> 
                             <% } %>
                             <% for (int i = 0; i < 720; i += 30)
                                 {
                                     if (i == 0 || i >= 210)
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                            %>  <option value=<%= i %>><%= i %>cm</option><%
                                 } %>
                         </select>
 
@@ -142,32 +142,32 @@
                         <select name="shedLength">
                             <% if (order != null) 
                             { %>
-                                <option value="<% out.print(order.getShedLength()); %>" selected hidden><%out.print(order.getShedLength()); %>cm</option>) 
+                                <option value="${param.shedLength}" selected hidden>${param.shedLength}cm</option> 
                             <% } %>
                             <% for (int i = 0; i < 690; i += 30)
                                 {
                                      if (i == 0 || i >= 150)
-                            %>  <option value=<% out.print(i); %>><% out.print(i);%>cm</option><%
+                            %>  <option value=<%= i %>><%= i %>cm</option><%
                                 }%>
                         </select>
                         <br>
                         Navn:<br>
-                        <input type="text" name="name" <% if (order != null) {%> value="<%out.print(order.getName()); %>" <%} %> required>
+                        <input type="text" name="name" value="${param.name}" required>
                         <br>
                         Adresse:<br>
-                        <input type="text" name="address" <% if (order != null) {%> value="<%out.print(order.getAddress()); %>" <%} %> required>
+                        <input type="text" name="address" value="${param.address}" required>
                         <br>
                         Postnr. og by:<br>
-                        <input type="text" name="zipcode" <% if (order != null) {%> value="<%out.print(order.getZipCode()); %>" <%} %> required>
+                        <input type="text" name="zipcode" value="${param.zipcode}" required>
                         <br>
                         Telefon:<br>
-                        <input type="text" name="phoneNumber" <% if (order != null) {%> value="<%out.print(order.getPhoneNumber()); %>" <%} %> required>
+                        <input type="text" name="phoneNumber" value="${param.phoneNumber}" required>
                         <br>
                         Email:<br>
-                        <input type="text" name="email" <% if (order != null) {%> value="<%out.print(order.getEmail()); %>" <%} %> required>
+                        <input type="text" name="email" value="${param.email}" required>
                         <br>
                         Evt. bemærkninger:<br>
-                        <input type="text" name="comment" <% if (order != null) {%> value="<%out.print(order.getComment()); %>" <%} %>>
+                        <input type="text" name="comment" value="${param.comment}">
                         <br>
                         <input type="submit" value="Bekræft">
                     </form>
