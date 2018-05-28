@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<% Customer customer = (Customer) session.getAttribute("customer"); %>
+<% Customer customer = (Customer) request.getAttribute("customer"); %>
 <%@include file="header.jsp" %>
 
 <!DOCTYPE html>

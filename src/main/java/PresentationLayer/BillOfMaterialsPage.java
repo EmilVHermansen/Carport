@@ -35,7 +35,7 @@ public class BillOfMaterialsPage extends Command
                 Material mat = LogicFacade.getMaterial(lineItem.getIdmaterial());
                 lineItem.setName(mat.getName());
                 lineItem.setPrice(mat.getMSRP()); //TODO price is multiplied by either meterprice or quantity
-                session.setAttribute("lineitems", lineItems);
+                request.setAttribute("lineitems", lineItems);
             }
         } else
         {
@@ -47,7 +47,7 @@ public class BillOfMaterialsPage extends Command
                 Material mat = LogicFacade.getMaterial(lineItem.getIdmaterial());
                 lineItem.setName(mat.getName());
                 lineItem.setPrice(mat.getMSRP()); //TODO price is multiplied by either meterprice or quantity
-                session.setAttribute("lineitems", lineItems);
+                request.setAttribute("lineitems", lineItems);
             }
         }
         return "billofmaterials";
