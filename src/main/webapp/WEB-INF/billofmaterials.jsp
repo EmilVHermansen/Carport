@@ -7,7 +7,7 @@
 <%@page import="FunctionLayer.LineItem"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% List<LineItem> lineItems = (List<LineItem>) session.getAttribute("lineitems"); %>
+<% List<LineItem> lineItems = (List<LineItem>) request.getAttribute("lineitems"); %>
 <%@include file="header.jsp" %>
 
 <!DOCTYPE html>

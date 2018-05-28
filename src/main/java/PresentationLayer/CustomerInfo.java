@@ -23,7 +23,7 @@ public class CustomerInfo extends Command {
             Customer customer = LogicFacade.getCustomerInfo(orderid);
             Order order = LogicFacade.getOrder(orderid);
             if (customer != null) {
-                session.setAttribute("customer", customer);
+                request.setAttribute("customer", customer);
                 session.setAttribute("order", order);
                 return "customerinfo";
             } else {
