@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author s_ele
  */
-public class SubmitOrder extends Command
+public class OrderConfirmation extends Command
 {
 
     @Override
