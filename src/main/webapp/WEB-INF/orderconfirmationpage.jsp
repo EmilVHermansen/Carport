@@ -1,5 +1,4 @@
 
-<%@page import="FunctionLayer.Brick"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="FunctionLayer.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
