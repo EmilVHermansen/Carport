@@ -12,13 +12,6 @@ import java.util.logging.Logger;
 public class LogicFacade
 {
 
-    public static Customer getCustomerInfo(int orderId) throws OrderException
-    {
-        Customer customer;
-        customer = DataAccessObject.getCustomerInfo(orderId);
-        return customer;
-    }
-
     public static User login(String empnumber, String password) throws LoginSampleException
     {
         return DataAccessObject.login(empnumber, password);

@@ -16,14 +16,13 @@ abstract class Command {
         commands = new HashMap<>();
         commands.put("login", new Login());
         commands.put("orderhistory", new OrderHistory());
-        commands.put("customerInfo", new CustomerInfo());
         commands.put("updatestatus", new UpdateStatus());
+        commands.put("forwardtosubmitorder", new ForwardToSubmitOrder());
         commands.put("submitorder", new SubmitOrder());
-        commands.put("orderconfirmation", new OrderConfirmation());
-        commands.put("billofmaterials", new BillOfMaterialsPage());
+        commands.put("createbom", new CreateBoM());
         commands.put("tegning", new TechnicalDrawing());
-        commands.put("orderinfo", new OrderInfo());
-        commands.put("orderedit", new OrderEdit());
+        commands.put("vieworder", new ViewOrder());
+        commands.put("editorder", new EditOrder());
 
     }
 

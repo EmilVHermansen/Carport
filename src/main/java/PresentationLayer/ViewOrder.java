@@ -19,16 +19,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author s_ele
  */
-public class OrderInfo extends Command
+public class ViewOrder extends Command
 {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, MaterialException, SubmitOrderException
     {
-        int idOrder = Integer.parseInt(request.getParameter("idOrder"));
-        Order order = LogicFacade.getOrder(idOrder);
+        int idorder = Integer.parseInt(request.getParameter("idorder"));
+        Order order = LogicFacade.getOrder(idorder);
             request.setAttribute("order", order);
-            return "orderedit";
+            return "orderinformation";
     }
 
 }//CLASS

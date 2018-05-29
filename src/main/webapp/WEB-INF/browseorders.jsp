@@ -39,8 +39,8 @@
                 <form name="customerInfo" action="FrontController" method="POST">
                     <h2>Find kunde information</h2>
                     <p>Indtast ordrenr.</p>
-                    <input type="hidden" name="command" value="customerInfo">
-                    <input type="number" name ="custorderid" placeholder="Ordrenr." required>
+                    <input type="hidden" name="command" value="vieworder">
+                    <input type="number" name ="idorder" placeholder="Ordrenr." required>
                     <input type="submit" name="submit" value="Søg">
                 </form>
 
@@ -50,7 +50,7 @@
                     <input type="hidden" name="command" value="updatestatus">
                     <h2>Opdater ordre status: </h2>
                     <p>Indtast ordrenr.</p>
-                    <input type="number" name ="orderid" placeholder="Ordrenr.">
+                    <input type="number" name ="idorder" placeholder="Ordrenr.">
                     <select name="status" value="Opdater Status">
                         <option name="Behandler">Behandler</option>
                         <option name="Behandlet">Behandlet</option>
@@ -98,9 +98,9 @@
                             <td><% out.print(order.getSalesprice()); %></td>
                             <td><% out.print(order.getStatus()); %></td>
                             <td>
-                                <form name="orderinfo" action="FrontController" method="POST">
-                                    <input type="hidden" name="command" value="orderinfo">
-                                    <input type="hidden" name ="idOrder" value="<% out.print(order.getIdOrder()); %>">
+                                <form name="vieworder" action="FrontController" method="POST">
+                                    <input type="hidden" name="command" value="vieworder">
+                                    <input type="hidden" name ="idorder" value="<% out.print(order.getIdOrder()); %>">
                                     <input type="submit" name="Rediger" value="Rediger">
                                 </form>
                             </td>

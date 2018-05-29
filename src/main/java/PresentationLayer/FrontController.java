@@ -56,7 +56,7 @@ public class FrontController extends HttpServlet
         {
             request.setAttribute("error", ex.getMessage());
             LogicFacade.log(logger, ex);
-            request.getRequestDispatcher("/WEB-INF/orderedit.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/orderinformation.jsp").forward(request, response);
             
         } catch (SubmitOrderException ex)
         {
@@ -74,7 +74,6 @@ public class FrontController extends HttpServlet
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws CustomerInfoError if the customer does not exist
      *
      */
     @Override

@@ -1,6 +1,5 @@
 package DBAccess;
 
-import FunctionLayer.Customer;
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.Material;
 import FunctionLayer.MaterialException;
@@ -47,32 +46,7 @@ public class DataAccessObject
         }
     }
 
-    public static Customer getCustomerInfo(int orderId) throws OrderException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM `order` "
-                    + "WHERE idorder=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, orderId);
-            Customer customer = null;
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                String name = rs.getString("name");
-                String address = rs.getString("address");
-                String zipCity = rs.getString("zipcode");
-                String phoneNo = rs.getString("phonenumber");
-                String custEmail = rs.getString("email");
-                customer = new Customer(name, address, zipCity, phoneNo, custEmail);
-            }
-            return customer;
-
-        } catch (ClassNotFoundException | SQLException ex) {
-
-            throw new OrderException(ex.getMessage());
-        }
-    }
-
-    public static Order getOrder(int orderId) throws OrderException
+    public static Order getOrder(int idorder) throws OrderException
     {
 
         Order order = null;
@@ -82,7 +56,7 @@ public class DataAccessObject
             String SQL = "SELECT * FROM `order` WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
 
-            ps.setInt(1, orderId);
+            ps.setInt(1, idorder);
 
             ResultSet rs = ps.executeQuery();
 
@@ -106,7 +80,7 @@ public class DataAccessObject
                 int price = rs.getInt("price");
                 int salesPrice = rs.getInt("salesprice");
                 String status = rs.getString("status");
-                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
+                order = new Order(idorder, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
@@ -135,7 +109,7 @@ public class DataAccessObject
 
             while (rs.next())
             {
-                int orderId = rs.getInt("idorder");
+                int idorder = rs.getInt("idorder");
                 int length = rs.getInt("length");
                 int width = rs.getInt("width");
                 int price = rs.getInt("price");
@@ -152,7 +126,7 @@ public class DataAccessObject
                 String email = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(orderId, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price);
+                order = new Order(idorder, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
@@ -318,7 +292,7 @@ public class DataAccessObject
 //                int qty = rs.getInt("qty");
 //                String unit = rs.getString("unit");
 //                String descriptionUse = rs.getString("description_use");
-//                int orderId = rs.getInt("order_idorder");
+//                int idorder = rs.getInt("order_idorder");
 //                int materialId = rs.getInt("material_idmaterial");
 //            }
 //            return lineItem;

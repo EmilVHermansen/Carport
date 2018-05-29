@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author adams
  */
-public class BillOfMaterialsPage extends Command
+public class CreateBoM extends Command
 {
     
 

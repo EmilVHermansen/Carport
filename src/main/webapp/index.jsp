@@ -32,7 +32,7 @@
                     <td>Eller indsend ordre</td>
                     <td>
                         <form name="register" action="FrontController" method="POST">
-                            <input type="hidden" name="command" value="submitorder">
+                            <input type="hidden" name="command" value="forwardtosubmitorder">
                             <input type="submit" value="Ok">
                         </form>
                     </td>

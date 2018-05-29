@@ -21,14 +21,13 @@ import javax.servlet.http.HttpSession;
  *
  * @author s_ele
  */
-public class OrderEdit extends Command
+public class EditOrder extends Command
 {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException, MaterialException, SubmitOrderException
     {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
-//        Order order = (Order) request.getAttribute("order");
         
         if (order != null ) {
         String attribute = "";
@@ -85,7 +84,7 @@ public class OrderEdit extends Command
         
         }
         
-        return "orderedit";
+        return "orderinformation";
     }
 
 }

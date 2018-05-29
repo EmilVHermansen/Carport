@@ -83,7 +83,7 @@
             <tr>Vælg specifikationer på din carport
                 <td>
                     <form name="submitorder" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="orderconfirmation">
+                        <input type="hidden" name="command" value="submitorder">
                         Bredde:<br>
                         <select name="width">
                             <option value="<%out.print(width); %>" selected hidden><%out.print(width); %>cm</option>
