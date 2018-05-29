@@ -1,0 +1,52 @@
+@startuml
+
+Title Navigation for finished Carport project
+
+note top of Employee
+Username and role
+stored in session
+end note
+note top of Customer
+Username and role
+stored in session
+end note
+
+legend bottom center
+All boxes represents jsp pages. Every jsp page goes to the Frontcontroller which uses javaclasses called commands to do specific operations and navigate to the next jsp page
+end legend
+
+[*] --> customerindex #Salmon
+[*] --> employeeindex #DodgerBlue
+
+
+state Customer #Wheat {
+customerindex --> customerpage #Salmon : Log in
+customerpage --> customerpage : Edit customerdetails 
+customerpage --> orderhistory #Salmon 
+orderhistory --> customerorderinformation #Salmon : View specific order information 
+customerorderinformation --> customerorderinformation : Pay for order 
+customerorderinformation --> customertechdrawing #Salmon : Show technical drawing for specific order
+customerorderinformation --> customerbillofmaterials  #Salmon : Show bill of materials for specific order
+customerpage --> submitorder #Salmon 
+submitorder --> orderconfirmation #Salmon
+}
+
+state Employee #Wheat {
+employeeindex --> browseorders #DodgerBlue : Log in
+browseorders --> browseorders : Update status on a specific order
+browseorders --> orderinformation #DodgerBlue : Go to specific Order
+browseorders --> browsematerials #DodgerBlue
+orderinformation --> techdrawing #DodgerBlue : Show technical drawing for specific order 
+orderinformation --> billofmaterials #DodgerBlue : Show bill of materials for specific order
+browsematerials --> materialinformation #DodgerBlue : See specific material details
+materialinformation --> materialinformatino #DodgerBlue : Edit material details
+orderinformation --> orderinformation : Edit Order
+}
+
+Employee --> employeeindex : Through header
+Customer --> customerindex : Through header 
+
+Customer --> [*] : Log out
+Employee --> [*] : Log out
+
+@enduml
