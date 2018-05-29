@@ -1,0 +1,32 @@
+@startuml
+
+title UpdateStatus
+boundary orderinformation.jsp
+control FrontController
+collections Command
+participant UpdateStatus
+participant Session
+participant Order
+participant LogicFacade as LF
+participant DataAccessObject as DAO
+database Database as DB
+
+orderinformation.jsp -> FrontController: Submit form
+FrontController -> Command: from()
+FrontController -> UpdateStatus: execute()
+UpdateStatus -> LF: getOrder()
+LF -> DAO: getOrder()
+DAO -> DB: executeQuery()
+DB --> DAO: Order
+DAO --> LF: Order
+LF --> UpdateStatus: Order
+UpdateStatus -> Order: setStatus()
+UpdateStatus -> LF: updateOrderStatus()
+LF -> DAO: updateOrderStatus()
+DAO -> DB: executeUpdate()
+UpdateStatus -> Session: removeAttribute()
+UpdateStatus -> Session: setAttribute()
+UpdateStatus --> FrontController: "billofmaterials"
+FrontController -> orderinformation.jsp: forward()
+
+@enduml

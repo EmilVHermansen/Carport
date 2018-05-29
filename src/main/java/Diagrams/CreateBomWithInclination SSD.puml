@@ -1,0 +1,35 @@
+@startuml
+
+title Create BoM with inclination 
+boundary orderinformation.jsp
+boundary billofmaterials.jsp
+control FrontController
+collections Command
+participant CreateBoM
+participant Session
+participant LineItem
+participant BillOfMaterialsInclination
+participant LogicFacade as LF
+participant DataAccessObject as DAO
+database Database as DB
+
+orderinformation.jsp -> FrontController: Submit form
+FrontController -> Command: from()
+FrontController -> CreateBoM: execute()
+CreateBoM -> Session: getAttribute()
+Session --> CreateBoM: Order
+CreateBoM -> BillOfMaterialsInclination: createBoM()
+BillOfMaterialsInclination --> CreateBoM: List<LineItem>
+CreateBoM -> LF: getMaterial()
+LF -> DAO: getMaterial()
+DAO -> DB: executeQuery()
+DB --> DAO: Material
+DAO --> LF: Material
+LF --> CreateBoM: Material
+CreateBoM -> LineItem: setName()
+CreateBoM -> LineItem: setPrice()
+CreateBoM -> Session: setAttribute()
+CreateBoM --> FrontController: "billofmaterials"
+FrontController -> billofmaterials.jsp: forward()
+
+@enduml
