@@ -38,15 +38,15 @@ customerorderinformation --> CreateBoMCustomer #Salmon
 CreateBoMCustomer --> customerbillofmaterials  #DodgerBlue : Show bill of materials for specific order
 customerpage --> ForwardToSubmitOrder #Salmon
 ForwardToSubmitOrder --> submitorder #DodgerBlue 
-submitorder --> SubmitOrder #Salmon
+submitorder --> SubmitOrder #Salmon : Make a new order
 SubmitOrder --> orderconfirmation #DodgerBlue
 }
 
 state Employee #Wheat {
 employeeindex --> LoginEmployee #Salmon : Log in
 LoginEmployee --> browseorders #DodgerBlue 
-browseorders --> UpdateStatus #Salmon : Update status on a specific order
-UpdateStatus --> browseorders 
+browseorders --> UpdateStatus #Salmon 
+UpdateStatus --> browseorders : Update status on a specific order
 browseorders --> ViewOrder #Salmon : Go to specific Order
 ViewOrder --> orderinformation #DodgerBlue
 orderinformation --> EditOrder #Salmon 
