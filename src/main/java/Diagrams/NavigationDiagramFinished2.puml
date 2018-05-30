@@ -1,0 +1,72 @@
+@startuml
+
+Title Navigation for finished Carport project
+
+note top of Employee
+Username and role
+stored in session
+end note
+note top of Customer
+Username and role
+stored in session
+end note
+
+legend bottom center
+All boxes represents jsp pages. Every jsp page goes to the Frontcontroller servlet which uses javaclasses called commands to do specific operations and navigate to the next jsp page
+end legend
+
+[*] --> customerindex #DodgerBlue
+[*] --> employeeindex #DodgerBlue
+
+
+state Customer #Wheat {
+customerindex --> RegisterCustomer #Salmon : Register
+RegisterCustomer --> customerpage #DodgerBlue 
+customerindex --> LoginCustomer #Salmon : Log in
+LoginCustomer --> customerpage #DodgerBlue 
+customerpage --> EditCustomer #Salmon 
+EditCustomer --> customerpage : Edit customerdetails 
+customerpage --> GetOrdersCustomer #Salmon
+GetOrdersCustomer --> orderhistory #DodgerBlue 
+orderhistory --> ViewOrderCustomer #salmon
+ViewOrderCustomer --> customerorderinformation #DodgerBlue : View specific order information 
+customerorderinformation --> PayOrder #Salmon : Pay for order
+PayOrder --> customerorderinformation  
+customerorderinformation --> TechnicalDrawingCustomer #Salmon
+TechnicalDrawingCustomer --> customertechdrawing #DodgerBlue : Show technical drawing for specific order
+customerorderinformation --> CreateBoMCustomer #Salmon
+CreateBoMCustomer --> customerbillofmaterials  #DodgerBlue : Show bill of materials for specific order
+customerpage --> ForwardToSubmitOrder #Salmon
+ForwardToSubmitOrder --> submitorder #DodgerBlue 
+submitorder --> SubmitOrder #Salmon
+SubmitOrder --> orderconfirmation #DodgerBlue
+}
+
+state Employee #Wheat {
+employeeindex --> LoginEmployee #Salmon : Log in
+LoginEmployee --> browseorders #DodgerBlue 
+browseorders --> UpdateStatus #Salmon : Update status on a specific order
+UpdateStatus --> browseorders 
+browseorders --> ViewOrder #Salmon : Go to specific Order
+ViewOrder --> orderinformation #DodgerBlue
+orderinformation --> EditOrder #Salmon 
+EditOrder --> orderinformation : Edit Order
+orderinformation --> CreateBoM #Salmon 
+CreateBoM --> billofmaterials #DodgerBlue : Show bill of materials for specific order
+orderinformation --> TechnicalDrawing #Salmon
+TechnicalDrawing --> techdrawing #DodgerBlue : Show technical drawing for specific order 
+browseorders --> GetMaterials #Salmon
+GetMaterials --> browsematerials #DodgerBlue : Show all materials
+browsematerials --> GetMaterial #Salmon
+GetMaterial --> materialinformation #DodgerBlue : See specific material details
+materialinformation --> EditMaterial #Salmon
+EditMaterial --> materialinformation #DodgerBlue : Edit material details
+}
+
+Employee --> employeeindex : Through header
+Customer --> customerindex : Through header 
+
+Customer --> [*] : Log out
+Employee --> [*] : Log out
+
+@enduml
