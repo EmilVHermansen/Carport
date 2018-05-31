@@ -56,10 +56,8 @@
     <div class="bill-but-container">
         <div class="div-but-content">
             <form name="login" action="FrontController" method="POST">
-                <input type="hidden" name="command" value="login">
+                <input type="hidden" name="command" value="returntoorders">
                 <% //TODO change value to employee in session when loggin in %>
-                <input type="hidden" name="empnumber" value="a01">
-                <input type="hidden" name="password" value="admin">
                 <input type="submit" name="submit" value="Tilbage til ordre">
             </form>
         </div>

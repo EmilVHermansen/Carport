@@ -215,10 +215,8 @@
             <div class="button3">
                 <!-- button to go back to order history-->
                 <form name="login" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="login">
+                    <input type="hidden" name="command" value="returntoorders">
                     <% //TODO change value to employee in session when loggin in %>
-                    <input type="hidden" name="empnumber" value="a01">
-                    <input type="hidden" name="password" value="admin">
                     <input type="submit" name="submit" value="Tilbage til ordrer">
                 </form>
             </div>

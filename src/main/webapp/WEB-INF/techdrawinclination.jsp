@@ -13,47 +13,48 @@
 <!DOCTYPE html>
 <%
     Order order = (Order) session.getAttribute("order");
-    //We call the method mmToMeter from the TechDrawing class, to show the measurements above the lines.
+    //We call the method mmToMeter on the TechDrawing object at the bottom of the class, to show the measurements above the lines in meters.
     TechDrawing td = new TechDrawing();
     int width = 3050;
     int length = order.getLength() * 10;
 
-    //Displace is used to expand the SVG canvas, and place the drawing of the carport in the middle of the canvas (done by dividing by 2)
-    // to make room for arrows and the dimensions
+    //Displace is used to expand the SVG canvas to make room for arrows and the carport dimensions
     int displace = 800;
     int shedLength = order.getShedLength() * 10; //2412
-    int xTopOfPoles = (displace / 2) + 150;
-
-    int topOfPoleLength = xTopOfPoles + length - 250;
-    //Set the far right pole to the edge of the top of the poles & shed
-    int farRightPole = topOfPoleLength - 97;
-    int shedPos = farRightPole - shedLength + 97;
+    int WallPlateXPos = (displace / 2) + 150;
+    int wallPlateLength = WallPlateXPos + length - 250;
+    
+    //Used to set the far right pole to the edge of the wallPlate & shed
+    int farRightPole = wallPlateLength - 97;
+    
+    int shedXPos = farRightPole - shedLength + 97;
     // Calculate how many poles are needed, and the distance inbetween
     // 1200 is the distance from the left side of the Wallplate to the first pole
     int poleQty = 1;
     int holes;
     int poleDistance;
-    // 3097 is the max distance between the poles
-    // 97 is the width of the poles
+    
     // 1200 is the max distance between the left side of the wallplate to the first pole
+    // 97 is the width of the poles
+    // 3097 is the max distance between the poles
     if (shedLength == 0)
     {
-        poleQty += (topOfPoleLength - 1200 - 97) / 3097;
-        if ((topOfPoleLength - 97 - 1200) % 3097 > 0)
+        poleQty += (wallPlateLength - 1200 - 97) / 3097;
+        if ((wallPlateLength - 97 - 1200) % 3097 > 0)
         {
             poleQty++;
         }
         holes = poleQty - 1;
-        poleDistance = (topOfPoleLength - 1200 - 97) / holes;
-    } else
+        poleDistance = (wallPlateLength - 1200 - 97) / holes;
+    } else //if no shed
     {
-        poleQty += (topOfPoleLength - shedLength - 1200 - 97) / 3097;
-        if ((topOfPoleLength - shedLength - 97 - 1200) % 3097 > 0)
+        poleQty += (wallPlateLength - shedLength - 1200 - 97) / 3097;
+        if ((wallPlateLength - shedLength - 97 - 1200) % 3097 > 0)
         {
             poleQty++;
         }
         holes = poleQty - 1;
-        poleDistance = (topOfPoleLength - 1200 - 97 - shedLength) / holes;
+        poleDistance = (wallPlateLength - 1200 - 97 - shedLength) / holes;
     }
 
 %>
@@ -91,23 +92,24 @@
                 <rect x="<% out.print(displace / 2); %>" y="50" width="<% out.print(length + 75); %>" height="725"
                       style="stroke: black; fill: none; stroke-width: 10;"/>
 
-                <!-- Wall plate / Top of pole & shed-->
-                <rect x="<% out.print(xTopOfPoles); %>" y="910" width="<% out.print(length - 250); %>" height="100"
+                <!-- Wall plate & shed-->
+                <rect x="<% out.print(WallPlateXPos); %>" y="910" width="<% out.print(length - 250); %>" height="100"
                       style="stroke: black; fill: none; stroke-width: 10;"/>
 
                 <!-- poles  -->
 
                 <%
-                    int poleX = shedPos;
+                    int poleX = shedXPos;
+                    int poleXNoShed = farRightPole;
                     for (int i = 0; i < poleQty; i++)
                     {
                         if (shedLength == 0)
                         {
                 %>
-                <rect x="<% out.print(farRightPole); %>" y="1010" width="<% out.print(97); %>" height="2005"
+                <rect x="<% out.print(poleXNoShed); %>" y="1010" width="<% out.print(97); %>" height="2005"
                       style="stroke: black; fill: none; stroke-width: 10;"/>
 
-                <% farRightPole -= poleDistance;
+                <% poleXNoShed -= poleDistance;
                 } else
                 {
                 %>
@@ -125,15 +127,15 @@
                      Shed cladding
                 -->
                 <!-- Shed
-                     Starts at Second pole X + 1.2 metres
+                     Starts at Second pole X + 1.2 meters
                      width = X coordinates subtracted with each other
                 --> 
-                <rect x="<% out.print(shedPos); %>" y="975" width="<% out.print(shedLength); %>" height="2040"
+                <rect x="<% out.print(shedXPos); %>" y="975" width="<% out.print(shedLength); %>" height="2040"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <!-- Shed middle cladding -->
                 <%
                     int qty = 1;
-                    int cladderPos = shedPos;
+                    int cladderPos = shedXPos;
                     //making the cladding on the shed with two different widths (50 & 75) to make them shifted
                     for (int i = cladderPos; i < cladderPos + shedLength - 50;)
                     {
@@ -159,10 +161,10 @@
 
 
                 <!-- far left shed cladding -->
-                <rect x="<% out.print(shedPos - 20); %>" y="1010" width="20" height="2005"
+                <rect x="<% out.print(shedXPos - 20); %>" y="1010" width="20" height="2005"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <!-- far right shed cladding -->
-                <rect x="<% out.print(shedPos + shedLength); %>" y="910" width="20" height="<% out.print(100 + 2005); %>"
+                <rect x="<% out.print(shedXPos + shedLength); %>" y="910" width="20" height="<% out.print(100 + 2005); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <%   }
                 %>
@@ -233,7 +235,7 @@
                 <% out.print(td.mmToMeter(groundToTop)); %></text>
 
                 <!-- Small arrow left 
-                     y1 = Top of pole & shed Y-coordinate
+                     y1 = Wall plate Y-coordinate
                 -->
 
                 <defs>
@@ -257,7 +259,7 @@
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
                 <% int groundToRoof = 2005 + 100; %>
-                <!-- Y = top of pole Y coordinate + height of it, and pole Y coordinate + height of it. -->
+                <!-- Y = Wall plate Y coordinate + height of the wall plate, and pole Y coordinate + height of it. -->
                 <text x="400" y="<% out.print((910 + 150 + 1060 + 2005) / 2); %>" fill="red" transform="rotate(-90, 400, 
                       <% out.print((910 + 150 + 1060 + 2005) / 2); %> )" style="font-size: 150;">
                 <% out.print(td.mmToMeter(groundToRoof)); %></text>
@@ -268,8 +270,6 @@
                 <%
                     if (shedLength == 0)
                     {
-                        //TODO fix this :)) Setting FarRightPole to it's original value, so we won't have to create a new variable
-                        farRightPole = topOfPoleLength - 97;
                         for (int i = 1; i <= poleQty; i++)
                         {
                 %> 
@@ -347,36 +347,36 @@
                     if (i == 1)
                     {
                 %>
-                <line x1="<% out.print(shedPos - poleDistance); %>"  y1="3365" x2="<% out.print(shedPos); %>"   y2="3365" 
+                <line x1="<% out.print(shedXPos - poleDistance); %>"  y1="3365" x2="<% out.print(shedXPos); %>"   y2="3365" 
                       style="stroke:#006600;
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
-                <text x="<% out.print((shedPos + (shedPos - poleDistance)) / 2); %>" y="3365" fill="red" style="font-size: 150;">
-                <% out.print(td.mmToMeter((shedPos - poleDistance) - shedPos)); %></text>
+                <text x="<% out.print((shedXPos + (shedXPos - poleDistance)) / 2); %>" y="3365" fill="red" style="font-size: 150;">
+                <% out.print(td.mmToMeter((shedXPos - poleDistance) - shedXPos)); %></text>
 
 
                 <%        } else if (i == poleQty)
                 {
                 %>
-                <line x1="<% out.print(shedPos - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(displace / 2); %>"   y2="3365" 
+                <line x1="<% out.print(shedXPos - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(displace / 2); %>"   y2="3365" 
                       style="stroke:#006600;
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
                 <text x="<% out.print((displace / 2) + 125); %>" y="3365" fill="red" style="font-size: 150;">
-                <% out.print(td.mmToMeter((shedPos - (poleDistance * (i - 1))) - (displace / 2))); %></text>
+                <% out.print(td.mmToMeter((shedXPos - (poleDistance * (i - 1))) - (displace / 2))); %></text>
                 <%
                 } else
                 {
                 %>
-                <line x1="<% out.print(shedPos - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(shedPos - (poleDistance * i)); %>"   y2="3365" 
+                <line x1="<% out.print(shedXPos - (poleDistance * (i - 1))); %>"  y1="3365" x2="<% out.print(shedXPos - (poleDistance * i)); %>"   y2="3365" 
                       style="stroke:#006600;
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
-                <text x="<% out.print(((shedPos - (poleDistance * (i - 1))) + (shedPos - (poleDistance * i))) / 2); %>" y="3365" fill="red" style="font-size: 150;">
-                <% out.print(td.mmToMeter((shedPos - (poleDistance * i)) - (shedPos - (poleDistance * (i - 1))))); %></text>
+                <text x="<% out.print(((shedXPos - (poleDistance * (i - 1))) + (shedXPos - (poleDistance * i))) / 2); %>" y="3365" fill="red" style="font-size: 150;">
+                <% out.print(td.mmToMeter((shedXPos - (poleDistance * i)) - (shedXPos - (poleDistance * (i - 1))))); %></text>
                 <%
                         }
                     }
@@ -396,12 +396,12 @@
                 </marker>
                 </defs>
                 <!-- shed line -->
-                <line x1="<% out.print(shedPos); %>"  y1="3365" x2="<% out.print(shedPos + shedLength); %>"   y2="3365" 
+                <line x1="<% out.print(shedXPos); %>"  y1="3365" x2="<% out.print(shedXPos + shedLength); %>"   y2="3365" 
                       style="stroke:#006600;
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
-                <text x="<% out.print((shedPos + (shedLength / 2))); %>" y="3365" fill="red" style="font-size: 150;"><%out.print(td.mmToMeter(shedLength));%></text>
+                <text x="<% out.print((shedXPos + (shedLength / 2))); %>" y="3365" fill="red" style="font-size: 150;"><%out.print(td.mmToMeter(shedLength));%></text>
                 <%
                     }
                 %> 
@@ -430,10 +430,7 @@
         <div class="drawing-but-container">
             <div class="drawing-but-content">
                 <form name="login" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="login">
-                    <% //TODO change value to employee in session when loggin in %>
-                    <input type="hidden" name="empnumber" value="a01">
-                    <input type="hidden" name="password" value="admin">
+                    <input type="hidden" name="command" value="returntoorders">
                     <input type="submit" name="submit" value="Tilbage til ordre">
                 </form>
             </div>

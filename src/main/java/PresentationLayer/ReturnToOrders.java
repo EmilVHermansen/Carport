@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class OrderHistory extends Command {
+public class ReturnToOrders extends Command {
 
-    public OrderHistory() {
+    public ReturnToOrders() {
     }
 
     @Override

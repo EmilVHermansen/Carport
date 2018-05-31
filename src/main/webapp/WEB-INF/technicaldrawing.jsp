@@ -25,7 +25,7 @@
     int shedWidth = order.getShedWidth() * 10;
     int shedLength = order.getShedLength() * 10;
     int rafterPos = 0;
-    int farRightPoleX = length - 425;
+    int farRightPoleXPos = length - 425;
     boolean shed = false;
     if (shedWidth > 0 && shedLength > 0)
     {
@@ -173,25 +173,25 @@
                 <% }
                     //If there's still more space left 6m away from the far right pole
                     //two extra poles will be added on the far right
-                    if (length > farRightPoleX - 6000)
+                    if (length > farRightPoleXPos - 6000)
                     {
                 %>
-                <rect x="<% out.print(farRightPoleX - 6000); %>" y="327.5" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos - 6000); %>" y="327.5" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <rect x="<% out.print(farRightPoleX - 6000); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos - 6000); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <% } %>
                 <%
                     //If there's more than 3m between the far right poles and the left edge, a pole needs to be added 3 meters from it
                 %>
-                <rect x="<% out.print(farRightPoleX - 3000); %>" y="327.5" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos - 3000); %>" y="327.5" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <rect x="<% out.print(farRightPoleX - 3000); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos - 3000); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <!-- top, far right pole -->
-                <rect x="<% out.print(farRightPoleX); %>" y="327.5" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos); %>" y="327.5" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <rect x="<% out.print(farRightPoleX); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
+                <rect x="<% out.print(farRightPoleXPos); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <!--Wallplate-->
                 <rect x="0" y="<% out.print(width - 395);%>" width="<% out.print(length); %>" height="45"
@@ -272,10 +272,7 @@
         <div class="drawing-but-container">
             <div class="drawing-but-content">
                 <form name="login" action="FrontController" method="POST">
-                    <input type="hidden" name="command" value="login">
-                    <% //TODO change value to employee in session when loggin in %>
-                    <input type="hidden" name="empnumber" value="a01">
-                    <input type="hidden" name="password" value="admin">
+                    <input type="hidden" name="command" value="returntoorders">
                     <input type="submit" name="submit" value="Tilbage til ordre">
                 </form>
             </div>
