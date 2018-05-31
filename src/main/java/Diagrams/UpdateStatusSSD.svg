@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="703px" preserveAspectRatio="none" style="width:979px;height:703px;" version="1.1" viewBox="0 0 979 703" width="979px" zoomAndPan="magnify">
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="794px" preserveAspectRatio="none" style="width:979px;height:794px;" version="1.1" viewBox="0 0 979 794" width="979px" zoomAndPan="magnify">
     <defs>
-        <filter height="300%" id="f156395g7lcxtf" width="300%" x="-1" y="-1">
+        <filter height="300%" id="fmjvjyjhmcwg" width="300%" x="-1" y="-1">
             <feGaussianBlur result="blurOut" stdDeviation="2.0"/>
             <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/>
             <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/>
@@ -9,59 +9,59 @@
     </defs>
     <g>
         <text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="94" x="449" y="24.5332">UpdateStatus</text>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="74" x2="74" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="201" x2="201" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="305" x2="305" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="409" x2="409" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="531.5" x2="531.5" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="602.5" x2="602.5" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="690.5" x2="690.5" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="831.5" x2="831.5" y1="98.2188" y2="634.1953"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="950" x2="950" y1="98.2188" y2="634.1953"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="74" x2="74" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="201" x2="201" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="305" x2="305" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="409" x2="409" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="531.5" x2="531.5" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="602.5" x2="602.5" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="690.5" x2="690.5" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="831.5" x2="831.5" y1="98.2188" y2="725.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="950" x2="950" y1="98.2188" y2="725.25"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="8" y="95.1426">orderinformation.jsp</text>
-        <path d="M53.5,52.6094 L53.5,76.6094 M53.5,64.6094 L70.5,64.6094 " fill="#FEFECE" filter="url(#f156395g7lcxtf)" style="stroke: #A80036; stroke-width: 2.0;"/>
-        <ellipse cx="82.5" cy="64.6094" fill="#FEFECE" filter="url(#f156395g7lcxtf)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="8" y="647.7285">orderinformation.jsp</text>
-        <path d="M53.5,654.8047 L53.5,678.8047 M53.5,666.8047 L70.5,666.8047 " fill="#FEFECE" filter="url(#f156395g7lcxtf)" style="stroke: #A80036; stroke-width: 2.0;"/>
-        <ellipse cx="82.5" cy="666.8047" fill="#FEFECE" filter="url(#f156395g7lcxtf)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <path d="M53.5,52.6094 L53.5,76.6094 M53.5,64.6094 L70.5,64.6094 " fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <ellipse cx="82.5" cy="64.6094" fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="126" x="8" y="738.7832">orderinformation.jsp</text>
+        <path d="M53.5,745.8594 L53.5,769.8594 M53.5,757.8594 L70.5,757.8594 " fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <ellipse cx="82.5" cy="757.8594" fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="96" x="150" y="95.1426">FrontController</text>
-        <ellipse cx="201" cy="64.6094" fill="#FEFECE" filter="url(#f156395g7lcxtf)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <ellipse cx="201" cy="64.6094" fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
         <polygon fill="#A80036" points="197,52.6094,203,47.6094,201,52.6094,203,57.6094,197,52.6094" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="96" x="150" y="647.7285">FrontController</text>
-        <ellipse cx="201" cy="666.8047" fill="#FEFECE" filter="url(#f156395g7lcxtf)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
-        <polygon fill="#A80036" points="197,654.8047,203,649.8047,201,654.8047,203,659.8047,197,654.8047" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="266" y="57.6094"/>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="262" y="61.6094"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="96" x="150" y="738.7832">FrontController</text>
+        <ellipse cx="201" cy="757.8594" fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" rx="12" ry="12" style="stroke: #A80036; stroke-width: 2.0;"/>
+        <polygon fill="#A80036" points="197,745.8594,203,740.8594,201,745.8594,203,750.8594,197,745.8594" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="266" y="57.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="262" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="269" y="83.1426">Command</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="266" y="633.1953"/>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="262" y="637.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="269" y="658.7285">Command</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="358" y="61.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="266" y="724.25"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="78" x="262" y="728.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="269" y="749.7832">Command</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="358" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="365" y="83.1426">UpdateStatus</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="358" y="633.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="365" y="654.7285">UpdateStatus</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="497.5" y="61.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="99" x="358" y="724.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="365" y="745.7832">UpdateStatus</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="497.5" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="504.5" y="83.1426">Session</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="497.5" y="633.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="504.5" y="654.7285">Session</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="575.5" y="61.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="64" x="497.5" y="724.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="504.5" y="745.7832">Session</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="575.5" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="582.5" y="83.1426">Order</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="575.5" y="633.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="582.5" y="654.7285">Order</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="640.5" y="61.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="51" x="575.5" y="724.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="37" x="582.5" y="745.7832">Order</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="640.5" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="647.5" y="83.1426">LogicFacade</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="640.5" y="633.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="647.5" y="654.7285">LogicFacade</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="764.5" y="61.6094"/>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="640.5" y="724.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="82" x="647.5" y="745.7832">LogicFacade</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="764.5" y="61.6094"/>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="116" x="771.5" y="83.1426">DataAccessObject</text>
-        <rect fill="#FEFECE" filter="url(#f156395g7lcxtf)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="764.5" y="633.1953"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="116" x="771.5" y="654.7285">DataAccessObject</text>
+        <rect fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="130" x="764.5" y="724.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="116" x="771.5" y="745.7832">DataAccessObject</text>
         <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="917" y="95.1426">Database</text>
-        <path d="M932.5,44.6094 C932.5,34.6094 950.5,34.6094 950.5,34.6094 C950.5,34.6094 968.5,34.6094 968.5,44.6094 L968.5,70.6094 C968.5,80.6094 950.5,80.6094 950.5,80.6094 C950.5,80.6094 932.5,80.6094 932.5,70.6094 L932.5,44.6094 " fill="#FEFECE" filter="url(#f156395g7lcxtf)" style="stroke: #000000; stroke-width: 1.5;"/>
+        <path d="M932.5,44.6094 C932.5,34.6094 950.5,34.6094 950.5,34.6094 C950.5,34.6094 968.5,34.6094 968.5,44.6094 L968.5,70.6094 C968.5,80.6094 950.5,80.6094 950.5,80.6094 C950.5,80.6094 932.5,80.6094 932.5,70.6094 L932.5,44.6094 " fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" style="stroke: #000000; stroke-width: 1.5;"/>
         <path d="M932.5,44.6094 C932.5,54.6094 950.5,54.6094 950.5,54.6094 C950.5,54.6094 968.5,54.6094 968.5,44.6094 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="917" y="647.7285">Database</text>
-        <path d="M932.5,660.8047 C932.5,650.8047 950.5,650.8047 950.5,650.8047 C950.5,650.8047 968.5,650.8047 968.5,660.8047 L968.5,686.8047 C968.5,696.8047 950.5,696.8047 950.5,696.8047 C950.5,696.8047 932.5,696.8047 932.5,686.8047 L932.5,660.8047 " fill="#FEFECE" filter="url(#f156395g7lcxtf)" style="stroke: #000000; stroke-width: 1.5;"/>
-        <path d="M932.5,660.8047 C932.5,670.8047 950.5,670.8047 950.5,670.8047 C950.5,670.8047 968.5,670.8047 968.5,660.8047 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="917" y="738.7832">Database</text>
+        <path d="M932.5,751.8594 C932.5,741.8594 950.5,741.8594 950.5,741.8594 C950.5,741.8594 968.5,741.8594 968.5,751.8594 L968.5,777.8594 C968.5,787.8594 950.5,787.8594 950.5,787.8594 C950.5,787.8594 932.5,787.8594 932.5,777.8594 L932.5,751.8594 " fill="#FEFECE" filter="url(#fmjvjyjhmcwg)" style="stroke: #000000; stroke-width: 1.5;"/>
+        <path d="M932.5,751.8594 C932.5,761.8594 950.5,761.8594 950.5,761.8594 C950.5,761.8594 968.5,761.8594 968.5,751.8594 " fill="none" style="stroke: #000000; stroke-width: 1.5;"/>
         <polygon fill="#A80036" points="189,126.2188,199,130.2188,189,134.2188,193,130.2188" style="stroke: #A80036; stroke-width: 1.0;"/>
         <line style="stroke: #A80036; stroke-width: 1.0;" x1="74" x2="195" y1="130.2188" y2="130.2188"/>
         <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="70" x="81" y="125.7139">Submit form</text>
@@ -101,18 +101,27 @@
         <polygon fill="#A80036" points="938.5,490.4375,948.5,494.4375,938.5,498.4375,942.5,494.4375" style="stroke: #A80036; stroke-width: 1.0;"/>
         <line style="stroke: #A80036; stroke-width: 1.0;" x1="831.5" x2="944.5" y1="494.4375" y2="494.4375"/>
         <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="95" x="838.5" y="489.9326">executeUpdate()</text>
-        <polygon fill="#A80036" points="519.5,520.7891,529.5,524.7891,519.5,528.7891,523.5,524.7891" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <line style="stroke: #A80036; stroke-width: 1.0;" x1="409.5" x2="525.5" y1="524.7891" y2="524.7891"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="416.5" y="520.2842">removeAttribute()</text>
-        <polygon fill="#A80036" points="519.5,551.1406,529.5,555.1406,519.5,559.1406,523.5,555.1406" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <line style="stroke: #A80036; stroke-width: 1.0;" x1="409.5" x2="525.5" y1="555.1406" y2="555.1406"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="416.5" y="550.6357">setAttribute()</text>
-        <polygon fill="#A80036" points="212,581.4922,202,585.4922,212,589.4922,208,585.4922" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="206" x2="408.5" y1="585.4922" y2="585.4922"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="218" y="580.9873">"billofmaterials"</text>
-        <polygon fill="#A80036" points="85,611.8438,75,615.8438,85,619.8438,81,615.8438" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <line style="stroke: #A80036; stroke-width: 1.0;" x1="79" x2="200" y1="615.8438" y2="615.8438"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="49" x="91" y="611.3389">forward()</text>
+        <polygon fill="#A80036" points="678.5,520.7891,688.5,524.7891,678.5,528.7891,682.5,524.7891" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="409.5" x2="684.5" y1="524.7891" y2="524.7891"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="416.5" y="520.2842">getOrders()</text>
+        <polygon fill="#A80036" points="819.5,551.1406,829.5,555.1406,819.5,559.1406,823.5,555.1406" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="690.5" x2="825.5" y1="555.1406" y2="555.1406"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="65" x="697.5" y="550.6357">getOrders()</text>
+        <polygon fill="#A80036" points="938.5,581.4922,948.5,585.4922,938.5,589.4922,942.5,585.4922" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="831.5" x2="944.5" y1="585.4922" y2="585.4922"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="838.5" y="580.9873">executeQuery()</text>
+        <polygon fill="#A80036" points="519.5,611.8438,529.5,615.8438,519.5,619.8438,523.5,615.8438" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="409.5" x2="525.5" y1="615.8438" y2="615.8438"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="98" x="416.5" y="611.3389">removeAttribute()</text>
+        <polygon fill="#A80036" points="519.5,642.1953,529.5,646.1953,519.5,650.1953,523.5,646.1953" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="409.5" x2="525.5" y1="646.1953" y2="646.1953"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="75" x="416.5" y="641.6904">setAttribute()</text>
+        <polygon fill="#A80036" points="212,672.5469,202,676.5469,212,680.5469,208,676.5469" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="206" x2="408.5" y1="676.5469" y2="676.5469"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="218" y="672.042">"billofmaterials"</text>
+        <polygon fill="#A80036" points="85,702.8984,75,706.8984,85,710.8984,81,706.8984" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="79" x2="200" y1="706.8984" y2="706.8984"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="49" x="91" y="702.3936">forward()</text>
         <!--
 @startuml
 
@@ -140,6 +149,9 @@ UpdateStatus -> Order: setStatus()
 UpdateStatus -> LF: updateOrderStatus()
 LF -> DAO: updateOrderStatus()
 DAO -> DB: executeUpdate()
+UpdateStatus -> LF: getOrders()
+LF -> DAO: getOrders()
+DAO -> DB: executeQuery()
 UpdateStatus -> Session: removeAttribute()
 UpdateStatus -> Session: setAttribute()
 UpdateStatus - -> FrontController: "billofmaterials"
