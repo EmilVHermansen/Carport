@@ -7,9 +7,6 @@ Username and role
 stored in session
 end note
 
-legend bottom center
-All boxes represents jsp pages. Every jsp page goes to the Frontcontroller servlet which uses javaclasses called commands to do specific operations and navigate to the next jsp page
-end legend
 
 [*] -> index #DodgerBlue
 
