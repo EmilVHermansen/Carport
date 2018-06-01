@@ -13,6 +13,7 @@ import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -26,8 +27,15 @@ public class ViewOrder extends Command
     {
         int idorder = Integer.parseInt(request.getParameter("idorder"));
         Order order = LogicFacade.getOrder(idorder);
-        request.setAttribute("order", order);
+        if (order != null)
+        {
+        HttpSession session = request.getSession();
+        session.setAttribute("order", order);
         return "orderinformation";
+        } else 
+        {
+            throw new OrderException("Det valgte ordrenummer kunne ikke findes");
+        }
     }
 
 }//CLASS

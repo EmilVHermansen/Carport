@@ -37,7 +37,7 @@
 
             <div class="top-content-left">
                 <form name="customerInfo" action="FrontController" method="POST">
-                    <h2>Find kunde information</h2>
+                    <h2>Se ordre </h2>
                     <p>Indtast ordrenr.</p>
                     <input type="hidden" name="command" value="vieworder">
                     <input type="number" name ="idorder" placeholder="Ordrenr." required>

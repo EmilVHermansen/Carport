@@ -8,9 +8,8 @@
 <%@page import="javax.servlet.http.HttpSession"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<% Order order = (Order) request.getAttribute("order"); %>
 <% session = request.getSession(true); %>
-<% session.setAttribute("order", order); %>
+<% Order order = (Order) session.getAttribute("order"); %>
 
 <%@include file="header.jsp" %>
 
