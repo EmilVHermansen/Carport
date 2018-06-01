@@ -10,10 +10,8 @@
     <body>
         <div class="container">
             <h1>Fog carport</h1>
-
             <table>
                 <thead>
-
                 <th>Login</th>
                 </thead>
                 <tr>

@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Before;
@@ -51,15 +50,15 @@ public class DataAccessObjectTest
                 stmt.execute("drop table if exists material");
                 stmt.execute("drop table if exists `order`");
                 stmt.execute("drop table if exists `user`");
-                
+
                 stmt.execute("create table material like materialTest");
                 stmt.execute("create table `order` like orderTest");
                 stmt.execute("create table `user` like userTest");
-                
+
                 stmt.execute("insert into material select * from materialTest");
                 stmt.execute("insert into `order` select * from orderTest");
                 stmt.execute("insert into `user` select * from userTest");
-                
+
             }
 
         } catch (ClassNotFoundException | SQLException ex)
@@ -91,6 +90,5 @@ public class DataAccessObjectTest
         User user = LogicFacade.login("a01", "adminugabuga");
         assertTrue(user != null);
     }
-    
-    
+
 }

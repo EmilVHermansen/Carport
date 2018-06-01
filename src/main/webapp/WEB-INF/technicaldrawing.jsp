@@ -68,7 +68,7 @@
                 %>
                 <h2>Skur mål: <% out.print(shedWidth); %> x <% out.print(shedLength); %> mm</h2>
                 <%
-                } 
+                    }
                 %>
             </div>
         </div>

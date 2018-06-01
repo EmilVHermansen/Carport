@@ -25,8 +25,8 @@
             <div class="title-content">
                 <h1>Ordre historie</h1>
                 <% String error = (String) request.getAttribute("error");
-                     if (error != null)
-                     {%>
+                    if (error != null)
+                    {%>
                 <h5 style="color:red"><%= error%></h5>
                 <br>
                 <% }

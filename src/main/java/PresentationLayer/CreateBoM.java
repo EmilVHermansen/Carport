@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
  */
 public class CreateBoM extends Command
 {
-    
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws MaterialException

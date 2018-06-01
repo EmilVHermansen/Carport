@@ -6,10 +6,6 @@
 package FunctionLayer;
 
 import java.util.List;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,14 +15,10 @@ import static org.junit.Assert.*;
  */
 public class BillOfMaterialsFlatTest
 {
-    
+
     public BillOfMaterialsFlatTest()
     {
     }
-
-   
-
-  
 
     /**
      * Test of createPole method, of class BillOfMaterialsFlat.
@@ -44,7 +36,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(11, BoM.get(0).getQty());
     }
-    
+
     @Test
     public void testCreatePoleNoShed()
     {
@@ -55,7 +47,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(6, BoM.get(0).getQty());
     }
-    
+
     @Test
     public void testCreatePoleHalfShed()
     {
@@ -68,7 +60,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(10, BoM.get(0).getQty());
     }
-    
+
     @Test
     public void testCreatePoleShedLengthMoreThanMaxPoleDistance()
     {
@@ -81,7 +73,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(15, BoM.get(0).getQty());
     }
-    
+
     @Test
     public void testCreatePoleFullShedLengthMoreThanMaxPoleDistance()
     {
@@ -94,7 +86,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(9, BoM.get(0).getQty());
     }
-    
+
     @Test
     public void testCreatePoleHalfShedMorethanMaxPoleDistance()
     {
@@ -123,8 +115,7 @@ public class BillOfMaterialsFlatTest
         List<LineItem> BoM = instance.getBillOfMaterials();
         assertEquals(9, BoM.get(0).getQty());
     }
-    
-    
+
     @Test
     public void testCreateShedFrame()
     {
@@ -142,7 +133,7 @@ public class BillOfMaterialsFlatTest
         }
         assertEquals(26, qty);
     }
-    
+
     @Test
     public void testCreateWallPlateFullShed()
     {
@@ -160,7 +151,7 @@ public class BillOfMaterialsFlatTest
         }
         assertEquals(3, qty);
     }
-    
+
     @Test
     public void testCreateWallPlateHalfShed()
     {
@@ -178,6 +169,7 @@ public class BillOfMaterialsFlatTest
         }
         assertEquals(3, qty);
     }
+
     @Test
     public void testCreateWallPlateNoShed()
     {

@@ -2,9 +2,6 @@ package FunctionLayer;
 
 import DBAccess.DataAccessObject;
 import java.io.IOException;
-import java.sql.Array;
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,7 +74,8 @@ public class LogicFacade
     public static void log(Logger logger, Exception ex) throws IOException
     {
         String exName = ex.getClass().getSimpleName();
-        switch(exName){
+        switch (exName)
+        {
             case "SubmitOrderException":
                 SubmitErrorLogger.init();
                 break;

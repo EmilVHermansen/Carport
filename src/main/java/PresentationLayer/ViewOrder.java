@@ -11,7 +11,6 @@ import FunctionLayer.MaterialException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
 import FunctionLayer.SubmitOrderException;
-import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -27,8 +26,8 @@ public class ViewOrder extends Command
     {
         int idorder = Integer.parseInt(request.getParameter("idorder"));
         Order order = LogicFacade.getOrder(idorder);
-            request.setAttribute("order", order);
-            return "orderinformation";
+        request.setAttribute("order", order);
+        return "orderinformation";
     }
 
 }//CLASS

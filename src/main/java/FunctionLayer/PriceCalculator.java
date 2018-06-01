@@ -17,7 +17,7 @@ public class PriceCalculator
         {
             double lineItemPrice = 0;
             lineItemPrice += lineItem.getQty() * lineItem.getPrice();
-            
+
             if (lineItem.getLength() != 0)
             {
                 lineItemPrice *= (((double) lineItem.getLength()) / 1000);

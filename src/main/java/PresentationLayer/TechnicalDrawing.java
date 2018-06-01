@@ -11,18 +11,21 @@ import javax.servlet.http.HttpSession;
  *
  * @author wtfak
  */
-
-
-public class TechnicalDrawing extends Command {
+public class TechnicalDrawing extends Command
+{
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException
+    {
         HttpSession session = request.getSession();
         Order order = (Order) session.getAttribute("order");
         if (order.getInclination().equals("Med rejsning"))
+        {
             return "techdrawinclination";
-        else
+        } else
+        {
             return "technicaldrawing";
+        }
     }
-    
+
 }

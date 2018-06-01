@@ -6,7 +6,9 @@
 package FunctionLayer;
 
 /**
- * The purpose of the exception is to make sure the customer does not enter shed-dimensions bigger than the carport-dimensions
+ * The purpose of the exception is to make sure the customer does not enter
+ * shed-dimensions bigger than the carport-dimensions
+ *
  * @author s_ele
  */
 public class SubmitOrderException extends Exception
@@ -16,5 +18,5 @@ public class SubmitOrderException extends Exception
     {
         super(message);
     }
-    
+
 }

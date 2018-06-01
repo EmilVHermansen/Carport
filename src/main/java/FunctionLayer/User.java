@@ -1,8 +1,7 @@
 package FunctionLayer;
 
-public class User {
-
-
+public class User
+{
 
     private int id;
     private String empnumber;

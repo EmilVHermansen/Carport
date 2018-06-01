@@ -17,6 +17,7 @@ import java.util.List;
 
 public class DataAccessObject
 {
+
     public static User login(String employeenumber, String password) throws LoginSampleException
     {
         try
@@ -95,7 +96,7 @@ public class DataAccessObject
         }
         return order;
     }
-    
+
     public static List<Order> getOrders() throws OrderException
     {
         try
@@ -206,9 +207,9 @@ public class DataAccessObject
         try
         {
             Connection con = Connector.connection();
-            String SQL = "UPDATE `order` SET `"+ attribute + "`=? WHERE `idorder`=?";
+            String SQL = "UPDATE `order` SET `" + attribute + "`=? WHERE `idorder`=?";
             PreparedStatement ps = con.prepareStatement(SQL);
-            
+
             switch (attribute)
             {
                 case "length":
@@ -247,7 +248,7 @@ public class DataAccessObject
                 default:
                     break;
             }
-            
+
             ps.setInt(2, order.getIdOrder());
             ps.executeUpdate();
 
@@ -256,8 +257,7 @@ public class DataAccessObject
             throw new OrderException("Der gik noget galt i at opdatere" + attribute + " for ordrenr " + order.getIdOrder());
         }
     }
-    
-    
+
     // TODO User story to be implemnted/prioritized by PO
 //    public static void createLineItem(LineItem lineItem) throws SQLException {
 //        try {
@@ -281,7 +281,6 @@ public class DataAccessObject
 //        }
 //
 //    }
-
     //TODO use sebbe and emils BoM class
 //    public LineItem getLineItems(int idOrder) throws SQLException {
 //        try {
@@ -305,10 +304,9 @@ public class DataAccessObject
 //        }
 //
 //    }
-    
     public static Material getMaterial(int idMaterial) throws MaterialException
     {
-        
+
         Material material = null;
         try
         {

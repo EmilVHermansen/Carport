@@ -22,8 +22,6 @@ public class Order
     private int salesprice = 0;
     private String status = "Afventer behandling";
 
-   
-
     public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email)
     {
         this.length = length;
@@ -118,7 +116,7 @@ public class Order
     {
         return salesprice;
     }
-    
+
     public String getStatus()
     {
         return status;
@@ -183,7 +181,7 @@ public class Order
     {
         this.email = email;
     }
-    
+
     public void setShedLength(int shedLength)
     {
         this.shedLength = shedLength;
@@ -235,6 +233,4 @@ public class Order
 //    {
 //        return "Order{" + "idOrder=" + idOrder + ", length=" + length + ", width=" + width + ", inclination=" + inclination + ", angle=" + angle + ", roofMaterial=" + roofMaterial + ", shed=" + shed + ", shedLength=" + shedLength + ", shedWidth=" + shedWidth + ", name=" + name + ", address=" + address + ", zipCode=" + zipCode + ", phoneNumber=" + phoneNumber + ", email=" + email + ", comment=" + comment + ", price=" + price + ", salesprice=" + salesprice + ", status=" + status + '}';
 //    }
-    
-    
 }

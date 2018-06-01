@@ -9,12 +9,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ordre bekræftelse</title>
     </head>
-     <%@include file="header.jsp" %>
+    <%@include file="header.jsp" %>
     <body>
         <h1>Ordre bekræftet</h1>
-       ${order}
-       <br>
-       <h5>Du vil blive ringet op inden for 5 arbejdsdage omkring detaljerne af ordren</h5>
-           <%@include file="footer.jsp" %>
+        ${order}
+        <br>
+        <h5>Du vil blive ringet op inden for 5 arbejdsdage omkring detaljerne af ordren</h5>
+        <%@include file="footer.jsp" %>
     </body>
 </html>

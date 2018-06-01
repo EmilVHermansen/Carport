@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author emilv
  */
-public class ForwardToSubmitOrder extends Command{
+public class ForwardToSubmitOrder extends Command
+{
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, OrderException

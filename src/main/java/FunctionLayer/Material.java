@@ -9,28 +9,33 @@ package FunctionLayer;
  *
  * @author emilv
  */
-public class Material {
+public class Material
+{
+
     private int id;
     private String name;
     private int MSRP;
 
-    public Material(int id, String name, int MSRP) {
+    public Material(int id, String name, int MSRP)
+    {
         this.id = id;
         this.name = name;
         this.MSRP = MSRP;
     }
 
-    public int getId() {
+    public int getId()
+    {
         return id;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public int getMSRP() {
+    public int getMSRP()
+    {
         return MSRP;
     }
-    
-    
+
 }

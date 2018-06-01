@@ -218,7 +218,7 @@ public class BillOfMaterialsFlat
         waterBoardSides.setQty(4);
 
         int frontBackLength = width() / 2 + (300 - width() % 300);
-        
+
         fasciaBoardUnderFrontBack.setLength(frontBackLength);
         fasciaBoardFront.setLength(frontBackLength);
         waterBoardFront.setLength(frontBackLength);
@@ -519,29 +519,29 @@ public class BillOfMaterialsFlat
     private void createAngleBracket()
     {
 
-            LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
-            int angleBracketQty;
+        LineItem angleBracket = new LineItem("stk", "Til montering af løsholter i skur", idOrder(), 21);
+        int angleBracketQty;
 
-            int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
-            if (shedLength() % maxPoleDistance > 0)
-            {
-                sideSpaces++;
-            }
+        int sideSpaces = shedLength() / maxPoleDistance; // spaces between the poles
+        if (shedLength() % maxPoleDistance > 0)
+        {
+            sideSpaces++;
+        }
 
-            angleBracketQty = sideSpaces * 2 + (fullShed() ? 0 : 1);
+        angleBracketQty = sideSpaces * 2 + (fullShed() ? 0 : 1);
 
-            int frontBackSpaces = shedWidth() / maxPoleDistance; // spaces between the poles
-            if (shedWidth() % maxPoleDistance > 0)
-            {
-                frontBackSpaces++;
-            }
+        int frontBackSpaces = shedWidth() / maxPoleDistance; // spaces between the poles
+        if (shedWidth() % maxPoleDistance > 0)
+        {
+            frontBackSpaces++;
+        }
 
-            angleBracketQty += frontBackSpaces * 3;
-            angleBracketQty *= 2;
+        angleBracketQty += frontBackSpaces * 3;
+        angleBracketQty *= 2;
 
-            angleBracket.setQty(angleBracketQty);
+        angleBracket.setQty(angleBracketQty);
 
-            billOfMaterials.add(angleBracket);
+        billOfMaterials.add(angleBracket);
     }
 
 }//CLASS

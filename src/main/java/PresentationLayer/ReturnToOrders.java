@@ -13,13 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ReturnToOrders extends Command {
+public class ReturnToOrders extends Command
+{
 
-    public ReturnToOrders() {
+    public ReturnToOrders()
+    {
     }
 
     @Override
-    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException {
+    String execute(HttpServletRequest request, HttpServletResponse response) throws OrderException
+    {
         HttpSession session = request.getSession();
         List<Order> orders = LogicFacade.getOrders();
         session.setAttribute("orders", orders);

@@ -35,10 +35,10 @@ public class SubmitOrder extends Command
         String shed = request.getParameter("shed");
         int shedLength = Integer.parseInt(request.getParameter("shedLength"));
         int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
-        
+
         // SubmitOrderExceptionCheck
         checkForSubmitOrderException(width, length, inclination, angle, shed, shedWidth, shedLength);
-        
+
         // customer details
         String name = request.getParameter("name");
         String address = request.getParameter("address");
@@ -50,7 +50,7 @@ public class SubmitOrder extends Command
         {
             comment = request.getParameter("comment");
         }
-        
+
         // Order creation
         Order order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipcode, phoneNumber, email);
         order.setShedLength(shedLength);
@@ -64,7 +64,7 @@ public class SubmitOrder extends Command
             lineItem.setPrice(material.getMSRP());
         }
         order.setPrice(LogicFacade.calcPrice(BoM));
-        
+
         // Submit order to database
         LogicFacade.submitOrder(order);
 
@@ -72,35 +72,30 @@ public class SubmitOrder extends Command
         request.setAttribute("order", order);
         return "orderconfirmationpage";
     }
-    
-    private static void checkForSubmitOrderException(int width, int length, String inclination, int angle, String shed, int shedWidth, int shedLength) throws SubmitOrderException 
+
+    private static void checkForSubmitOrderException(int width, int length, String inclination, int angle, String shed, int shedWidth, int shedLength) throws SubmitOrderException
     {
         String msg = "";
         if ((shed.equals("Med skur") && ((shedLength == 0) || (shedWidth == 0))))
         {
             msg = "Du har valgt med skur, men har ikke indtastet længde og/eller bredde på skuret";
-        }
-        else if ((shed.equals("Uden skur") && ((shedLength > 0) || (shedWidth > 0))))
+        } else if ((shed.equals("Uden skur") && ((shedLength > 0) || (shedWidth > 0))))
         {
             msg = "Du har valgt uden skur, men har indtastet længde og/eller bredde større end 0 på skuret";
-        }
-        else if (shedLength >= length)
+        } else if (shedLength >= length)
         {
             msg = "Længden af dit skur kan ikke være samme længde eller længere end din carport";
-        }
-        else if (shedWidth >= width)
+        } else if (shedWidth >= width)
         {
             msg = "Bredden af dit skur kan ikke være samme bredde eller bredere end din carport";
-        }
-        else if (inclination.equals("Med rejsning") && angle == 0)
+        } else if (inclination.equals("Med rejsning") && angle == 0)
         {
             msg = "Du har valgt med rejsning, men har ikke valgt en vinkel større end 0 grader";
-        }
-        else if (inclination.equals("Fladt tag") && angle > 0)
+        } else if (inclination.equals("Fladt tag") && angle > 0)
         {
             msg = "Du har valgt med fladt tag, men har valgt en vinkel større end 0 grader";
         }
-        
+
         if (!msg.isEmpty())
         {
             throw new SubmitOrderException(msg);

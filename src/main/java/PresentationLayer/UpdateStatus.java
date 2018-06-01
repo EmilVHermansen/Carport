@@ -1,12 +1,9 @@
 package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
 import FunctionLayer.Order;
 import FunctionLayer.OrderException;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,10 +29,12 @@ public class UpdateStatus extends Command
             List<Order> orders = LogicFacade.getOrders();
             session.removeAttribute("orders");
             session.setAttribute("orders", orders);
-            
+
             return "browseorders";
         } else
+        {
             throw new OrderException("Der gik noget galt. Prøv igen senere, ellers kontakt support");
+        }
     }
 
 }
