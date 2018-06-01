@@ -7,14 +7,6 @@
 <%@page import="FunctionLayer.Order"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<% String shedDanish = "";
-if (request.getParameter("shed") != null)
-{
-    if (request.getParameter("shed").equals("Uden skur"))
-        shedDanish = "Uden skur";
-    else
-        shedDanish = "Med skur";
-}%>
 <!DOCTYPE html>
 
 <html>
@@ -117,7 +109,7 @@ if (request.getParameter("shed") != null)
                         <select name="shed">
                             <% if (request.getParameter("shed") != null) 
                             { %>
-                                <option value="${param.shed}" selected hidden><%= shedDanish %></option> 
+                                <option value="${param.shed}" selected hidden>${param.shed}</option> 
                             <% } %>
                             <option value="Uden skur">Uden Skur</option>
                             <option value="Med skur">Med Skur</option>
