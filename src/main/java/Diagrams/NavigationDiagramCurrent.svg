@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="615px" preserveAspectRatio="none" style="width:1169px;height:615px;" version="1.1" viewBox="0 0 1169 615" width="1169px" zoomAndPan="magnify">
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="918px" preserveAspectRatio="none" style="width:962px;height:918px;" version="1.1" viewBox="0 0 962 918" width="962px" zoomAndPan="magnify">
     <defs>
-        <filter height="300%" id="fiec6wyzy6aa8" width="300%" x="-1" y="-1">
+        <filter height="300%" id="f5zs2p0a4x2r4" width="300%" x="-1" y="-1">
             <feGaussianBlur result="blurOut" stdDeviation="2.0"/>
             <feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/>
             <feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/>
@@ -8,84 +8,122 @@
         </filter>
     </defs>
     <g>
-        <text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="301" x="438" y="18.6855">Navigation  for current Carport project</text>
+        <text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacingAndGlyphs" textLength="301" x="348" y="18.6855">Navigation  for current Carport project</text>
         <!--cluster Customer-->
-        <rect fill="#F5DEB3" filter="url(#fiec6wyzy6aa8)" height="246" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="194" x="137" y="152.6406"/>
-        <rect fill="#FFFFFF" height="212.3906" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.0;" width="188" x="140" y="183.25"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="137" x2="331" y1="180.25" y2="180.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="203.5" y="171.1738">Customer</text>
+        <rect fill="#F5DEB3" filter="url(#f5zs2p0a4x2r4)" height="502" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="237" x="30" y="152.6406"/>
+        <rect fill="#FFFFFF" height="468.3906" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.0;" width="231" x="33" y="183.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="30" x2="267" y1="180.25" y2="180.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="118" y="171.1738">Customer</text>
         <!--cluster Employee-->
-        <rect fill="#F5DEB3" filter="url(#fiec6wyzy6aa8)" height="392" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="592" x="436" y="152.6406"/>
-        <rect fill="#FFFFFF" height="358.3906" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.0;" width="586" x="439" y="183.25"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="436" x2="1028" y1="180.25" y2="180.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="701" y="171.1738">Employee</text>
-        <rect fill="#FA8072" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="100" x="185" y="196.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="185" x2="285" y1="224.25" y2="224.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="195" y="216.1738">SubmitOrder</text>
-        <rect fill="#FA8072" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="137" x="161.5" y="324.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="161.5" x2="298.5" y1="352.25" y2="352.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="171.5" y="344.1738">OrderConfirmation</text>
-        <rect fill="#1E90FF" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="110" x="518" y="196.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="518" x2="628" y1="224.25" y2="224.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="90" x="528" y="216.1738">BrowseOrders</text>
-        <rect fill="#1E90FF" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="127" x="509.5" y="324.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="509.5" x2="636.5" y1="352.25" y2="352.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="107" x="519.5" y="344.1738">OrderInformation</text>
-        <rect fill="#1E90FF" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="468" y="470.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="468" x2="564" y1="498.25" y2="498.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="478" y="490.1738">techdrawing</text>
-        <rect fill="#1E90FF" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="106" x="727" y="470.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="727" x2="833" y1="498.25" y2="498.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="86" x="737" y="490.1738">billofmaterials</text>
-        <polygon fill="#FBFB77" filter="url(#fiec6wyzy6aa8)" points="564,34.1406,564,76.8438,694,76.8438,694,44.1406,684,34.1406,564,34.1406" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <line style="stroke: #A80036; stroke-width: 1.0;" x1="684" x2="684" y1="34.1406" y2="44.1406"/>
-        <line style="stroke: #A80036; stroke-width: 1.0;" x1="694" x2="684" y1="44.1406" y2="44.1406"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="570" y="52.6357">Username and role</text>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="570" y="68.9873">stored in session</text>
-        <ellipse cx="271" cy="55.6406" fill="#000000" filter="url(#fiec6wyzy6aa8)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/>
-        <rect fill="#FEFECE" filter="url(#fiec6wyzy6aa8)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="53" x="350.5" y="30.6406"/>
-        <line style="stroke: #A80036; stroke-width: 1.5;" x1="350.5" x2="403.5" y1="58.25" y2="58.25"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="33" x="360.5" y="50.1738">index</text>
-        <ellipse cx="382" cy="349.6406" fill="none" filter="url(#fiec6wyzy6aa8)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"/>
-        <ellipse cx="382.5" cy="350.1406" fill="#000000" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/>
-        <path d="M628.756,77.2446 C627.35,93.9296 622.453,116.5746 607,128.6406 C593.407,139.2536 464.456,124.7136 452,136.6406 C448.7199,139.7814 446.1168,143.3932 444.075,147.316 C443.5646,148.2967 443.0892,149.2968 442.6471,150.3139 C442.426,150.8224 442.2133,151.3352 442.0086,151.8519 C441.9063,152.1102 441.806,152.3696 441.7077,152.6298 " fill="none" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/>
-        <path d="M281.352,55.6406 C302.682,55.6406 324.012,55.6406 345.342,55.6406 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="350.473,55.6406,341.473,51.6406,345.473,55.6406,341.473,59.6406,350.473,55.6406" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <path d="M350.195,70.8176 C333.728,80.4676 312.991,94.4086 298,110.6406 C275.743,134.7406 258.046,168.0696 247.144,191.7096 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="245.055,196.3026,252.4221,189.7661,247.125,191.7512,245.1399,186.4541,245.055,196.3026" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <path d="M234.036,246.9346 C233.216,267.5906 232.037,297.3096 231.165,319.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="230.961,324.4216,235.3153,315.5876,231.1596,319.4256,227.3216,315.2699,230.961,324.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <path d="M403.732,62.0026 C432.736,68.9716 479.037,83.5836 510,110.6406 C535.168,132.6336 552.647,167.2476 562.702,191.7656 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="564.614,196.5286,564.9729,186.6863,562.7511,191.8886,557.5488,189.6669,564.614,196.5286" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="31" x="527" y="125.1357">Login</text>
-        <path d="M628.368,209.6436 C647.528,209.5166 663,213.5156 663,221.6406 C663,229.0036 650.293,232.9786 633.65,233.5646 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="628.368,233.6376,637.422,237.5138,633.3675,233.5691,637.3123,229.5146,628.368,233.6376" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="191" x="669" y="227.1357">Update status on a specific order</text>
-        <path d="M573,246.9346 C573,267.5906 573,297.3096 573,319.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="573,324.4216,577,315.4216,573,319.4216,569,315.4216,573,324.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="116" x="574" y="291.1357">Go to specific Order</text>
-        <path d="M636.948,337.6586 C656.341,337.9596 671.5,341.9526 671.5,349.6406 C671.5,356.6076 659.05,360.5406 642.281,361.4406 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="636.948,361.6226,646.0798,365.3117,641.9451,361.4512,645.8056,357.3164,636.948,361.6226" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="59" x="677.5" y="355.1357">Edit Order</text>
-        <path d="M538.147,374.9186 C523.433,387.3076 507.899,403.7546 500,422.6406 C494.323,436.2126 496.964,452.1046 501.601,465.5006 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="503.388,470.3139,504.0058,460.4845,501.6479,465.6265,496.5059,463.2686,503.388,470.3139" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="235" x="501" y="437.1357">Show technical drawing for specific order</text>
-        <path d="M636.526,366.7696 C670.631,377.9706 711.581,395.7986 741,422.6406 C753.832,434.3486 763.299,451.2826 769.69,465.7866 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="771.74,470.6011,771.8957,460.7535,769.7818,466.0005,764.5347,463.8866,771.74,470.6011" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="222" x="756" y="437.1357">Show bill of materials for specific order</text>
-        <path d="M435.9016,197.0115 C435.8521,196.8704 435.8025,196.7287 435.7527,196.5866 C435.6531,196.3024 435.5528,196.0162 435.4518,195.7282 C435.2497,195.1522 435.0447,194.5688 434.8368,193.9781 C434.4211,192.7967 433.9941,191.5866 433.5564,190.3499 C432.6809,187.8765 431.7626,185.2968 430.8061,182.6285 C423.1545,161.2821 413.065,134.2656 403,110.6406 C399.521,102.4756 395.474,93.7566 391.624,85.7596 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="389.259,80.8846,389.5893,90.7279,391.4418,85.383,396.7867,87.2355,389.259,80.8846" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="412" y="125.1357">Through header</text>
-        <path d="M320.1424,152.2436 C320.0728,151.9602 320.0022,151.6771 319.9306,151.3943 C319.7873,150.8288 319.64,150.2648 319.4885,149.7024 C318.2765,145.2033 316.7972,140.8111 315,136.6406 C313.13,132.3016 309.662,133.0636 308,128.6406 C305.186,121.1516 304.496,117.8326 308,110.6406 C315.97,94.2826 331.558,81.4206 345.904,72.3596 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="350.307,69.6706,340.5412,70.9472,346.0397,72.2764,344.7105,77.7749,350.307,69.6706" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="309" y="125.1357">Through header</text>
-        <path d="M331.1336,240.0104 C331.1982,240.1485 331.2632,240.2873 331.3285,240.4267 C331.8508,241.5421 332.3917,242.6974 332.9497,243.8889 C334.0656,246.272 335.2493,248.8 336.487,251.4433 C338.9625,256.7299 341.6538,262.4774 344.4495,268.448 C355.6325,292.3304 368.487,319.7821 375.885,335.5806 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="378.063,340.2326,377.8699,330.3857,375.9431,335.7043,370.6245,333.7775,378.063,340.2326" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <path d="M435.8733,232.7193 C435.7751,232.8455 435.6763,232.9728 435.5769,233.101 C435.378,233.3573 435.1767,233.6175 434.973,233.8814 C433.3438,235.9925 431.5649,238.3405 429.6978,240.872 C422.2293,250.9981 413.35,264.0606 407,276.6406 C397.335,295.7876 389.886,319.5536 385.722,334.4126 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <polygon fill="#A80036" points="384.339,339.4596,390.5772,331.8383,385.6616,334.6377,382.8621,329.7221,384.339,339.4596" style="stroke: #A80036; stroke-width: 1.0;"/>
-        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="43" x="408" y="291.1357">Log out</text>
-        <rect fill="#DDDDDD" height="27.6094" rx="5" ry="5" style="stroke: #000000; stroke-width: 1.0;" width="1160" x="8" y="586.6406"/>
-        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="1148" x="14" y="606.1738">All boxes represents jsp pages. Every jsp page goes to the Frontcontroller servlet which uses javaclasses called commands to do specific operations and navigate to the next jsp page</text>
+        <rect fill="#F5DEB3" filter="url(#f5zs2p0a4x2r4)" height="759" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="592" x="363" y="152.6406"/>
+        <rect fill="#FFFFFF" height="725.3906" rx="12.5" ry="12.5" style="stroke: #FFFFFF; stroke-width: 1.0;" width="586" x="366" y="183.25"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="363" x2="955" y1="180.25" y2="180.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="628" y="171.1738">Employee</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="169" x="54.5" y="196.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="54.5" x2="223.5" y1="224.25" y2="224.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="149" x="64.5" y="216.1738">ForwardToSubmitOrder</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="95" x="91.5" y="324.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="91.5" x2="186.5" y1="352.25" y2="352.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="75" x="101.5" y="344.1738">submitorder</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="100" x="89" y="452.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="89" x2="189" y1="480.25" y2="480.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="99" y="472.1738">SubmitOrder</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="137" x="70.5" y="580.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="70.5" x2="207.5" y1="608.25" y2="608.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="117" x="80.5" y="600.1738">OrderConfirmation</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="55" x="487.5" y="196.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="487.5" x2="542.5" y1="224.25" y2="224.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="35" x="497.5" y="216.1738">Login</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="106" x="474" y="324.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="474" x2="580" y1="352.25" y2="352.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="86" x="484" y="344.1738">browseorders</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="105" x="527.5" y="452.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="527.5" x2="632.5" y1="480.25" y2="480.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="85" x="537.5" y="472.1738">UpdateStatus</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="86" x="406" y="452.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="406" x2="492" y1="480.25" y2="480.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="66" x="416" y="472.1738">ViewOrder</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="124" x="399" y="580.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="399" x2="523" y1="608.25" y2="608.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="104" x="409" y="600.1738">orderinformation</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="81" x="618.5" y="580.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="618.5" x2="699.5" y1="608.25" y2="608.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="61" x="628.5" y="600.1738">EditOrder</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="132" x="395" y="709.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="395" x2="527" y1="737.25" y2="737.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="112" x="405" y="729.1738">TechnicalDrawing</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="96" x="395" y="837.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="395" x2="491" y1="865.25" y2="865.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="76" x="405" y="857.1738">techdrawing</text>
+        <rect fill="#FA8072" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="91" x="611.5" y="709.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="611.5" x2="702.5" y1="737.25" y2="737.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="71" x="621.5" y="729.1738">CreateBoM</text>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="106" x="654" y="837.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="654" x2="760" y1="865.25" y2="865.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="86" x="664" y="857.1738">billofmaterials</text>
+        <polygon fill="#FBFB77" filter="url(#f5zs2p0a4x2r4)" points="497,34.1406,497,76.8438,627,76.8438,627,44.1406,617,34.1406,497,34.1406" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="617" x2="617" y1="34.1406" y2="44.1406"/>
+        <line style="stroke: #A80036; stroke-width: 1.0;" x1="627" x2="617" y1="44.1406" y2="44.1406"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="109" x="503" y="52.6357">Username and role</text>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="99" x="503" y="68.9873">stored in session</text>
+        <ellipse cx="200" cy="55.6406" fill="#000000" filter="url(#f5zs2p0a4x2r4)" rx="10" ry="10" style="stroke: none; stroke-width: 1.0;"/>
+        <rect fill="#1E90FF" filter="url(#f5zs2p0a4x2r4)" height="50" rx="12.5" ry="12.5" style="stroke: #A80036; stroke-width: 1.5;" width="53" x="279.5" y="30.6406"/>
+        <line style="stroke: #A80036; stroke-width: 1.5;" x1="279.5" x2="332.5" y1="58.25" y2="58.25"/>
+        <text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="33" x="289.5" y="50.1738">index</text>
+        <ellipse cx="314" cy="349.6406" fill="none" filter="url(#f5zs2p0a4x2r4)" rx="10" ry="10" style="stroke: #000000; stroke-width: 1.0;"/>
+        <ellipse cx="314.5" cy="350.1406" fill="#000000" rx="6" ry="6" style="stroke: none; stroke-width: 1.0;"/>
+        <path d="M561.762,77.2526 C560.36,93.9416 555.465,116.5896 540,128.6406 C525.872,139.6496 391.949,124.2656 379,136.6406 C375.7169,139.7783 373.1116,143.3877 371.0681,147.3088 C370.5572,148.2891 370.0815,149.2888 369.639,150.3055 C369.4178,150.8139 369.2049,151.3264 369.0001,151.843 C368.8977,152.1012 368.7973,152.3605 368.6989,152.6207 " fill="none" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/>
+        <path d="M210.352,55.6406 C231.682,55.6406 253.012,55.6406 274.342,55.6406 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="279.473,55.6406,270.473,51.6406,274.473,55.6406,270.473,59.6406,279.473,55.6406" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M279.32,72.4236 C263.564,82.3786 243.695,96.0766 228,110.6406 C201.216,135.4946 175.511,168.6016 158.673,191.9816 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="155.634,196.2296,164.1237,191.2372,158.5432,192.1631,157.6173,186.5825,155.634,196.2296" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M139,246.9346 C139,267.5906 139,297.3096 139,319.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="139,324.4216,143,315.4216,139,319.4216,135,315.4216,139,324.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M139,374.9346 C139,395.5906 139,425.3096 139,447.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="139,452.4216,143,443.4216,139,447.4216,135,443.4216,139,452.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M139,502.9346 C139,523.5906 139,553.3096 139,575.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="139,580.4216,143,571.4216,139,575.4216,135,571.4216,139,580.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M332.707,61.1416 C371.865,69.1716 444.484,89.7456 484,136.6406 C497.072,152.1536 504.872,173.6786 509.379,191.0556 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="510.674,196.3036,512.4027,186.6077,509.4768,191.4491,504.6354,188.5232,510.674,196.3036" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="35" x="474" y="125.1357">Log in</text>
+        <path d="M517.314,246.9346 C519.281,267.5906 522.111,297.3096 524.205,319.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="524.693,324.4216,527.8212,315.0828,524.2187,319.4442,519.8573,315.8417,524.693,324.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M525.784,374.8736 C525.918,389.2786 527.623,407.6106 534,422.6406 C537.896,431.8236 543.932,440.6016 550.363,448.3116 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="553.966,452.4806,551.1085,443.0554,550.697,448.6973,545.0551,448.2858,553.966,452.4806" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M569.812,452.4216 C561.096,431.7006 548.527,401.8186 539.261,379.7906 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="537.219,374.9346,537.0216,384.7815,539.1577,379.5435,544.3957,381.6796,537.219,374.9346" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="191" x="557" y="419.1357">Update status on a specific order</text>
+        <path d="M511.961,374.9346 C499.012,395.8516 480.31,426.0636 466.654,448.1226 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="463.993,452.4216,472.1309,446.8741,466.6245,448.1701,465.3285,442.6637,463.993,452.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M451.314,502.9346 C453.281,523.5906 456.111,553.3096 458.205,575.2916 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="458.693,580.4216,461.8212,571.0828,458.2187,575.4442,453.8573,571.8417,458.693,580.4216" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="116" x="456" y="547.1357">Go to specific Order</text>
+        <path d="M523.319,608.2266 C543.528,608.7706 566.048,609.0676 586.667,608.6406 C595.2,608.4636 604.295,608.1696 613.055,607.8326 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="618.457,607.6186,609.3052,603.9792,613.4609,607.8172,609.623,611.9729,618.457,607.6186" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M618.351,605.6406 C592.415,605.6406 558.17,605.6406 528.252,605.6406 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="523.105,605.6406,532.105,609.6406,528.105,605.6406,532.105,601.6406,523.105,605.6406" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="59" x="541.25" y="599.1357">Edit Order</text>
+        <path d="M461,630.8276 C461,651.7486 461,682.0556 461,704.3466 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="461,709.5436,465,700.5436,461,704.5436,457,700.5436,461,709.5436" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M441.753,759.7696 C435.815,768.6396 430.041,779.1026 427,789.6406 C422.952,803.6656 425.683,819.4776 429.957,832.7036 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="431.591,837.4513,432.4413,827.6392,429.9624,832.724,424.8776,830.2451,431.591,837.4513" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="235" x="428" y="804.1357">Show technical drawing for specific order</text>
+        <path d="M498.327,630.8276 C531.705,652.4546 580.562,684.1116 615.23,706.5756 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="619.812,709.5436,614.434,701.2927,615.6158,706.8248,610.0838,708.0066,619.812,709.5436" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M666.641,759.9346 C674.872,780.6776 686.73,810.5606 695.464,832.5696 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="697.389,837.4211,697.787,827.5803,695.5446,832.7737,690.3512,830.5313,697.389,837.4211" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="222" x="685" y="804.1357">Show bill of materials for specific order</text>
+        <path d="M362.8682,195.2603 C362.8204,195.1152 362.7724,194.9697 362.7242,194.8237 C362.628,194.5317 362.531,194.2379 362.4333,193.9423 C362.0427,192.7598 361.6412,191.5485 361.2293,190.3108 C360.4055,187.8352 359.5403,185.2535 358.6379,182.5835 C351.4185,161.2231 341.8175,134.2076 332,110.6406 C328.587,102.4476 324.562,93.7196 320.712,85.7226 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="318.344,80.8486,318.678,90.6918,320.5285,85.3462,325.8741,87.1966,318.344,80.8486" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="341" y="125.1357">Through header</text>
+        <path d="M244.4203,152.512 C244.3823,152.3662 244.3442,152.2205 244.3061,152.0748 C244.1536,151.4921 244.0003,150.91 243.8462,150.3287 C242.6132,145.6784 241.3281,141.0814 240,136.6406 C238.912,133.0026 237.678,132.3766 237,128.6406 C235.573,120.7686 233.496,117.8326 237,110.6406 C244.97,94.2826 260.558,81.4206 274.904,72.3596 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="279.307,69.6706,269.5412,70.9472,275.0397,72.2764,273.7105,77.7749,279.307,69.6706" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="89" x="238" y="125.1357">Through header</text>
+        <path d="M267.0157,242.4582 C267.0969,242.657 267.1786,242.8568 267.2607,243.0577 C267.9176,244.6648 268.603,246.338 269.313,248.0666 C274.9928,261.8956 282.2425,279.2686 289,294.6406 C295.201,308.7466 302.663,324.7466 307.811,335.6446 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="310.001,340.2686,309.7638,330.4226,307.8609,335.7498,302.5337,333.8468,310.001,340.2686" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <path d="M362.9566,232.2415 C362.5607,232.7348 362.1545,233.2437 361.7391,233.7676 C360.0776,235.863 358.2686,238.1964 356.378,240.7166 C348.8158,250.7974 339.949,263.8661 334,276.6406 C325.122,295.7036 319.469,319.4916 316.515,334.3786 " fill="none" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <polygon fill="#A80036" points="315.549,339.4356,321.1695,331.348,316.4889,334.5248,313.3121,329.8442,315.549,339.4356" style="stroke: #A80036; stroke-width: 1.0;"/>
+        <text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="43" x="335" y="291.1357">Log out</text>
         <!--
 @startuml
 
@@ -96,24 +134,29 @@ Username and role
 stored in session
 end note
 
-legend bottom center
-All boxes represents jsp pages. Every jsp page goes to the Frontcontroller servlet which uses javaclasses called commands to do specific operations and navigate to the next jsp page
-end legend
 
-[*] -> index
+[*] -> index #DodgerBlue
 
 state Customer #Wheat {
-index -> SubmitOrder #Salmon
-SubmitOrder - -> OrderConfirmation #Salmon
+index -> ForwardToSubmitOrder #Salmon
+ForwardToSubmitOrder - -> submitorder #DodgerBlue
+submitorder - -> SubmitOrder #Salmon
+SubmitOrder - -> OrderConfirmation #DodgerBlue
 }
 
 state Employee #Wheat {
-index - -> BrowseOrders #DodgerBlue : Login
-BrowseOrders - -> BrowseOrders : Update status on a specific order
-BrowseOrders - -> OrderInformation #DodgerBlue : Go to specific Order
-OrderInformation - -> OrderInformation : Edit Order
-OrderInformation - -> techdrawing #DodgerBlue : Show technical drawing for specific order 
-OrderInformation - -> billofmaterials #DodgerBlue : Show bill of materials for specific order
+index - -> Login #Salmon : Log in
+Login - -> browseorders #DodgerBlue 
+browseorders - -> UpdateStatus #Salmon
+UpdateStatus - -> browseorders : Update status on a specific order
+browseorders - -> ViewOrder #Salmon
+ViewOrder - -> orderinformation #DodgerBlue : Go to specific Order
+orderinformation -> EditOrder #Salmon
+EditOrder -> orderinformation : Edit Order
+orderinformation - -> TechnicalDrawing #Salmon
+TechnicalDrawing - -> techdrawing #DodgerBlue : Show technical drawing for specific order 
+orderinformation - -> CreateBoM #Salmon
+CreateBoM - -> billofmaterials #DodgerBlue : Show bill of materials for specific order
 }
 
 Employee - -> index : Through header
