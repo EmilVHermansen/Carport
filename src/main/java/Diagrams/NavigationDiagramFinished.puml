@@ -11,36 +11,53 @@ Username and role
 stored in session
 end note
 
-legend bottom center
-All boxes represents jsp pages. Every jsp page goes to the Frontcontroller servlet which uses javaclasses called commands to do specific operations and navigate to the next jsp page
-end legend
 
-[*] --> customerindex #Salmon
+[*] --> customerindex #DodgerBlue
 [*] --> employeeindex #DodgerBlue
 
 
 state Customer #Wheat {
-customerindex --> customerpage #Salmon : Log in
-customerpage --> customerpage : Edit customerdetails 
-customerpage --> orderhistory #Salmon 
-orderhistory --> customerorderinformation #Salmon : View specific order information 
-customerorderinformation --> customerorderinformation : Pay for order 
-customerorderinformation --> customertechdrawing #Salmon : Show technical drawing for specific order
-customerorderinformation --> customerbillofmaterials  #Salmon : Show bill of materials for specific order
-customerpage --> submitorder #Salmon 
-submitorder --> orderconfirmation #Salmon
+customerindex --> RegisterCustomer #Salmon : Register
+RegisterCustomer --> customerpage #DodgerBlue 
+customerindex --> LoginCustomer #Salmon : Log in
+LoginCustomer --> customerpage #DodgerBlue 
+customerpage --> EditCustomer #Salmon 
+EditCustomer --> customerpage : Edit customerdetails 
+customerpage --> GetOrdersCustomer #Salmon
+GetOrdersCustomer --> orderhistory #DodgerBlue 
+orderhistory --> ViewOrderCustomer #salmon
+ViewOrderCustomer --> customerorderinformation #DodgerBlue : View specific order information 
+customerorderinformation --> PayOrder #Salmon : Pay for order
+PayOrder --> customerorderinformation  
+customerorderinformation --> TechnicalDrawingCustomer #Salmon
+TechnicalDrawingCustomer --> customertechdrawing #DodgerBlue : Show technical drawing for specific order
+customerorderinformation --> CreateBoMCustomer #Salmon
+CreateBoMCustomer --> customerbillofmaterials  #DodgerBlue : Show bill of materials for specific order
+customerpage --> ForwardToSubmitOrder #Salmon
+ForwardToSubmitOrder --> submitorder #DodgerBlue 
+submitorder --> SubmitOrder #Salmon : Make a new order
+SubmitOrder --> orderconfirmation #DodgerBlue
 }
 
 state Employee #Wheat {
-employeeindex --> browseorders #DodgerBlue : Log in
-browseorders --> browseorders : Update status on a specific order
-browseorders --> orderinformation #DodgerBlue : Go to specific Order
-browseorders --> browsematerials #DodgerBlue
-orderinformation --> techdrawing #DodgerBlue : Show technical drawing for specific order 
-orderinformation --> billofmaterials #DodgerBlue : Show bill of materials for specific order
-browsematerials --> materialinformation #DodgerBlue : See specific material details
-materialinformation --> materialinformatino #DodgerBlue : Edit material details
-orderinformation --> orderinformation : Edit Order
+employeeindex --> LoginEmployee #Salmon : Log in
+LoginEmployee --> browseorders #DodgerBlue 
+browseorders --> UpdateStatus #Salmon 
+UpdateStatus --> browseorders : Update status on a specific order
+browseorders --> ViewOrder #Salmon : Go to specific Order
+ViewOrder --> orderinformation #DodgerBlue
+orderinformation --> EditOrder #Salmon 
+EditOrder --> orderinformation : Edit Order
+orderinformation --> CreateBoM #Salmon 
+CreateBoM --> billofmaterials #DodgerBlue : Show bill of materials for specific order
+orderinformation --> TechnicalDrawing #Salmon
+TechnicalDrawing --> techdrawing #DodgerBlue : Show technical drawing for specific order 
+browseorders --> GetMaterials #Salmon
+GetMaterials --> browsematerials #DodgerBlue : Show all materials
+browsematerials --> GetMaterial #Salmon
+GetMaterial --> materialinformation #DodgerBlue : See specific material details
+materialinformation --> EditMaterial #Salmon
+EditMaterial --> materialinformation #DodgerBlue : Edit material details
 }
 
 Employee --> employeeindex : Through header
