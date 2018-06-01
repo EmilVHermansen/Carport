@@ -24,7 +24,7 @@
     int length = order.getLength() * 10;
     int shedWidth = order.getShedWidth() * 10;
     int shedLength = order.getShedLength() * 10;
-    int rafterPos = 0;
+    int rafterXPos = 0;
     int farRightPoleXPos = length - 425;
     boolean shed = false;
     if (shedWidth > 0 && shedLength > 0)
@@ -64,11 +64,13 @@
         <div class="title-container">
             <div class="title-content">
                 <h2>Mål: <% out.print(order.getLength() * 10); %> x <% out.print(order.getWidth() * 10); %> mm</h2>
-                <% if (shedWidth > 0 && shedLength > 0)
+                <% if (shed)
                     {
                 %>
                 <h2>Skur mål: <% out.print(shedWidth); %> x <% out.print(shedLength); %> mm</h2>
-                <% } %>
+                <%
+                } 
+                %>
             </div>
         </div>
 
@@ -81,14 +83,15 @@
                 <!-- carport outline -->
                 <rect x="0" y="0" width="<% out.print(length); %>" height="<% out.print(width); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
+                <!-- Shed -->
+
                 <%
                     if (shed)
                     {
 
                 %>
-                <!--Løsholte skur-->
-                <!-- lodrette -->
-                <%  //If the shed is going to overflow
+                <!-- vertical -->
+                <%  //If the shed is going to overflow, the height is reduced
                     if (shedWidth + 280 < width - 395)
                     {
                 %>
@@ -96,15 +99,19 @@
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print(length - 405); %>" y="350" width="70" height="<% out.print(shedWidth); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } else
-                {%>
+                <%
+                } else
+                {
+                %>
                 <rect x="<% out.print(length - shedLength - 405); %>" y="350" width="70" height="<% out.print(shedWidth - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print(length - 395); %>" y="350" width="70" height="<% out.print(shedWidth - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } %>
+                <%
+                    }
+                %>
 
-                <!-- vandrette -->
+                <!-- horizontal -->
                 <rect x="<% out.print(length - shedLength - 395); %>" y="327.5" width="<% out.print(shedLength); %>" height="70"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
@@ -114,11 +121,15 @@
                 %>
                 <rect x="<% out.print(length - shedLength - 395); %>" y="<% out.print(shedWidth + 280);%>" width="<% out.print(shedLength); %>" height="70"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } else
-                { %>
+                <%
+                } else
+                {
+                %>
                 <rect x="<% out.print(length - shedLength - 395); %>" y="<% out.print(width - 395);%>" width="<% out.print(shedLength); %>" height="70"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% }%>
+                <%
+                    }
+                %>
                 <!--Shed poles-->
                 <%
                     //If the shed is 3m or wider than that, then an extra pole will be added in the middle
@@ -135,21 +146,25 @@
                     }
 
                 %>
-                <%                    
+                <%  //If the shed is going to overflow, the poles will be moved to the wall plate                  
                     if (shedWidth + 280 < width - 395)
                     {
                 %>
                 <rect x="<% out.print(length - shedLength - 405); %>" y="<% out.print(shedWidth + 250); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <rect x="<% out.print(length -  425); %>" y="<% out.print(shedWidth + 250); %>" width="100" height="100"
+                <rect x="<% out.print(length - 425); %>" y="<% out.print(shedWidth + 250); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } %>
-                <!-- Pole bottom right -->
-                <rect x="<% out.print(length - shedLength - 405 ); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
+                <%
+                    }
+                %>
+                <!-- Poles bottom right -->
+                <rect x="<% out.print(length - shedLength - 405); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print(length - shedLength - 405); %>" y="327.5" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } %>
+                <%
+                    }
+                %>
 
 
 
@@ -157,7 +172,7 @@
 
 
 
-                <!--Stolper-->
+                <!-- Poles -->
                 <!-- top left -->
                 <%
                     //3835 because the poles are not on the edge of the carport.
@@ -170,9 +185,10 @@
                 <rect x="317.5" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
-                <% }
+                <%
+                    }
                     //If there's still more space left 6m away from the far right pole
-                    //two extra poles will be added on the far right
+                    //two extra poles will be added on the right side of the carport
                     if (length > farRightPoleXPos - 6000)
                     {
                 %>
@@ -180,7 +196,9 @@
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print(farRightPoleXPos - 6000); %>" y="<% out.print(width - 417.5); %>" width="100" height="100"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <% } %>
+                <%
+                    }
+                %>
                 <%
                     //If there's more than 3m between the far right poles and the left edge, a pole needs to be added 3 meters from it
                 %>
@@ -199,75 +217,66 @@
                 <rect x="0" y="350" width="<% out.print(length); %>" height="45"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
-                <!--Spær-->
+                <!-- Wall plate -->
                 <%
                     for (int i = 0; i <= qty; i++)
                     {
                 %> 
-                <rect x=" <% out.print(rafterPos); %>" y="0" width="45" height="<% out.print(width); %>"
+                <rect x=" <% out.print(rafterXPos); %>" y="0" width="45" height="<% out.print(width); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <%
-                        rafterPos += rafterDistance;
+                        rafterXPos += rafterDistance;
                     }
                 %>
 
-
-
-
-
-
-                <!--De 550mm afstand mellem spær er ikke korrekt, så den resterende længde er tilføjet på afstanden mellem sidste og næstsidste spær-->
-
                 <!--Perforated band-->
 
-
-                <!-- if there's no shed present, the krydsbånd will range from the 
+                <!-- if there's no shed present, the perforated band will range from the 
                      start of the first rafter, to the start of the last rafter -->
-                <% if (!shed)
+                <%
+                    if (!shed)
                     {
                 %>
-                <!-- TODO fix the X coordinates -->
-                <!-- venstre top, til højre bund -->
+                <!-- Top left to bottom right -->
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="395" x2="<% out.print(length - rafterDistance - 25); %>" y2="<% out.print(width - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="415" x2="<% out.print(length - rafterDistance - 85); %>" y2="<% out.print(width - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
-                <!-- højre top, til venstre bund -->
+                <!-- Top right to bottom left -->
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="<% out.print(width - 395); %>" x2="<% out.print(length - rafterDistance - 25); %>" y2="395"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="<% out.print(width - 415); %>" x2="<% out.print(length - rafterDistance - 85); %>" y2="415"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
-                <% }
+                <%
+                    }
                 %>
 
-                <% 
-                        if (shed)
-                        {
+                <%
+                    if (shed)
+                    {
                 %>
-                <!-- venstre top, til højre bund -->
+                <!-- Top left to bottom right -->
 
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="395" x2="<% out.print(holesWithoutShed * rafterDistance); %>" y2="<% out.print(width - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="415" x2="<% out.print(holesWithoutShed * rafterDistance - 50); %>" y2="<% out.print(width - 395); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
-                <!-- venstre bund, til højre top -->
+                <!-- Bottom left to top right -->
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 75); %>" y1="<% out.print(width - 375); %>" x2="<% out.print(holesWithoutShed * rafterDistance); %>" y2="395"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <line stroke-dasharray="50, 50"              x1="<% out.print(rafterDistance + 50); %>" y1="<% out.print(width - 395); %>" x2="<% out.print(holesWithoutShed * rafterDistance - 50); %>" y2="415"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
 
                 <%
-                        }
-                    
+                    }
                 %>
 
                 </SVG>
             </div>
         </div>
-
 
         <div class="drawing-but-container">
             <div class="drawing-but-content">

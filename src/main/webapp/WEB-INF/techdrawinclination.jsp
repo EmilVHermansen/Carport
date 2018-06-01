@@ -11,6 +11,13 @@
 <%@include file="header.jsp" %>
 
 <!DOCTYPE html>
+<!-- TERMINOLOGY
+
+ RAFTER == SPÆR
+ WALLPLATE == REM
+ PERFORATED BAND == KRYDSBÅND
+
+-->
 <%
     Order order = (Order) session.getAttribute("order");
     //We call the method mmToMeter on the TechDrawing object at the bottom of the class, to show the measurements above the lines in meters.
@@ -21,19 +28,21 @@
     //Displace is used to expand the SVG canvas to make room for arrows and the carport dimensions
     int displace = 800;
     int shedLength = order.getShedLength() * 10; //2412
+
     int WallPlateXPos = (displace / 2) + 150;
     int wallPlateLength = WallPlateXPos + length - 250;
-    
+
     //Used to set the far right pole to the edge of the wallPlate & shed
     int farRightPole = wallPlateLength - 97;
-    
+
     int shedXPos = farRightPole - shedLength + 97;
     // Calculate how many poles are needed, and the distance inbetween
     // 1200 is the distance from the left side of the Wallplate to the first pole
     int poleQty = 1;
     int holes;
     int poleDistance;
-    
+
+    // Calculating how many poles we need, and the distance between each poles.
     // 1200 is the max distance between the left side of the wallplate to the first pole
     // 97 is the width of the poles
     // 3097 is the max distance between the poles
@@ -101,6 +110,7 @@
                 <%
                     int poleX = shedXPos;
                     int poleXNoShed = farRightPole;
+                    //For loop to place the poles on the drawing
                     for (int i = 0; i < poleQty; i++)
                     {
                         if (shedLength == 0)
@@ -109,7 +119,8 @@
                 <rect x="<% out.print(poleXNoShed); %>" y="1010" width="<% out.print(97); %>" height="2005"
                       style="stroke: black; fill: none; stroke-width: 10;"/>
 
-                <% poleXNoShed -= poleDistance;
+                <%
+                    poleXNoShed -= poleDistance;
                 } else
                 {
                 %>
@@ -118,9 +129,11 @@
                 <%
                             poleX -= poleDistance;
                         }
-                    } %>
+                    }
+                %>
 
-                <% if (shedLength > 0)
+                <%
+                    if (shedLength > 0)
                     {
                 %>
                 <!--
@@ -166,7 +179,8 @@
                 <!-- far right shed cladding -->
                 <rect x="<% out.print(shedXPos + shedLength); %>" y="910" width="20" height="<% out.print(100 + 2005); %>"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <%   }
+                <%
+                    }
                 %>
 
 
@@ -182,7 +196,6 @@
                 <rect x=" <% out.print(i); %>" y="150" width="50" height="<% out.print(570); %>"
                       style="stroke: black; fill: white; stroke-width: 4;"/>
                 <%
-
                     }
                 %>
 
@@ -191,7 +204,7 @@
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print((displace / 2) + length); %>" y="0" width="75" height="625"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
-                <!-- Roof edge plates ??-->
+                <!-- Roof edge plates -->
                 <rect x="<% out.print(displace / 2); %>" y="0" width="75" height="600"
                       style="stroke: black; fill: white; stroke-width: 10;"/>
                 <rect x="<% out.print((displace / 2) + length); %>" y="0" width="75" height="600"
@@ -227,7 +240,7 @@
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
-                <%  // Top of roof height + bottom part of roof height + wall plate height + pole height
+                <%  // numbers = Top of roof height + bottom part of roof height + wall plate height + pole height
                     int groundToTop = 670 + 225 + 150 + 2005;
                 %>
                 <text x="150" y="<% out.print(width / 2); %>" fill="red" transform="rotate(-90, 100, 
@@ -258,7 +271,9 @@
                       stroke-width: 10;
                       marker-start: url(#beginArrow);
                       marker-end: url(#endArrow);"/>
-                <% int groundToRoof = 2005 + 100; %>
+                <%
+                    int groundToRoof = 2005 + 100;
+                %>
                 <!-- Y = Wall plate Y coordinate + height of the wall plate, and pole Y coordinate + height of it. -->
                 <text x="400" y="<% out.print((910 + 150 + 1060 + 2005) / 2); %>" fill="red" transform="rotate(-90, 400, 
                       <% out.print((910 + 150 + 1060 + 2005) / 2); %> )" style="font-size: 150;">
@@ -436,6 +451,5 @@
             </div>
         </div>
         <%@include file="footer.jsp" %>
-
     </body>
 </html>
