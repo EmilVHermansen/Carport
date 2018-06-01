@@ -45,7 +45,7 @@ if (request.getParameter("shed") != null)
         <table>
             <tr>Vælg specifikationer på din carport
                 <td>
-                    <form name="submitorder" action="FrontController" method="POST">
+                    <form name="submitorder" action="FrontController" method="POST" accept-charset="ISO-8859-1">>
                         <input type="hidden" name="command" value="submitorder">
                         Bredde:<br>
                         <select name="width">
