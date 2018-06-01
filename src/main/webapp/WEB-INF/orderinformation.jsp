@@ -171,7 +171,7 @@
                             </form>
                         </td>
                         <td>
-                            <form name="editComment" action="FrontController" method="POST" accept-charset="ISO-8859-1">>
+                            <form name="editComment" action="FrontController" method="POST" accept-charset="ISO-8859-1">
                                 <input type="hidden" name="command" value="editorder">
                                 <input type="text" name="comment">
                                 <input type="submit" name="Opdater" value="Opdater">
