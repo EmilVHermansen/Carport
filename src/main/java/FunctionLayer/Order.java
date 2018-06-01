@@ -22,22 +22,7 @@ public class Order
     private int salesprice = 0;
     private String status = "Afventer behandling";
 
-    public Order(int idOrder, int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email, int price)
-    {
-        this.idOrder = idOrder;
-        this.length = length;
-        this.width = width;
-        this.inclination = inclination;
-        this.angle = angle;
-        this.roofMaterial = roofMaterial;
-        this.shed = shed;
-        this.name = name;
-        this.address = address;
-        this.zipCode = zipCode;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.price = price;
-    }
+   
 
     public Order(int length, int width, String inclination, int angle, String roofMaterial, String shed, String name, String address, String zipCode, String phoneNumber, String email)
     {

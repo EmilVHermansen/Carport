@@ -1,0 +1,32 @@
+@startuml
+
+title To be
+
+|Kunde|
+if (Er kunde?) then (Ja)
+    :Logger på;
+else (Nej)
+    :Registrerer;
+endif
+:Bestiller ordre;
+
+|#AntiqueWhite|System|
+:Tilføjer ordre i database;
+
+|Fog|
+:Ringer til kunde og giver et tilbud;
+
+|Kunde|
+:Betaler på hjemmeside;
+
+|#AntiqueWhite|System|
+:Generer teknisk tegning og stykliste;
+
+|Fog|
+:Ordre afsendes;
+
+|System|
+:Sender teknisk tegning og stykliste m. manual til kunde;
+
+
+@enduml
