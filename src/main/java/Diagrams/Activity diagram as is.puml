@@ -11,17 +11,14 @@ title As is
 |Fog|
 :Ring til kunde og lav tilbud;
 
+|Kunde|
+:Kunde betaler fra email;
+
 |#AntiqueWhite|System|
 :Generer teknisk tegning og stykliste;
-while (materiale klar til afsending?) is (no)
-endwhile (yes)
-:Send tek. tegning og stykliste m. manual til kunde;
 
 |Fog|
-detach
-:Opdater ordre information;
-detach
-:Opdater materialeliste;
+:Send tek. tegning og stykliste m. manual til kunde;
 
 
 

@@ -80,7 +80,9 @@ public class DataAccessObject
                 int price = rs.getInt("price");
                 int salesPrice = rs.getInt("salesprice");
                 String status = rs.getString("status");
-                order = new Order(idorder, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail, price);
+                order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail);
+                order.setIdOrder(idorder);
+                order.setPrice(price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
@@ -123,10 +125,12 @@ public class DataAccessObject
                 String address = rs.getString("address");
                 String zipCode = rs.getString("zipcode");
                 String phoneNumber = rs.getString("phonenumber");
-                String email = rs.getString("email");
+                String custEmail = rs.getString("email");
                 String comment = rs.getString("comment");
                 String status = rs.getString("status");
-                order = new Order(idorder, length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, email, price);
+                order = new Order(length, width, inclination, angle, roofMaterial, shed, name, address, zipCode, phoneNumber, custEmail);
+                order.setIdOrder(idorder);
+                order.setPrice(price);
                 order.setComment(comment);
                 order.setShedLength(shedLength);
                 order.setShedWidth(shedWidth);
