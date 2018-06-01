@@ -35,7 +35,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleFullShed()
     {
         System.out.println("createPoleFullShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(210);
         order.setShedWidth(600);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -48,7 +48,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleNoShed()
     {
         System.out.println("CreatePoleNoShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
         instance.createPole();
         List<LineItem> BoM = instance.getBillOfMaterials();
@@ -59,7 +59,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleHalfShed()
     {
         System.out.println("CreatePoleHalfShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(210);
         order.setShedWidth(270);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -72,7 +72,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleShedLengthMoreThanMaxPoleDistance()
     {
         System.out.println("CreatePoleShedLengthMoreThanMaxPoleDistance");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(630);
         order.setShedWidth(330);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -85,7 +85,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleFullShedLengthMoreThanMaxPoleDistance()
     {
         System.out.println("CreatePoleFullShedLengthMoreThanMaxPoleDistance");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(630);
         order.setShedWidth(570);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -98,7 +98,7 @@ public class BillOfMaterialsFlatTest
     public void testCreatePoleHalfShedMorethanMaxPoleDistance()
     {
         System.out.println("CreatePoleHalfShedMorethanMaxPoleDistance");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(210);
         order.setShedWidth(330);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -114,7 +114,7 @@ public class BillOfMaterialsFlatTest
     public void testCreateRafter()
     {
         System.out.println("createRafter");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(210);
         order.setShedWidth(330);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -128,7 +128,7 @@ public class BillOfMaterialsFlatTest
     public void testCreateShedFrame()
     {
         System.out.println("createShedFrame");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(330);
         order.setShedWidth(630);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -146,7 +146,7 @@ public class BillOfMaterialsFlatTest
     public void testCreateWallPlateFullShed()
     {
         System.out.println("createWallPlateFullShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(330);
         order.setShedWidth(630);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -164,7 +164,7 @@ public class BillOfMaterialsFlatTest
     public void testCreateWallPlateHalfShed()
     {
         System.out.println("createWallPlateHalfShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "shed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Med skur", "test", "test", "test", "test", "test", 28375);
         order.setShedLength(330);
         order.setShedWidth(330);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
@@ -181,7 +181,7 @@ public class BillOfMaterialsFlatTest
     public void testCreateWallPlateNoShed()
     {
         System.out.println("createWallPlateNoShed");
-        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "noShed", "test", "test", "test", "test", "test", 28375);
+        Order order = new Order(52, 720, 630, "Fladt tag", 0, "ingen", "Uden skur", "test", "test", "test", "test", "test", 28375);
         BillOfMaterialsFlat instance = new BillOfMaterialsFlat(order);
         instance.createWallPlate();
         List<LineItem> BoM = instance.getBillOfMaterials();

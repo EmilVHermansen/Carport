@@ -10,7 +10,7 @@
 <% String shedDanish = "";
 if (request.getParameter("shed") != null)
 {
-    if (request.getParameter("shed").equals("noShed"))
+    if (request.getParameter("shed").equals("Uden skur"))
         shedDanish = "Uden skur";
     else
         shedDanish = "Med skur";
@@ -119,8 +119,8 @@ if (request.getParameter("shed") != null)
                             { %>
                                 <option value="${param.shed}" selected hidden><%= shedDanish %></option> 
                             <% } %>
-                            <option value="noShed">Uden Skur</option>
-                            <option value="shed">Med Skur</option>
+                            <option value="Uden skur">Uden Skur</option>
+                            <option value="Med skur">Med Skur</option>
                         </select>
                         <br>
                         Skur bredde:<br>

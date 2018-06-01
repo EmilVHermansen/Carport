@@ -43,7 +43,7 @@ public class BillOfMaterialsFlat
 
     private boolean shed()
     {
-        return (order.getShed().equals("shed") && shedLength() != 0 && shedWidth() != 0);
+        return (order.getShed().equals("Med skur") && shedLength() != 0 && shedWidth() != 0);
     }
 
     private int shedLength()

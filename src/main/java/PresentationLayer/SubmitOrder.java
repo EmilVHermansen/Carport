@@ -76,11 +76,11 @@ public class SubmitOrder extends Command
     private static void checkForSubmitOrderException(int width, int length, String inclination, int angle, String shed, int shedWidth, int shedLength) throws SubmitOrderException 
     {
         String msg = "";
-        if ((shed.equals("shed") && ((shedLength == 0) || (shedWidth == 0))))
+        if ((shed.equals("Med skur") && ((shedLength == 0) || (shedWidth == 0))))
         {
             msg = "Du har valgt med skur, men har ikke indtastet længde og/eller bredde på skuret";
         }
-        else if ((shed.equals("noShed") && ((shedLength > 0) || (shedWidth > 0))))
+        else if ((shed.equals("Uden skur") && ((shedLength > 0) || (shedWidth > 0))))
         {
             msg = "Du har valgt uden skur, men har indtastet længde og/eller bredde større end 0 på skuret";
         }

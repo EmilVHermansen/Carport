@@ -138,8 +138,8 @@
                             <form name="editShed" action="FrontController" method="POST">
                                 <input type="hidden" name="command" value="editorder">
                                 <select name="shed">
-                                    <option value="shed">Med Skur</option>
-                                    <option value="noShed">Uden Skur</option>
+                                    <option value="Med skur">Med Skur</option>
+                                    <option value="Uden skur">Uden Skur</option>
                                 </select>
                                 <input type="submit" name="Opdater" value="Opdater">
                             </form>
