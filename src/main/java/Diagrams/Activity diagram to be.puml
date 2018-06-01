@@ -3,7 +3,7 @@
 title To be
 
 |Kunde|
-if (Er kunde?) then (Ja)
+if (Kunde hos Fog?) then (Ja)
     :Logger på;
 else (Nej)
     :Registrerer;
